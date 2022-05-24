@@ -1,0 +1,21 @@
+#developer{
+    position: fixed; 
+    left: 0px; 
+}
+#developer a{
+    color: #fff;
+}
+#developer .developer{
+    position: fixed; 
+    left: 0px; 
+    -moz-border-radius: 3px 3px 3px 3px;
+    border: 1px solid #DBDBDB;
+    background-color: gray;
+    width: 120px; 
+    height: auto;
+    display: none;
+}
+#developer ul{
+    margin: 2px 0 0 16px;
+    padding: 0 0 0 5px;
+}

@@ -1,0 +1,25 @@
+<h1>Błąd <?=$this->message?></h1>
+<hr/>
+<h2>Wystąpił błąd aplikacji, prosimy spróbować później</h2>
+<h3>Możliwe, że nie możesz zobaczyć tej strony, ponieważ</h3>
+<ul>
+<li>1. Adres przestał istnieć w systemie.</li>
+<li>2. Adres został wpisany z błędem.</li>
+<li>3. Nie masz uprawnień do obejrzenia tej strony.</li>
+<li>4. Nie można zlokalizować wskazanego zasobu.</li>
+<li>5. Wystąpił błąd podczas wykonywania powierzonego zadania.</li>
+</ul>
+
+Jeśli problem się powtarza, skontaktuj się z administratorem witryny.
+        
+<?php if(true):?>
+    <h3>Stack trace:</h3>
+    <pre>
+        <?php echo $this->exception->getTraceAsString() ?>
+    </pre>
+
+    <h3>Request Parameters:</h3>
+    <pre>
+        <?php echo var_export($this->request->getParams(), true) ?>
+    </pre>
+<?php endif ?>

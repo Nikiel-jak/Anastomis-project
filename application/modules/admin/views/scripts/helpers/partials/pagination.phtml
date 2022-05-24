@@ -1,0 +1,38 @@
+<div class="paginator">
+    <!-- First page link -->
+    <?php if (isset($this->previous)): ?>
+          <a class="enabled" href="<?= $this->url(array('page' => $this->first)); ?>"><?=$this->translate('PAGINTOR_START')?></a>
+    <?php else: ?>
+            <span class="disabled"><?=$this->translate('PAGINTOR_START')?></span>
+    <?php endif; ?>
+
+    <!-- Previous page link -->
+
+    <?php if (isset($this->previous)): ?>
+          <a class="enabled" href="<?= $this->url(array('page' => $this->previous)); ?>"><img class="ico" src="<?=$this->baseUrl().'/skin/admin/images/pag_left.png';?>"/></a>
+    <?php else: ?>
+        <span class="disabled"><img class="ico" src="<?=$this->baseUrl().'/skin/admin/images/pag_left_n.png';?>"/></span>
+    <?php endif; ?>
+    <!-- Numbered page links -->
+    <?php foreach ($this->pagesInRange as $page): ?>
+        <?php if ($page != $this->current): ?>
+            <a href="<?= $this->url(array('page' => $page)); ?>"><?= $page; ?></a>
+        <?php else: ?>
+            <span style="color:black;"><?= $page; ?></span>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    <!-- Next page link -->
+    <?php if (isset($this->next)): ?>
+        <a class="enabled" href="<?= $this->url(array('page' => $this->next)); ?>"><img class="ico" src="<?=$this->baseUrl().'/skin/admin/images/pag_right.png';?>"/></a>
+    <?php else: ?>
+        <span class="disabled"><img class="ico" src="<?=$this->baseUrl().'/skin/admin/images/pag_right_n.png';?>"/></span>
+    <?php endif; ?>
+    
+    <!-- Last page link -->
+    <?php if (isset($this->next)): ?>
+          <a class="enabled" href="<?= $this->url(array('page' => $this->last)); ?>"><?=$this->translate('PAGINTOR_END')?></a>
+    <?php else: ?>
+        <span class="disabled"><?=$this->translate('PAGINTOR_END')?></span>
+    <?php endif; ?>
+    <span class="page"><?=$this->translate('PAGINTOR_PAGE')?> <?= $this->current; ?> <?=$this->translate('PAGINTOR_OF')?> <?= $this->last; ?></span>
+</div>

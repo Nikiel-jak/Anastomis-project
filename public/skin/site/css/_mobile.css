@@ -1,0 +1,719 @@
+@font-face{
+    font-family:'SemiCondensed';
+    font-style:normal;
+    font-weight:normal;
+    src:
+        local('SemiCondensed'),
+        url('../fonts/MyriadPro-SemiCn.woff') format('woff'),
+        url('../fonts/MyriadPro-SemiCn.ttf') format('truetype')
+}
+@font-face{
+    font-family:'MyriadPro-LightSemiCn';
+    font-style:normal;
+    font-weight:normal;
+    src:
+        local('MyriadPro-LightSemiCn'),
+        url('../fonts/MyriadPro-LightSemiCn.woff') format('woff'),
+        url('../fonts/MyriadPro-LightSemiCn.ttf') format('truetype')
+}
+@font-face{
+    font-family:'HelveticaNeueLight';
+    font-style:normal;
+    font-weight:normal;
+    src:
+        local('HelveticaNeueLight'),
+        url('../fonts/HelveticaNeueLight.woff') format('woff'),
+        url('../fonts/HelveticaNeueLight.ttf') format('truetype')
+}
+
+#lock_button:hover {
+    background-color: #f3f4f4 !important;
+}
+
+.max_value {
+    padding-bottom: 2px;
+}
+
+.pull-left ul li {
+    font-size: 15px;
+    padding: 5px 0px;
+    border-bottom: 1px solid #cccccc;
+}
+body{
+    color: #58595b;
+    font-size: 36px;
+    line-height: 36px;
+    font-family: 'SemiCondensed';
+}
+#wrapper{
+/*    width: 640px;*/
+    width: 100%;
+}
+.container{
+    padding: 0px;
+    width: 100%;
+}
+h2{
+    color: #003a66;
+    text-transform: uppercase;
+    border-bottom: 1px solid #58595b;
+    border-top: 1px solid #58595b;
+    margin: 0px;
+    font-size: 0.95em;
+    line-height: 0.95em;
+    padding: 0.8em 0;
+    text-align: center;
+}
+h3{
+    text-align: center;
+    font-size: 0.85em;
+    line-height: 0.85em;
+    background-color: #f3f4f4;
+    padding-top: 10px;
+    margin-bottom: 2px;
+}
+.item{
+    height:103px;
+    width: 46px;
+    overflow: hidden;
+}
+.info {
+    display: none;
+}
+form span.required{
+    color: #58595b;
+}
+form .item p{
+    margin-top: 5px;
+    text-align: center;
+    height: 24px;
+    display: block;
+}
+form select:disabled{
+    background-color: #e8e8e8;
+}
+form{
+    padding-top: 0px;
+}
+form .form-section{
+    height: auto;
+    margin: 15px 36px 0 36px;
+    overflow: hidden;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 12px;
+}
+form .element{
+    position: relative;
+}
+form div > div.element {
+height: auto;
+width: auto;
+margin-top: 12px;
+}
+form#search .form-section:first-of-type{
+    margin: 0;
+    height: auto;
+    padding: 25px 36px 20px 36px;
+    background-color: #f3f4f4;
+    border-bottom: 1px solid #e5e5e5;
+}
+form .form-section #language{
+    width: 140px;
+}
+form .form-section.select-language .element{
+    float: right;
+    margin-top: 0px;
+    width: 140px;
+}
+form .form-section.select-language #language-label{
+    float: left;
+    width: 70%;
+}
+form .form-section.select-language{
+    overflow: hidden;
+}
+form div > div{
+    float: none;
+    width: 100%;
+}
+form .form-section.select-language select{
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -khtml-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    font-size: 0.8em;
+}
+form input, form textarea,form select{
+    border: none;
+    height: auto;
+    background-color: #f3f4f4;
+    -moz-border-radius: 0px; 
+    -webkit-border-radius: 0px; 
+    -khtml-border-radius: 0px; 
+    border-radius: 0px;
+    outline: none;
+    -moz-box-shadow: inset 0 1px 3px #bbb;
+    -webkit-box-shadow: inset 0 1px 3px #bbb;
+    -khtml-box-shadow: inset 0 1px 3px #bbb;
+    -o-box-shadow: inset 0 1px 3px #bbb;
+    box-shadow: 0;
+}
+form select{
+    font-family: 'HelveticaNeueLight';
+    padding: 0px;
+    color: #ac171d;
+    width: 65px;
+    font-size: 8px;
+    line-height: 8px;
+    padding: 0px;
+    margin-left: -5px;
+    text-indent: 10px;
+    padding-top: 1px;
+}
+table{
+    width: 100%;
+}
+form input[type=checkbox]{
+    border:none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -khtml-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+.hiden{
+    display: none !important;
+}
+#submit, #zip_submit, .btn, .mobile_submit{
+    color: #ac171d;
+    background-color: #f3f4f4;
+    display: inline;
+    padding: 4px 10px !important;
+    outline: none;
+    font-size: 0.8em;
+    color: #ac171d;
+    font-family: 'SemiCondensed';
+    height: auto !important;
+    width: auto;
+    margin: 0 auto 0px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    border-bottom: 1px solid #d7d8da !important;
+    text-transform: uppercase;
+    line-height: 29px;
+}
+form .form-section.checkbox-section .hint{
+    top: 2px;
+    left: 50px;
+}
+ul.errors{
+    font-size: 0.6em;
+    color: #ac171d;
+}
+.pull-left.results{
+    width: auto;
+    margin: 0px;
+}
+form div.hint {
+    position: absolute;
+    font-size: 0.45em;
+    line-height: 19px;
+    left: 273px;
+    width: 295px;
+    top: 4px;
+    font-style: normal;
+    font-family:'MyriadPro-LightSemiCn';
+}
+p.hint{
+    font-style: normal;
+    font-family:'MyriadPro-LightSemiCn'; 
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 36px;
+    margin-right: 36px;
+}
+form p{
+    margin-top: 14px;
+    text-align: center;
+}
+.search-results {
+    margin: 0px;
+}
+form textarea{
+    height: 180px;
+}
+
+table .lp, div .lp{
+    width: auto;
+    display: table-column;
+}
+table .lp, div .lp_w{
+    width: auto;
+    display: table-column;
+}
+table .year, div .year{
+    width: auto;
+    display: table-column;
+}
+table .number, div .number{
+    width: auto;
+    display: table-column;
+}
+table .butt, div .butt{
+    width: auto;
+    display: table-column;
+}
+/*table .lp, div .lp{
+    width: 90px;
+}
+table .lp, div .lp_w{
+    width: 85px;
+}
+table .year, div .year{
+    width: 125px;
+}
+table .number, div .number{
+    width: 200px;
+}
+table .butt, div .butt{
+    width: 103px;
+}*/
+/*form#zip div{
+    float:left;
+}*/
+form#zip .fixedHeader {
+    padding: 0 30px;
+    display: table-row;
+}
+form#zip .fixedHeader div{
+    display: table-cell;
+}
+.scrollTable .scrollContent{
+    height: auto;
+    display: table-row-group;
+}
+.scrollTable .fixedHeader{
+    background-color: #f3f4f4;
+}
+.scrollTable{
+    display: table;
+    width: 100%;
+}
+form#zip input[type=checkbox]{
+    height: auto;
+}
+.scrollTable .fixedHeader div{
+    color:#58595b;
+}
+.scrollTable .scrollContent .normalRow {
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    margin: 0 30px
+}
+.scrollTable .scrollContent .normalRow.hover{
+    color: #ac171d;
+}
+.mobile_popup {
+     display: none;
+}
+.mobile_popup div a{
+ color: #58595b;
+ cursor: pointer;
+ z-index: 1000;
+position: relative;
+}    
+.mobile_popup div{
+    height: auto;
+    padding: 10px;
+    z-index: 1000;
+    background-color: #f3f4f4;
+    border-bottom: 1px solid #d9d9d9;
+    margin: 0 10px;
+    position: relative;
+}
+ .mobile_popup div:before{
+    content: '';
+    display: block;
+    width: 219px;
+    position: relative;
+    height: 36px;
+    background-image: url('../images/mobile_popup.png');
+    top: -22px;
+    left: 6%;
+}
+.mobile_popup_email{
+    display: none;
+}
+table.ikons tr td{
+    border: none;
+}
+.normalRow td {
+    font-size: 22px;
+}
+table tr th{
+    color: #003a66;
+    font-size: 0.7em;
+}
+.send{
+    cursor: pointer;
+}
+.scrollTable .scrollContent .normalRow div{
+    padding: 30px 0;
+    display: table-cell;
+}
+.scrollTable .scrollContent .normalRow{
+    display: table-row;
+}
+form#zip{
+    overflow: hidden;
+}
+#zip_email, .info_queue, .loading, .loading_queue, .download{
+    padding: 15px 5px 0px 5px;
+    margin: 15px 0px 0px 0px;
+    float: none !important;
+    font-style: normal;
+    font-family: 'MyriadPro-LightSemiCn';
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 36px;
+    margin-right: 36px;
+}
+.info_queue{
+    width: auto;
+}
+.download p{
+    float: none;
+    line-height: 37px;
+    text-align: left;
+}
+.download a{
+    float:none;
+    margin: 0px;
+}
+
+.btn{
+    outline: none;
+    -moz-box-shadow: inset 0 1px 3px #bbb;
+    -webkit-box-shadow: inset 0 1px 3px #bbb;
+    -khtml-box-shadow: inset 0 1px 3px #bbb;
+    -o-box-shadow: inset 0 1px 3px #bbb;
+    box-shadow: inset 0 1px 3px #bbb;
+    margin-top: 15px;
+}
+.download a{
+    display: none !important;
+}
+.loading, .loading_queue{
+    text-align: center;
+}
+table ul.errors{
+    font-size: 14px;
+    margin-left: 2px;
+}
+.noborder{
+    border: 0px !important;
+}
+.pull-left {
+    width: auto;
+    float: none;
+}
+.pull-right {
+    width: auto;
+    float: none;
+}
+.pull-left ul{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.ikons{
+    height: auto;
+    padding: 10px;
+    z-index: 1000;
+    background-color: #f3f4f4;
+    border-bottom: 1px solid #d9d9d9;
+    position: relative;
+    margin-bottom: 15px;
+}
+.ikons a {
+color: #58595b;
+cursor: pointer;
+z-index: 1000;
+position: relative;
+}
+.element{
+    padding-bottom: 12px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #cccccc;
+}
+form .item:last-of-type{
+    margin-right: 0px !important;
+}
+.noborder{
+    text-align: center;
+}
+form select.di{
+    background-color: #bbb;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .pull-left ul li{
+        font-size: 0.8em;
+    }
+    
+    form .max_value {
+        padding-top:6px;
+        font-size: 1.2em;
+        text-overflow: '';
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        line-height: 1.2em;
+        color: #ac171d;
+    }
+    
+    form .item select{
+        font-size: 1.2em;
+        width: 2.2em;
+        text-indent: 0.5em;
+        text-overflow: '';
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        line-height: 1.2em;
+    }
+    form .item p{
+        height: 1.1em;
+        overflow: hidden;
+        line-height: 1.1em;
+    }
+    form .item{
+        padding-bottom: 1.4em;
+    }
+    p.info_db{
+        bottom: 1.3em !important;
+        padding-right: 2px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .mobile_popup div:before {
+        left: 32%;
+    }
+    body{
+        font-size: 20px;
+        line-height: 20px;
+    }
+    form input, form textareat {
+        font-size: 14px;
+        height: 12px;
+    }
+    form#search input{
+        height: auto;
+        font-size: 0.9em;
+    }
+    form#contact{
+        font-size: 20px;
+        line-height: 20px;
+    }
+    form div > div.element {
+        margin-top: 4px;
+    }
+    .mobile_popup div a {
+        font-size: 1.2em;
+    }
+    .loading, .loading_queue, .download, .info_queue{
+        line-height: 18px;
+        text-align: center;
+        width: auto;
+        font-size: 16px;
+        font-style: normal;
+        font-family: 'MyriadPro-LightSemiCn';
+    }
+    form div.hint {
+        font-size: 0.55em;
+    }
+    form .form-section.checkbox-section .hint{
+        top: -4px;
+    }
+     form .item{
+        margin-right: 9%;   
+    }
+}
+
+
+/* min wieksze od smartfona */
+@media only screen and (min-width: 361px) {
+    
+    
+    
+    .line_spacer {
+        padding-top:10px;
+        padding-bottom: 10px;
+    }
+    
+    /* LIKE TABLE */
+    .table_like{
+        display: table;
+        width: 100%;
+    }
+    .table_like .element.hide{
+        display: none;
+    }
+    .table_like .element {
+        display: table-row;
+    }
+    .table_like .element .item{
+        display: table-cell;
+        float: none;
+        width: auto;
+        margin: auto;
+        text-align: center;
+    }
+    .table_like .element .item div{
+        width: auto;
+    }    
+}
+/* Fix tylko dla S3 */
+@media only screen and (max-width: 360px) and (min-width: 321px){
+    form .item{
+           margin-right: 3.5% !important;   
+    }
+}
+/* Max do smarfona */
+@media only screen and (max-width: 360px) {
+    
+    
+    .radio {
+        display: table;
+        width: 300px;
+        margin: 0 auto;
+    }
+    
+    .radio_tr {
+        display: table-row;
+    }
+    
+    .radio_td {
+        display: table-cell;
+    }
+    
+    .mode_div {
+        width: 90px;
+        overflow: hidden;
+    }
+    
+    .radio_td2 {
+        display: table-cell;
+        
+    }
+    
+    #mode {
+        width: 120px;
+        text-align: center; 
+    }
+    
+    
+    .table_like{
+        display: table;
+        width: 100%;
+    }
+    
+    form select  {
+        text-indent: 4px;
+    }
+    
+    .table_like .table_element .item{
+        display: table-cell;
+        float: none;
+    margin: auto;
+    text-align: center;
+    width: auto;
+    }
+    
+    .table_like .table_element .item p {
+        width: 40px;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .table_like .table_element  {
+        display: table-row;
+    }
+    
+    body{
+        font-size: 16px;
+        line-height: 16px;
+    }
+    form .item{
+        margin-right: 2.2%;   
+        width: 34px;
+    }
+    form .form-section #language{
+        width: 4.0em;
+    }
+    form .form-section.select-language .element{
+        width: auto;
+    }
+    form .form-section.select-language #language-label {
+        position: relative;
+        top: 4px;
+    }
+    form#search .form-section:first-of-type{
+        padding: 8px 16px 3px 16px;
+    }
+    form input, form textareat{
+        font-size: 16px;   
+        height: 12px;
+    }
+    form select{
+        font-size: 16px;   
+        height: 19px;
+        width: 70px;
+    }
+    .noborder .item{
+        width: 100%;
+    }
+    form .form-section{
+        margin: 7px 16px 0 16px;
+    }
+    form div > div.element{
+        margin-top: 4px;
+    }
+    #submit, #zip_submit, .btn, .mobile_submit{
+        font-size: 14px;
+    }
+    form div.hint {
+        font-size: 0.65em;
+        line-height: 12px;
+        width: 190px;
+        left: 85px;
+        top:0px;
+    }
+    form .form-section.checkbox-section .hint{
+        top: 2px;
+        left: 25px;
+        width: 198px;
+    }
+    form#search #lp{
+        width: 67px !important;
+    }
+    .normalRow td {
+        font-size: 20px;
+    }
+}
+/*@media only screen and (max-width: 360px) {
+    .item {
+        margin-right: 3.5%;
+    }
+}*/
+

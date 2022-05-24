@@ -1,0 +1,115 @@
+table.list {
+    border-collapse: collapse;
+    width: 100%;
+}
+table.list thead th {
+    background: url("../images/bg_box.jpg") repeat-x scroll 0 0 transparent;
+    height: 27px;
+    border: 1px solid #D7C4D0;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 3px;
+}
+
+table.list tfoot th {
+    height: 27px;
+    border: 1px solid #D7C4D0;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 3px;
+}
+table.list th.checkbox {
+    padding-left: 0;
+    text-align: center;
+    width: 10px;
+}
+table.list td div.checker{
+    margin: 0 !important;
+}
+table.list th.date{
+    width: 100px;
+}
+
+table.list th.lp {
+    width: 20px;
+}
+table.list th.center {
+    text-align: center;
+    width: 72px;
+}
+table.list tbody tr:nth-of-type(2n) {
+    background: none repeat scroll 0 0 #F6F2F4;
+}
+table.list tbody tr {
+    background: none repeat scroll 0 0 #FAF9FA;
+}
+table.list tr td {
+    border: 1px solid #D7C4D0;
+    color: #59013D;
+    text-align: center;
+}
+table.list tr td.td_edit {
+    width: 108px;
+}
+table.list thead th.th_checkbox{
+    width: 20px;
+}
+#page_content hgroup{
+    overflow: hidden;
+    margin: 0 0 10px 0;
+}
+.filtr_element{
+    float:left;
+}
+.actionsNav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.actionsNav ul li div.button{
+    float: left;
+}
+.table_name{
+    overflow: hidden;
+    clear: both;
+}
+.header_table{
+    float:right;
+    margin-top: 8px;
+}
+.actionsNav{
+    margin-left: 5px;
+}
+.autoVisible div.button, .actionsNav{
+    margin-top: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+#grid .table-condensed{
+    margin-top: 5px;
+}
+.paginator .page_info{
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.paginator .page_info, .paginator .page, .paginator .pagintor_forms, .paginator a{
+    float: left;
+}
+.paginator .pagintor_forms p{
+    margin: 5px 10px 0 10px;
+    
+}
+.paginator .pagintor_forms p, .paginator .pagintor_forms form{
+    float: left;
+}
+.paginator{
+    overflow: hidden;
+    float:right
+}
+.itemsperpage{
+    float: right;
+    margin-left: 5px;
+}
+.autoVisible .sort_list{
+    display: none;
+}

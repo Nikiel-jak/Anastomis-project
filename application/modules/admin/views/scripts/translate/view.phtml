@@ -1,0 +1,30 @@
+<?=$this->partial('helpers/partials/_navigation.phtml',array('add' => 'Języki - tłumaczenie: '.$this->language->name,'back' => $this->url(array(),'admin-language')));?>
+<table cellspacing="0" cellpadding="0" border="0" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Index</th>
+            <th style="width: 478px;">Tłumaczenie</th>
+            <th>Edycja</th>
+        </tr>
+    </thead>
+    <?php foreach($this->csv_file as $key => $t): ?>
+    <?php 
+    if(!empty($t[1])){
+        $val = $t[1];
+        $isView = true;
+    } else {
+        if(empty($t[0])){
+            $val='';
+            $isView = false;
+        } else 
+            $isView = true;
+            $val = '-----------------------------';
+    }
+    ?>
+        <tr>
+            <td><p title="<?=$t[0]?>"><?=$this->snippet($t[0],30)?></p></td>
+            <td><?=$val?></td>
+            <td><?php if($isView):?><a href="<?=$this->url(array('id' => $this->language->id, 'row' => $key),'admin-language-translate')?>">Edytuj</a><?php endif;?></td>
+        </tr>
+    <?php endforeach;?>
+</table>

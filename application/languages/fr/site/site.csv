@@ -1,0 +1,109 @@
+SITE_HEADER_TITLE;"CONFIGURATEUR VITRES ACOUSTIQUES"
+SITE_ACOUSTIC_INSULATION_REQUIRED;"ISOLATION ACOUSTIQUE REQUISE"
+SITE_SEARCH_RESULTS;"RESULTATS DE RECHERCHE"
+SITE_COMMENTS;REMARQUES
+SITE_DATE_GENERATION;Date
+SITE_INFO;"1. Les propriétés acoustiques de tous les produits présentés sont confirmées par des tests effectués par des unités de recherche homologuées.<br>
+2. Si l’information sur le type de l’intercalaire utilisé n’a pas été indiquée pour la construction de la vitre, alors les paramètres sont les mêmes pour tous les types d’intercalaires.<br>
+3. Les espaces entre les vitres de tous les doubles vitrages testés sont remplis d'argon. Les paramètres préservent leur validité aussi pour les doubles vitrages avec du krypton.<br>
+4. Les paramètres sont les mêmes pour toutes les vitres fabriquées à partir de verre plat à sodium-calcium-silicium, produit par méthode flottée.<br>
+5. Les valeurs Rw, C et Ctr seront également confirmées pour les vitres en production où ont été appliquées les modifications de construction suivantes:<br>
+- élargissement de l’espace entre vitres<br>
+- augmentation de la quantité de film dans les vitres feuilletées<br>
+- application de l’émail ou des impressions sur la surface de la vitre<br>
+- trempe, renforcement thermique, test HST<br>
+- remplacement de la couche Thermofloat par une autre ou son absence<br>
+6. Les paramètres indiqués ne peuvent pas être utilisés pour les vitres en verre façonné.<br>
+7. Les symboles suivants ont été utilisés dans les descriptions des vitres: <br>
+X/Y/X ; X/Y/X/Y/X – description des doubles vitrages à une ou deux chambres où « X » signifie l’épaisseur des vitres successives qui les composent et « Y » la largeur des espaces entre les vitres remplis de gaz. Les épaisseurs sont indiquées en millimètres.  <br>
+(VSG XX.Z) – vitre feuilletée laminée VSG, composée de deux vitres monolithiques 
+d’une épaisseur « X » exprimée en millimètres séparées de « Z » couches de film. <br>
+Argon (Ar), krypton (Kr) - le gaz qui remplit les chambres entre les vitres <br>
+T – couche thermique Thermofloat appliquée sur la vitre<br>
+Float – Type de vitre singulière utilisée<br>"
+
+SITE_MOBILE_POPUP_ONLINE;ONLINE
+SITE_MOBILE_POPUP_PRINT;IMPRIMEZ
+SITE_MOBILE_POPUP_OPEN;OUVREZ
+SITE_MOBILE_POPUP_DOWNLOAD;TELECHARGEZ
+
+SITE_SAVE;SAUVEGARDEZ
+SITE_SHOW_TERC;"AFFICHEZ / CACHEZ LE TIERCE"
+SITE_SHOW_RESULTS;"AFFICHEZ LES RESULTATS"
+
+SITE_GLASS_1;"VITRES SINGULIERES"
+SITE_GLASS_2;"DOUBLE VITRAGE A UNE CHAMBRE"
+SITE_GLASS_3;"DOUBLE VITRAGE A DOUBLE CHAMBRE"
+
+SITE_MOBILE_SHOW_CONFIG;"MONTREZ LES REGLAGES"
+
+SITE_SELECT_MODE;"Choisissez les données d’entrée"
+SITE_TERC_ON;"Mettez en marche les tierces"
+SITE_TERC_OFF;"Arrêtez les tierces"
+SITE_OKTAWY_ON;"Mettez en marche les octaves"
+SITE_OKTAWY_OFF;"Arrêtez les octaves"
+SITE_DEPENDENCY_BUTTON;"Adaptez les réglages de toutes les données actives et la liste des résultats aux réglages du paramètre édité."
+SITE_MOBILE_DEPENDENCY_BUTTON;"Adaptez les réglages aux vitrages existants"
+SITE_MAX;max
+SITE_MIN;min
+
+SITE_PDF_DOWNLOAD_NAME;Szyby_akustyczne_PRESS_GLASS
+
+SITE_ANASTOMOSIS_TYPE;"Wybierz typ zespolenia"
+SITE_ANASTOMOSIS_TYPE_0;Dowolne
+SITE_ANASTOMOSIS_TYPE_1;Pojedyńcze
+SITE_ANASTOMOSIS_TYPE_2;Jednokomorowe
+SITE_ANASTOMOSIS_TYPE_3;Dwukomorowe
+
+SITE_THICKNESS_LEGEND_1;"Epaisseur d’une vitre singulière ou de la vitre d’extrémité dans un double vitrage"
+SITE_THICKNESS_LEGEND_2;"Epaisseur de la vitre centrale dans un triple vitrage"
+SITE_THICKNESS_LEGEND_3;"Epaisseur de la vitre d’extrémité dans un double vitrage"
+
+SITE_SECTION_TOTAL_WIDTH;"Limitez l’épaisseur de l’ensemble"
+SITE_SECTION_GLASES_WIDTH;"Limitez l’épaisseur des vitres de l’ensemble"
+SITE_SECTION_WEIGHT;"Définissez le poids de l’ensemble"
+SITE_SECTION_PROTECTION_CLASS;"Définissez la classe de protection"
+SITE_SECTION_SECURITY_CLASS;"Définissez la classe de sécurité"
+SITE_SECTION_LAMINATED_GLASS;"Prenez en compte uniquement les vitres comprenant une vitre feuilletée"
+
+SITE_UNIT_DB;[dB]
+SITE_UNIT_MM;[mm]
+SITE_UNIT_CLASS;[classe]
+SITE_UNIT_KG;[kg]
+
+SITE_TITLE_TOTAL_WIDTH;"Epaisseur totale de l’ensemble"
+SITE_TITLE_GLASES_WIDTH;"Epaisseur des vitres de l’ensemble"
+SITE_TITLE_WEIGHT;"Waga pakietu 1m<sup>2</sup>"
+SITE_TITLE_PROTECTION_CLASS;"Classe d’une vitre feuilletée de protection"
+SITE_TITLE_SECURITY_CLASS;"Classe d’une vitre feuilletée de sécurité"
+SITE_TITLE_LAMINATED_GLASS;"Prenez en compte uniquement les vitres comprenant une vitre feuilletée"
+SITE_TITLE_LAMINATED_PDF;"Vitre feuilletée"
+
+SITE_YES;Yes
+SITE_NO;No
+SITE_EMPTY;No
+
+table.title;"Double vitrage acoustique (Rw dB) certifié, avec déclaration CE"
+table.model;Modèle
+table.acoustic_performance;"Performance acoustique (dB)"
+table.type_of_glass;"Type de vitrage"
+table.composition;"Construction [mm]"
+table.glass_1;"Vitre 1"
+table.spacer_1;"Intercalaire 1"
+table.glass_2;"Vitre 2"
+table.spacer_2;"Intercalaire 2"
+table.glass_3;"Vitre 3"
+table.structure;"Structure [mm]"
+table.thickness;"épaisseur totale"
+table.glass_weight;"poids du verre total"
+table.items;résultats
+table.type_of_used_gas;Remplissage
+table.acoustic_insulation_coefficient;"Indice d’isolement acoustique"
+table.acoustic_insulation_coefficient_at_average;"Isolation acoustique avec des fréquences d’octave en [Hz] R [dB]"
+table.filter_reset;"Supprimer les filtres"
+table.value.single_glass;"Vitres singulieres"
+table.value.double_IGU;"Double vitrage a une chambre"
+table.value.triple_IGU;"Double vitrage a double chambre"
+table.Szyba_Laminowana;"Laminated glass"
+table.value.1;"NO"
+table.value.2;"YES"

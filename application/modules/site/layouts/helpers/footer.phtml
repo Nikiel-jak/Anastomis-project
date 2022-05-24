@@ -1,0 +1,39 @@
+<div class="f_b" style="width:218px;">
+    <p class="f_title"><?=$this->translate('Szybki kontakt')?></p>
+    <ul>
+        <li>
+            <img style="float: left; position: relative; top: -5px; margin-right: 6px;" src="<?=$this->imagePath('phone.png')?>"/>
+            <p style="color:#515151; font-size: 16px; margin: 0;">
+                <span style="font-size: 22px;">+48 <span style="color:#7a7a7a;">694 427 468</span></span><br/>
+<!--                <span style="color:#7a7a7a;">660 205 915</span>-->
+            </p>
+        </li>
+        <li>
+            <img src="<?=$this->imagePath('mail.png')?>"/>
+            <a href="mailto:shapeart.studio@gmail.com">shapeart.studio@gmail.com</a>
+        </li>
+        <?php if($this->content_page):?>
+        <li>
+            <img src="<?=$this->imagePath('contact_form.png')?>"/>
+            <a href="<?=$this->url(array(),'page_'.$this->content_page->id)?>"><?=$this->translate('formularz kontaktowy')?></a>
+        </li>
+        <?php endif;?>
+    </ul>
+</div>
+<div class="f_b" style="width:210px;">
+    <p class="f_title"><?=$this->translate('Obserwuj nas')?></p>
+    <div style="text-align:center;  border-bottom: 1px solid #252525; padding-bottom: 57px;">
+        <a href="http://www.facebook.com/pages/Shape-Art/570111303017929"><img style="width: 22px;" src="<?=$this->imagePath('fb_f.png')?>"/></a>
+            <img style="margin: 0 10px;" src="<?=$this->imagePath('linie.png')?>"/>
+        <a href="https://plus.google.com/u/0/107481108478549719190/posts"><img  style="width: 45px; position: relative; top: 2px;" src="<?=$this->imagePath('google.png')?>"/></a> 
+            <img style="margin: 0 10px;" src="<?=$this->imagePath('linie.png')?>"/>
+        <a><img style="width: 22px;"src="<?=$this->imagePath('t.png')?>"/></a> 
+    </div>
+</div>
+<div class="f_b" style="width:600px;margin-right: 0;">
+    <p class="f_title" style="padding-bottom:6px;"><img src="<?=$this->imagePath('maps.png')?>"/></p>
+<div class="both"></div>
+<div style="position:relative; top:-34px;">
+    <p class="pull-left" style="color: #bfbfbf;font-size: 12px;margin: 36px 0 0 0;"><?=$this->translate('© 2012 SHAPEART. Wszelkie prawa zastrzeżone')?></p>
+    <p class="pull-right" style="color: #bfbfbf;font-size: 12px;margin: 36px 0 0 0;">created by Krzysztof Nikiel</p>
+</div>

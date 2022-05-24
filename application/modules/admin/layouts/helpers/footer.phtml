@@ -1,0 +1,4 @@
+<?php if (Orion_Auth::isLogged()): ?>
+    <div style="float: left;"><?=$this->translate('GLOBAL_APPLICATION_VERSION');?> <?=$this->app_version;?></div>
+    <div style="float: right;"><?=$this->translate('GLOBAL_APPLICATION_COPYRIGHT');?></div>
+<?php endif; ?>   

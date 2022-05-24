@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteRule ^(ckfinder|upload|skins|js|gfx_katFoto|gfx_towar|scripts|forum)/ - [L]
+RewriteRule ^thumbs/.*\.(png|jpg|jpeg|gif|bmp)$ thumbs.php [NC,L]
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

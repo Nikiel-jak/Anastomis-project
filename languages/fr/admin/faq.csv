@@ -1,0 +1,39 @@
+"ADMIN_FAQ_ADD";"Dodaj"
+"ADMIN_FAQ_LIST_ALL";"Wszystkie"
+"ADMIN_FAQ_LIST_ACTIVE";"Aktywne"
+"ADMIN_FAQ_LIST_INACTIVE";"Nieaktywne"
+
+"FAQ_FORM_NAVI_GLOBAL";"Zawartość"
+"ADMIN_FAQ_FORM_ADD";"Dodawanie FAQ"
+"ADMIN_FAQ_FORM_EDIT";"Edycja FAQ"
+"FORMS_ADMIN_FAQ_QUESTION";"Pytanie"
+"FORMS_ADMIN_FAQ_ANSWER";"Odpowiedź"
+"FORMS_ADMIN_FAQ_STATUS";"Status"
+"FORMS_ADMIN_FAQ_SAVE";"Zapisz"
+"FAQ_ADD_WAS_SUCESSFULL";"Faq Został dodany poprawnie"
+"FAQ_EDIT_WAS_SUCESSFULL";"Faq został poprawnie edytowany"
+
+"FORMS_ADMIN_FAQ_STATUS_INACTIVE";"Nieaktywne"
+"FORMS_ADMIN_FAQ_STATUS_ACTIVE";"Aktywne"
+
+"TABLE_FAQ_LIST__QUESTION";"Pytanie"
+"TABLE_FAQ_LIST__CREATED_AT";"Utworzono"
+"TABLE_FAQ_LIST__CREATED_BY";"Utworzył"
+"TABLE_FAQ_LIST__STATUS";"Status"
+"TABLE_FAQ_STATUS_1";"Aktywny"
+"TABLE_FAQ_STATUS_0";"Nieaktywny"
+"TABLE_FAQ_LIST__EDIT";"Edycja"
+"TABLE_FAQ_LIST__DELETE";"Usuwanie"
+"TABLE_FAQ_LIST__ACTION_EDIT";"Edytuj"
+"TABLE_FAQ_LIST__ACTION_DELETE";"Usuń"
+
+"ADMIN_FAQ_DELETE";"Czy jesteś pewień że chcesz usunąć wybrany FAQ ?"
+
+"ADMIN_LIST_FAQ_STATUS_ACTIVE";"Zmień status na aktywny"
+"ADMIN_LIST_FAQ_STATUS_INACTIVE";"Zmien status na nieaktywny"
+
+"ADMIN_FAQ_MANAGE_SUCCESS";"Poprawnie zmieniłeś status wybranych elementów"
+
+"ADMIN_FAQ_LIST__INACTIVE";"Lista FAQ - nieaktywne"
+"ADMIN_FAQ_LIST__ACTIVE";"Lista FAQ - aktywne"
+"ADMIN_FAQ_LIST__ALL";"Lista FAQ - wszystkie"

@@ -1,0 +1,107 @@
+SITE_HEADER_TITLE;"CONFIGURATORE VETRI ACUSTICI"
+SITE_ACOUSTIC_INSULATION_REQUIRED;"ISOLAMENTO ACUSTICO RICHIESTO"
+SITE_SEARCH_RESULTS;"RISULTATI DELLA RICERCA"
+SITE_COMMENTS;NOTE
+SITE_DATE_GENERATION;"Data di creazione"
+SITE_INFO;"1. Le proprietà acustiche di tutti i prodotti presentati sono confermate dai test eseguiti negli organismi di prova accreditati.
+2. Qualora nella struttura del vetro non sia stata indicata l’informazione concernente il tipo di distanziale utilizzato, i parametri mantengono la validità per tutti i tipi di distanziali. 
+3. Gli spazi tra i vetri di tutti i vetrocamera testati sono riempiti di argon. I parametri mantengono la validità anche per i vetrocamera con cripton.
+4. I parametri mantengono la validità per tutti i vetri realizzati in vetri piano al sodio-calcio-silicato, prodotto con il metodo float.
+5. I valori Rw, C i Ctr saranno anche confermati per i vetri prodotti, nei quali sono state impiegate le seguenti modifiche strutturali:
+- allargamento degli spazi tra i vetri
+- aumento della quantità di pellicola nei vetri a strati
+- applicazione sulla superficie del vetro della vernice o della stampa
+- tempratura, rinforzo termico, test HST
+- cambio del rivestimento Thermofloat in uno diverso o mancanza
+6. I parametri indicati non possono essere utilizzati per i vetri con vetro decorativo.
+7. Nelle descrizioni dei vetri sono state utilizzate le seguenti indicazioni:
+X/Y/X ; X/Y/X/Y/X – descrizione dei vetrocamera come ad una e a due camere, in cui come „X” sono espressi gli spessori degli altri vetri strutturali, e come „Y” le larghezze degli spazi tra i vetri riempite dal gas. Gli spessori sono indicati in minimetri.
+(VSG XX.Z) – vetro a strati laminato VSG, composto da due vetri monolitici di spessore di „X” espresso in minimetri, divisi da „Z” strati di pellicola.
+Argon (Ar), Cripton (Kr) – gas che riempie le camere tra i vetri
+T – rivestimento con protezione termica Thermofloat applicato sul vetro
+Float – Tipo di vetro singolo applicato"
+
+SITE_MOBILE_POPUP_ONLINE;ONLINE
+SITE_MOBILE_POPUP_PRINT;STAMPA
+SITE_MOBILE_POPUP_OPEN;APRI
+SITE_MOBILE_POPUP_DOWNLOAD;SCARICA
+
+SITE_SAVE;Salva
+SITE_SHOW_TERC;"Mostra/Nascondi Terzetti"
+SITE_SHOW_RESULTS;"Mostra risultati"
+
+SITE_GLASS_1;"VETRI SINGOLI"
+SITE_GLASS_2;"VETROCAMERA SINGOLI"
+SITE_GLASS_3;"VETROCAMERA DOPPI"
+
+SITE_MOBILE_SHOW_CONFIG;"MOSTRA IMPOSTAZIONI"
+
+SITE_DISABLE;spegni
+SITE_USE_BAND;"Considera le bande"
+SITE_USE_PARAMS;"spegni [C;C<sub>tr</sub>] i [R<sub>A</sub>;R<sub>Atr</sub>]"
+
+SITE_SELECT_MODE;"Scegli i dati d’ingresso"
+SITE_TERC_ON;"Accendi i terzetti"
+SITE_TERC_OFF;"Spegni i terzetti"
+SITE_OKTAWY_ON;"Accendi le ottave"
+SITE_OKTAWY_OFF;"Spegni le ottave"
+SITE_DEPENDENCY_BUTTON;"Adatta le impostazioni di tutti i dati attivi e la lista dei risultati alle impostazioni del parametro modificato"
+SITE_MOBILE_DEPENDENCY_BUTTON;"Adatta le impostazioni ai vetrocamera esistenti"
+SITE_MAX;max
+SITE_MIN;min
+
+SITE_PDF_DOWNLOAD_NAME;Vetri_acustici_PRESS_GLASS
+
+SITE_ANASTOMOSIS_TYPE;"Seleziona il tipo di vetro"
+SITE_ANASTOMOSIS_TYPE_0;"A scelta"
+SITE_ANASTOMOSIS_TYPE_1;singolo
+SITE_ANASTOMOSIS_TYPE_2;"ad una camera"
+SITE_ANASTOMOSIS_TYPE_3;"a due camere"
+
+SITE_THICKNESS_LEGEND_1;"Spessore del vetro singolo o del vetro esterno nel vetrocamera"
+SITE_THICKNESS_LEGEND_2;"Spessore del vetro centrale nel vetrocamera a due camere"
+SITE_THICKNESS_LEGEND_3;"Spessore del vetro esterno nel vetrocamera"
+
+SITE_SECTION_TOTAL_WIDTH;"Limita lo spessore del pacchetto"
+SITE_SECTION_GLASES_WIDTH;"Limita lo spessore dei vetri nel pacchetto"
+SITE_SECTION_WEIGHT;"Definisci il peso del pacchetto"
+SITE_SECTION_PROTECTION_CLASS;"Definisci la classe di protezione"
+SITE_SECTION_SECURITY_CLASS;"Definisci la classe di sicurezza"
+SITE_SECTION_LAMINATED_GLASS;"Considera esclusivamente i vetri che contengono il vetro laminato"
+
+SITE_UNIT_DB;[dB]
+SITE_UNIT_MM;[mm]
+SITE_UNIT_CLASS;[classe]
+SITE_UNIT_KG;[kg]
+
+SITE_TITLE_TOTAL_WIDTH;"Spessore totale del pacchetto"
+SITE_TITLE_GLASES_WIDTH;"Spessore dei vetri nel pacchetto"
+SITE_TITLE_WEIGHT;"Peso del pacchetto 1m<sup>2</sup>"
+SITE_TITLE_PROTECTION_CLASS;"Classe del vetro protettivo laminato"
+SITE_TITLE_SECURITY_CLASS;"Classe del vetro sicuro laminato"
+SITE_TITLE_LAMINATED_GLASS;"Considera esclusivamente i vetri che contengono il vetro laminato"
+SITE_TITLE_LAMINATED_PDF;"Vetro laminato"
+
+SITE_YES;Si
+SITE_NO;No
+SITE_EMPTY;No
+
+table.title;"Complessi acustici certificati (Rw dB) giustificate dalla dichiarazione CE"
+table.model;Modello
+table.acoustic_performance;"Isolamento acustico (dB)"
+table.type_of_glass;"Tipo vetrata"
+table.composition;Struttura
+table.glass_1;"Vetro 1"
+table.spacer_1;"Distanziatore 1"
+table.glass_2;"Vetro 2"
+table.spacer_2;"Distanziatore 2"
+table.glass_3;"Vetro 3"
+table.structure;"Struttura [mm]"
+table.total;-
+table.thickness;"Spessore totale"
+table.glass_weight;"Peso del vetro totale"
+table.items;risultati
+table.type_of_used_gas;Riempimento
+table.acoustic_insulation_coefficient;"L’indice d’isolamento acustico"
+table.acoustic_insulation_coefficient_at_average;"Isolamento acustico in presenza di frequenze ottaniche [Hz] R [dB]"
+table.filter_reset;"Rimuovi filtri"

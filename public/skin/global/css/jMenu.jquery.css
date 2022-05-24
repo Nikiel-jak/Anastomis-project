@@ -1,0 +1,68 @@
+nav.top li a {
+    padding: 5px 30px;
+}
+nav.top ul{
+    margin: 0;
+}
+#jMenu {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+#jMenu li {
+    margin:0;
+    margin-right: 130px;
+    float: left;
+}
+#jMenu li:hover{
+       background-color: #e9c6ee;
+   }
+#jMenu li a {
+    display:block;
+    background-color: transparent;
+    color:#643287;
+    text-transform:uppercase;
+    cursor:pointer;
+    font-size:17px;
+}
+#jMenu li:last-child{
+    margin-right: 0px;
+}
+	
+/*******************/
+/** second niveau **/
+/*******************/
+#jMenu li ul {
+    display:none;
+    position:absolute;
+    z-index: 1000;
+}   
+   
+	#jMenu li ul li {
+		background-image: url('../images/menu_level_2.png');
+                background-position: bottom;
+                background-repeat: repeat-x;
+		display:block;
+		padding:0
+	}
+		#jMenu li ul li a {
+                    display:block;
+                    font-size: 16px;
+                    padding: 1px 30px;
+                    color: #f4e2f6;
+                    line-height: 16px;
+		}
+                #jMenu li ul li:first-child{
+                    padding-top: 10px;
+                }
+                #jMenu li ul li:hover{
+                    background-image: url('../images/menu_level_2_hover.png');
+                    background-position: bottom;
+                    background-repeat: repeat-x;
+                    background-color: transparent;
+                    color: #ab89b0;
+                }
+		
+			#jMenu li a:hover {
+                            text-decoration: none;
+			}

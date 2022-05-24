@@ -1,0 +1,116 @@
+SITE_HEADER_TITLE;"КОНФИГУРАТОР ЗВУКОПОГЛОЩАЮЩИХ СТЕКОЛ"
+SITE_ACOUSTIC_INSULATION_REQUIRED;"ТРЕБУЕМАЯ ЗВУКОИЗОЛЯЦИЯ"
+SITE_SEARCH_RESULTS;"РЕЗУЛЬТАТЫ ПОИСКА"
+SITE_COMMENTS;ПРИМЕЧАНИЯ
+SITE_DATE_GENERATION;" Дата"
+SITE_INFO;"1. Акустические свойства всех представленных продуктов подтверждены 
+испытаниями, проведенными в нотифицированных исследовательских 
+организациях.<br>
+2. Если в конструкции стеклопакета не указана информация о типе используемой дистанционной рамки, параметры действительны для всех типов рамок.<br>
+3. Межстекольные пространства всех испытуемых стеклопакетов заполняются аргоном. Параметры остаются действительными также для стеклопакетов с криптоном.<br>
+4. Параметры действительны для всех стеклопакетов, изготовленных из плоского натриево-кальциевого силикатного стекла, произведённого по методу ""флоат.<br>
+5. Значения Rw, C и Ctr будут также подтверждены для производимых 
+стеклопакетов, в которых введены следующие конструкционные изменения:<br>
+-  расширение межстекольного пространства<br>
+- увеличение количества пленок в многослойных стеклах<br>
+- нанесение на поверхность стекла эмали или печати<br>
+- закалка, термическое укрепление, испытание HST<br>
+- замена покрытия Thermofloat другим или его отсутствие<br>
+6. Указанные параметры не могут применяться для стеклопакетов с орнаментным стеклом.<br>
+7. В описаниях стеклопакетов использованы следующие обозначения: <br>
+X/Y/X ; X/Y/X/Y/X – описание одно- и двухкамерных стеклопакетов, в котором 
+в виде „X” выражена толщина следующих составных стекол, а в виде „Y” – 
+ширина межстекольного пространства, заполненного газом. Толщина указана в милиметрах.  <br>
+(VSG XX.Z) – многослойный ламинированный стеклопакет VSG, состоящий 
+из двух монолитных стеклопакетов толщиной „X”, выраженной в милиметрах, 
+разделенных „Z” слоями пленки. <br>
+Аргон (Ar), Криптон (Kr) – газ, заполняющий межстекольные камеры <br>
+T – теплозащитное покрытие Thermofloat, нанесенное на стекло <br>
+Float – Тип использованного одинарного стекла"
+
+SITE_MOBILE_POPUP_ONLINE;ОНЛАЙН
+SITE_MOBILE_POPUP_PRINT;ПЕЧАТЬ
+SITE_MOBILE_POPUP_OPEN;ОТКРЫТЬ
+SITE_MOBILE_POPUP_DOWNLOAD;СКАЧАТЬ
+
+SITE_SAVE;СОХРАНИТЬ
+SITE_SHOW_TERC;"ПОКАЗАТЬ / СКРЫТЬ ТЕРЦИЮ"
+SITE_SHOW_RESULTS;"ПОКАЗАТЬ РЕЗУЛЬТАТЫ"
+
+SITE_GLASS_1;"ОДИНАРНЫЕ СТЕКЛА"
+SITE_GLASS_2;"ДВОЙНЫЕ ОДНОКАМЕРНЫЕ СТЕКЛА"
+SITE_GLASS_3;"ДВОЙНЫЕ ДВУХКАМЕРНЫЕ СТЕКЛА"
+
+SITE_MOBILE_SHOW_CONFIG;"ПОКАЗАТЬ НАСТРОЙКИ"
+
+
+SITE_SELECT_MODE;"Выберите входные данные"
+SITE_TERC_ON;"Включить терции"
+SITE_TERC_OFF;"Выключить терции"
+SITE_OKTAWY_ON;"Включить октавы"
+SITE_OKTAWY_OFF;"Выключить октавы"
+SITE_DEPENDENCY_BUTTON;"Подберите настройки всех активных данных и список результатов к настройкам редактируемого параметра."
+SITE_MOBILE_DEPENDENCY_BUTTON;"Подберите настройки к существующим стеклопакетам"
+SITE_MAX;max
+SITE_MIN;min
+
+SITE_PDF_DOWNLOAD_NAME;Szyby_akustyczne_PRESS_GLASS
+
+SITE_ANASTOMOSIS_TYPE;"Wybierz typ zespolenia"
+SITE_ANASTOMOSIS_TYPE_0;Dowolne
+SITE_ANASTOMOSIS_TYPE_1;Pojedyńcze
+SITE_ANASTOMOSIS_TYPE_2;Jednokomorowe
+SITE_ANASTOMOSIS_TYPE_3;Dwukomorowe
+
+SITE_THICKNESS_LEGEND_1;"Толщина одного стекла или  крайнего стекла в стеклопакете"
+SITE_THICKNESS_LEGEND_2;"Толщина центрального стекла в двухкамерном стеклопакете"
+SITE_THICKNESS_LEGEND_3;"Толщина крайнего стекла в  стеклопакете"
+
+SITE_SECTION_TOTAL_WIDTH;"Ограничьте толщину пакета"
+SITE_SECTION_GLASES_WIDTH;"Ограничьте толщину стёкол в пакете"
+SITE_SECTION_WEIGHT;"Укажите вес пакета"
+SITE_SECTION_PROTECTION_CLASS;"Укажите класс защиты"
+SITE_SECTION_SECURITY_CLASS;"Укажите класс безопасности"
+SITE_SECTION_LAMINATED_GLASS;"Учитывать только стёкла, содержащие ламинированное стекло"
+
+SITE_UNIT_DB;[dB]
+SITE_UNIT_MM;[mm]
+SITE_UNIT_CLASS;[класс]
+SITE_UNIT_KG;[кг]
+
+SITE_TITLE_TOTAL_WIDTH;"Общая толщина пакета"
+SITE_TITLE_GLASES_WIDTH;"Толщина стёкол в пакете"
+SITE_TITLE_WEIGHT;"Вес пакета 1m<sup>2</sup>"
+SITE_TITLE_PROTECTION_CLASS;"Класс ламинированного защитного  стекла"
+SITE_TITLE_SECURITY_CLASS;"Класс ламинированного безопасного  стекла "
+SITE_TITLE_LAMINATED_GLASS;"Учитывать только стёкла, содержащие ламинированное стекло"
+SITE_TITLE_LAMINATED_PDF;"Ламинированное стекло"
+
+SITE_YES;Yes
+SITE_NO;No
+SITE_EMPTY;No
+
+table.title;"Сертифицированные звукоизоляционные стеклопакеты (Rw dB), подтвержденные декларацией СЕ"
+table.model;Модель
+table.acoustic_performance;"Акустические характеристики (дБ)"
+table.type_of_glass;"Тип стекла"
+table.composition;Конструкция
+table.glass_1;"Стекло 1"
+table.spacer_1;"Дистанционная рамка 1"
+table.glass_2;"Стекло 2"
+table.spacer_2;"Дистанционная рамка 2"
+table.glass_3;"Стекло 3"
+table.structure;"Структура [мм]"
+table.thickness;"Общая толщина"
+table.glass_weight;"Общий вес стекла"
+table.items;результатов
+table.type_of_used_gas;Наполнение
+table.acoustic_insulation_coefficient;"Показатели акустической изоляции"
+table.acoustic_insulation_coefficient_at_average;"Показатель акустической изоляции при средних октавных частотах [Hz] R [dB]"
+table.filter_reset;"Сбросить фильтры"
+table.value.single_glass;"Одинарные стекла"
+table.value.double_IGU;"Двойные однокамерные стекла"
+table.value.triple_IGU;"Двойные двухкамерные стекла"
+table.Szyba_Laminowana;"Szyba laminowana"
+table.value.1;"NIE"
+table.value.2;"TAK"

@@ -1,0 +1,7 @@
+<?php
+$header = (isset($this->name)) ? strtoupper($this->name) : '';
+$header = (empty($header) && isset($this->form)) ? strtoupper($this->form->getName()) : $header;
+$header .= "_HEADER_GLOBAL";
+?>
+
+<hgroup><h1><?=$this->translate($header, $this->param);?></h1></hgroup>

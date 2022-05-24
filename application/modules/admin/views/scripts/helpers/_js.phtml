@@ -1,0 +1,52 @@
+<script type="text/javascript">
+    var formname = "<?=$this->form->getName();?>";
+    var fileinput;
+    var checkbox;
+    $(document).ready(function(){
+        $('#'+formname+' input[type="file"]').each(function(){
+            var agree = $(this).parent().parent().next().next();
+            if($(agree).hasClass('agree_form_item')){
+                $(agree).find('.optional').hide();
+                label = $(agree).find('.optional').html();
+                $(agree).find('input').hide();
+                $(agree).hide();
+                if($(agree).find('.hint').length && $(this).attr('class') != ' reqd'){
+                    $(agree).show();
+                    $(this).parent().parent().hide();
+                    $(agree).find('.element').children('input[type="checkbox"]').attr('checked',false);
+                    $(agree).find('.element').children('input[type="checkbox"]').hide();
+                    $(agree).find('.optional').after('<input class="button_delete" type="submit" value="'+label+'">');
+                } else {
+                    if($(this).attr('class') == ' reqd'){
+                        $(agree).find('.element').children('input[type="checkbox"]').attr('checked',true);
+                        $(agree).find('.label').children('label').hide();
+                        $(agree).find('.hint').hide();
+                    }
+                }
+            }
+
+        })
+    });
+    $('.button_delete').live('click',function(){
+
+        $(this).parent().parent().hide();
+        $(this).parent().parent().prev().prev().show();
+       // $(this).parent().parent().parent().prev().prev().prev().show();
+        $(this).prev().prev().attr('checked',true)
+        return false;
+    });
+    
+    if ($.browser.msie && $.browser.version < 10) { // am I a hopeless romantic for assuming that IE10 will support it?
+        $(".threeColumns  .element.checkbox").columnize({
+            width: 600,
+            columns: 3
+        });
+    }
+    
+    if ($.browser.msie && $.browser.version < 10) {
+        $(".ui-widget-content.ui-dialog-content").columnize({
+            width: 700,
+            columns: 4
+        });
+    }
+</script>

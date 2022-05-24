@@ -1,0 +1,407 @@
+<?php
+$header = (isset($this->name)) ? strtoupper($this->name) : '';
+$header .= "_HEADER_GLOBAL";
+
+$big_name = strtoupper($this->name);
+
+?>
+<?php if($this->header):?>
+<hgroup>
+    <h2>
+        <?=(isset($this->text)) ? $this->translate($this->text): $this->translate($header);?>
+    </h2>
+</hgroup>
+<?php endif;?>
+<div class="box"> 
+<section id="contentWrapperList">
+    <div class="table_name">    
+        <?php if(isset($this->filters)): ?>
+            <? if(count($this->filters) > 0): ?>
+                <div class="filtr tableFiltr">
+
+                    <form class="filtr" id="filtr" enctype="application/x-www-form-urlencoded" method="post" action="">
+                        <input type="hidden" name="__listview__" value="<?=$this->name?>" />
+                        <?php if($this->search): ?>
+                            <div class="filtr_element">
+                                <div class="input-prepend">
+                                <span class="add-on"><i class="icon-search"></i></span>
+                                <input class="span2" id="prependedInput" name="search" placeholder="<?=$this->translate($big_name.'_FILTR_SEARCH')?>" type="text"  value="<?=$this->searchValue?>"/>
+                                </div>
+                            </div>
+                        <?php endif;?>
+                        <? foreach($this->filters as $filter): ?>
+                            <div class="filtr_element">
+                                <?=$filter->render();?>
+                            </div>
+                        <? endforeach ?>
+                        
+                        <input type="submit" name="submit" value="<?=$this->translate('COMMON_LABEL_FILTER');?>" class="btn search" />    
+                        <input type="reset" name="reset" value="<?=$this->translate('COMMON_LABEL_FILTER_DELETE');?>" class="btn" />    
+                   </form>
+
+                </div>
+                <div class="clearSpace"></div>
+            <? endif; ?>
+        <?php endif; ?>
+    </div>
+    <div class="header_table">
+        <div class="navigate">
+            <?php if(isset($this->paginator) && count($this->paginator)>0 && $this->paginator->count() > 0 && $this->paginator->getTotalItemCount() > $this->minItemsPerPage): ?>
+                <?php if($this->itemsPerPageOptions):?>
+                    <form class="itemsperpage" method="POST" >
+                        <input type="hidden" value="<?=$this->name?>" name="__listview__">
+                        <select class="span1" name="itemsperpage">
+                            <?php foreach($this->itemsPerPageOptions as $option):?>
+                                <option <?=($option == $this->pagesPerPage) ? 'selected' : '';?>><?=$option?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </form>
+                <?php endif;?>
+                <?=$this->paginationControl($this->paginator, 'Sliding', 'helpers/partials/list_view_paginator.phtml',array('type' => 'grey', 'listview' => $this->name,'useForm' => $this->useForm)); ?>
+            <?php endif;?>
+        </div>
+    </div>
+    <?php if(isset($this->forms)):?>
+        <form class="<?=(array_key_exists('options', $this->forms) && array_key_exists('class', $this->forms['options'])) ? $this->forms['options']['class']: '' ;?>" method="<?=(array_key_exists('options', $this->forms) && array_key_exists('method', $this->forms['options'])) ? $this->forms['options']['method']: 'POST' ;?>" action="<?=(array_key_exists('options', $this->forms) && array_key_exists('action', $this->forms['options'])) ? $this->url($this->forms['options']['params'],$this->forms['options']['action']) : '' ;?>">
+    <?php endif;?> 
+            <? foreach($this->buttons as $unused => $button): ?>
+                <?php $button_params = (isset($button[3])) ? $button[3] : array();?>
+                    <div class="" style="display: block; float: left; margin: 0 0 5px 0;">
+                        <a href="<?=$this->url($button_params,$button[2]); ?>" class="<?=$button[1];?>">
+                            <?=$this->translate($big_name.'_BUTTON_'.strtoupper($button[0]));?>
+                        </a>
+                    </div>
+            <? endforeach; ?>
+            <?php if(isset($this->forms) && array_key_exists('submits', $this->forms)):?>
+                <?php foreach($this->forms['submits'] as $submit):?>
+                <div class=" <?=(array_key_exists('options', $this->forms) && array_key_exists('class', $this->forms['options'])) ? 'button_'.$this->forms['options']['class']: '' ;?>">
+                    <input type="submit" class="<?=$submit[2]?>" value="<?=$this->translate('TABLE_'.$big_name.'_SUBMIT_'.  strtoupper($submit[0]))?>" name="actiontype[<?=$submit[0]?>]"/>
+                </div>
+                <?php endforeach;?>
+
+            <?php endif;?>
+
+    <div class="clearSpace"></div>
+
+    <?php if(isset($this->paginator) && count($this->paginator)>0 && $this->paginator->count() > 0): ?>
+        <div id="grid" class="k-grid k-widget" data-role="grid">
+            <table id="<?=strtolower($this->name)?>" class="table table-striped table-bordered table-condensed" >
+                <thead class="k-grid-header">
+                    <tr class="head_tr">
+                        <?php if(isset($this->numberColumn)): ?>
+                            <th class="k-lp k-header"><?=$this->translate('LISTVIEW_LP')?></th>
+                        <?php endif; ?>
+
+                        <?php foreach ($this->columns as $col => $parameters): ?>
+                            
+                            <? if ($parameters[0] != '__special__' || isset($this->sortableColumns[$col])): ?>
+
+                                <th class="th_<?=$col?> k-header">
+                                    <!-- SORTOWANIE -->
+                                    <? if(in_array($col, $this->sortableColumns) || isset($this->sortableColumns[$col])): ?>
+                                        &nbsp;    
+                                        <? if(isset($this->session->sort[0])): ?>
+                                            <? if($this->session->sort[0] == $col): ?>
+                                                <? if(@$this->session->sort[1] == true): ?>
+                                                    <a id="<?=$col?>" class="sort-link k-link" href="#"><?=$this->translate('TABLE_'.$big_name.'_LIST__'.strtoupper($col))?>
+                                                        <img src="<?=$this->imagePath('table/sort_up.png', false, 'admin');?>" alt="<?=$this->translate('COMMON_SORT_DOWN_ALT');?>" title ="<?=$this->translate('COMMON_SORT_DOWN_TITLE');?>"/>
+                                                    </a>
+                                                <? else: ?>
+                                                    <a id="<?=$col?>" class="sort-link k-link" href="#"><?=$this->translate('TABLE_'.$big_name.'_LIST__'.strtoupper($col))?>
+                                                        <img src="<?=$this->imagePath('table/sort_down.png', false, 'admin');?>" alt="<?=$this->translate('COMMON_SORT_UP_ALT');?>" title ="<?=$this->translate('COMMON_SORT_UP_TITLE');?>"/>
+                                                    </a>
+                                                <? endif; ?>
+                                            <? else: ?>
+                                                <a id="<?=$col?>" class="sort-link k-link" href="#"><?=$this->translate('TABLE_'.$big_name.'_LIST__'.strtoupper($col))?></a>
+                                            <? endif; ?>
+                                        <? else: ?>
+                                            <a id="<?=$col?>" class="sort-link k-link" href="#"><?=$this->translate('TABLE_'.$big_name.'_LIST__'.strtoupper($col))?></a>
+                                        <? endif; ?>
+                                    <?php else: ?>
+                                        <?=$this->translate('TABLE_'.$big_name.'_LIST__'.strtoupper($col))?>
+                                    <? endif; ?>
+                                </th>
+                            <? else: ?>
+                                <?php if($col == 'checkbox'):?>
+                                    <th class="th_<?=$col?> k-header"><input type="checkbox" class="all_selected"/></th>
+                                <?php else: ?>
+                                    <th class="th_<?=$col?> k-header k-filterable"><?=$this->translate('TABLE_'.$big_name.'_LIST__'.strtoupper($col))?></th>
+                                <?php endif;?>
+                            <? endif; ?>
+
+                        <?php endforeach ?>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php $count = (($this->paginator->getCurrentPageNumber() - 1) * $this->paginator->getItemCountPerPage()) + 1 ?>
+                    <?php $rowspan_counter = 1; ?>
+                    <?php $rowspan_max = 1; ?>
+
+                    <?php foreach($this->paginator as $key => $value):?>
+
+                        <!-- grupowanie -->
+                        <?php if (isset($this->groupBy)): ?>
+                        <?php
+                            $rowspan_counter++;
+                            if($rowspan_counter > $rowspan_max)
+                            {
+                                $rowspan_counter = 1;
+                                $current_rowspan =  current($this->rowspan); //$this->rowspan[$value->{$this->groupBy[0]}];
+                                $rowspan_max = $current_rowspan[1];
+                                next($this->rowspan);
+                            }
+                        ?>
+                        <?php endif ?>
+
+                        <?php if(isset($this->onClickURL)):?>
+                            <tr class="<?=$value->id?>" id="<?=$this->url($this->listview->transformArray($this->onClickURL[1], $value),$this->onClickURL[0])?>">
+                        <?php else: ?>
+                            <tr class="<?=$value->id?>">   
+                        <?php endif; ?>
+                            <!-- LP-->
+
+                            <? 
+                            if (isset($this->numberColumn))
+                            {
+                                $classes = 'k-lp';
+
+                                if(isset($this->numberColumn[1]))
+                                {
+                                    foreach($this->numberColumn[1] as $classAdder)
+                                    {
+                                        $classAdder->setRow($value);
+                                        $classAdder->setListView($this->listview);
+                                        if(isset($this->numberColumn[2]))
+                                            $numberColumnVal = $value->{$this->numberColumn[2]};
+                                        else
+                                            $numberColumnVal = (string)$count;
+                                        $classes .= Yeti_ListView_ClassAdder::classesToString($classAdder->addClasses($numberColumnVal));
+                                    }
+                                }
+                                ?>
+                                <td class="<?=$classes?>"><?=$count?></td>
+                                <?
+                            }
+                            ?>
+
+                            <!-- DANE -->
+                            <?php foreach ($this->columns as $col => $val): ?>
+
+                                <!-- klasy -->
+                                <? 
+                                    $classes = '';
+
+                                    if (isset($val[2]))
+                                    {
+                                        foreach($val[2] as $classAdder)
+                                        {
+                                            $classes .= Yeti_ListView_ClassAdder::classesToString($classAdder->addClasses($value->$col));
+                                        }
+
+                                    }
+
+                                ?>
+
+
+                                <!-- grupowanie -->
+                                <?php $show_cell = true; ?>
+                                <?php $is_grouped = false; ?>
+                                <?php if (isset($this->groupBy))
+                                        {
+                                            if($col == $this->groupBy[0] || (isset($this->groupBy[1]) && in_array($col, $this->groupBy[1])))
+                                            {
+                                                $is_grouped = true;
+                                                if($rowspan_counter == 1) $show_cell = true;
+                                                else $show_cell = false;
+                                            }
+                                        }
+                                ?>
+
+                                <?php if (!($is_grouped && !$show_cell)): ?>
+                                    <td class="td_<?=$col?> <?=$classes?>" <?if($is_grouped):?>rowspan="<?=$rowspan_max?>"<?endif?>>
+
+                                        <? if ($val[0] != '__special__'): ?>
+                                            <? 
+                                                $result = $value->$col; 
+
+                                                if(is_null($result) or trim($result) == '')
+                                                    $result = $this->emptyValue;
+
+                                                if(isset($val[1]))
+                                                {
+                                                    foreach($val[1] as $helper)
+                                                    {
+                                                        $helper->setRow($value);
+                                                        $helper->setListView($this->listview);
+                                                        $helper->transform($result);
+                                                        $result = $helper->render();
+                                                    }
+                                                }
+                                            ?>
+                                            <?=$result?>
+
+                                        <? else: ?>
+
+                                            <?
+                                                $helper = $val[1];
+                                                $helper->setRow($value);
+                                                $helper->setListView($this->listview);
+
+                                                $result = $helper->render();
+
+                                                if(is_null($result) or trim($result) == '')
+                                                    $result = $this->emptyValue;
+
+                                            ?>
+                                            <?=$result?>
+
+                                        <? endif; ?>
+                                    </td>
+                                <?php endif; ?>
+
+                            <?php endforeach ?>
+
+                        </tr>
+                    <?php $count++?>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            
+            
+        </div>
+        <?php if(isset($this->forms)):?>
+            <?=($this->useForms) ? '</form>' : ''; ?>
+        <?php endif;?>
+            <div class="navigate">
+                <div class="clearSpace"></div>
+                <?php if(isset($this->paginator) && count($this->paginator)>0 && $this->paginator->count() > 0 && $this->paginator->getTotalItemCount() > $this->minItemsPerPage): ?>
+                    <?php if($this->itemsPerPageOptions):?>
+                        <form class="itemsperpage" method="POST" >
+                            <input type="hidden" value="<?=$this->name?>" name="__listview__">
+                            <select class="span1" name="itemsperpage">
+                                <?php foreach($this->itemsPerPageOptions as $option):?>
+                                    <option <?=($option == $this->pagesPerPage) ? 'selected' : '';?>><?=$option?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </form>
+                    <?php endif;?>
+                    <?=$this->paginationControl($this->paginator, 'Sliding', 'helpers/partials/list_view_paginator.phtml',array('type' => 'grey', 'listview' => $this->name, 'useForm' => $this->useForm)); ?>
+                <?php endif;?>
+            </div>
+    <? else: ?>
+        <div class="noitem">
+            <?=$this->translate('LISTVIEW_NO_ITEM') ?>
+        </div>
+
+    <? endif ?>
+    <form class="sort" id="sort-<?=$this->name?>" style="display: none" method="POST">
+        <input type="hidden" name="__listview__" value="<?=$this->name?>" />
+        <input class="sort_list" type="text" name="sort" value="" />
+    </form>
+</section>
+</div>    
+<script type="text/javascript">
+    var button_class = null;
+    // Sortowanie
+    $('table#<?=$this->name?> .sort-link').click(function() {
+        var colname = $(this).attr('id');
+        
+        $('form#sort-<?=$this->name?>.sort input[name=sort]').val(colname);
+        $('form#sort-<?=$this->name?>.sort').submit();
+        return false;
+    })
+
+
+        
+    $("form input[name='reset']").live('click',function(){
+        $("form .filtr_element input, form .filtr_element select").each(function(){
+            console.log(this.type);
+            switch(this.type) {
+                case 'text':
+                    $(this).attr('value','');
+                    break;
+                case 'checkbox':
+                case 'radio':
+                    $(this).attr('checked',false);
+                    break;
+                case 'select-one':
+                    $("select option").each(function(o){
+                        $(this).attr("selected",false);
+                    });
+                    break;
+                default:
+                    break;
+            }
+        });
+            $('form#filtr input[type="submit"]').click();
+    });
+ 
+    $('form.itemsperpage select').live('change',function(){
+        $(this).parent().submit();
+    });
+
+    <?php if(is_array($this->forms) && array_key_exists('options', $this->forms) && array_key_exists('class', $this->forms['options'])): ?>
+        button_class = "<?=(array_key_exists('options', $this->forms) && array_key_exists('class', $this->forms['options'])) ? 'button_'.$this->forms['options']['class']: '' ;?>";
+        $('.autoVisible .'+button_class).hide();
+    <?php endif;?>
+        $('input.all_selected').click(function(){
+            count = $('#grid tbody tr td.td_checkbox input[type="checkbox"]:checked').length;
+            if(count > 0){
+                if(button_class){
+                    $('.autoVisible .'+button_class).hide();
+                }
+                $('#grid tbody tr td.td_checkbox input[type="checkbox"]').each(function(){
+                    $(this).attr('checked',false);
+                });
+            } else {
+                if(button_class){
+                    $('.autoVisible .'+button_class).show();
+                }
+                $('#grid tbody tr td.td_checkbox input[type="checkbox"]').each(function(){
+                    $(this).attr('checked',true);
+                });
+            }
+        });
+        $('#grid tbody tr td.td_checkbox input[type="checkbox"]').click(function(e){
+            e.stopPropagation();
+            var count = $('.autoVisible #grid tbody input[type="checkbox"]:checked').length;
+
+            if(count > 0){
+                $('input.all_selected').attr('checked',true);
+                if(button_class){
+                    $('.autoVisible .'+button_class).show();
+                }
+            } else {
+                $('input.all_selected').attr('checked',false);
+                if(button_class){
+                    $('.autoVisible .'+button_class).hide();
+                }
+            }
+        });
+
+        $('#grid tbody tr').click(function(e){
+            if($(e.target).hasClass('checkbox')){
+                return false;
+            }
+            var td_check = $(this).find('td.td_checkbox input[type="checkbox"]');
+            if(td_check.is(':checked')){
+                td_check.attr('checked',false);
+            } else {
+                td_check.attr('checked',true);
+            }
+            var count = $('#grid tbody input[type="checkbox"]:checked').length;
+            if(count > 0){
+                $('input.all_selected').attr('checked',true);
+                if(button_class){
+                    $('.autoVisible .'+button_class).show();
+                }
+            } else {
+                $('input.all_selected').attr('checked',false);
+                if(button_class){
+                    $('.autoVisible .'+button_class).hide();
+                }
+            }
+        });
+</script>

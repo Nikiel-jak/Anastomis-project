@@ -1,0 +1,48 @@
+<?php $configurationModel = new App_Model_Configuration_DbTable();?>
+<?=$this->headTitle()->setSeparator(' - ')
+        ->headTitle($this->title)        
+        ->headTitle($configurationModel->getValue('site_title'),'APPEND');?> 
+<?php $this->headMeta()->appendName("viewport","width=device-width, user-scalable=no"); ?>
+<?=$this->headMeta(); ?> 
+<?php $this->description()->setSeparator(', ');?>
+    <?php if(!$this->description):?>    
+        <?=$this->description($configurationModel->getValue('site_description'));?>
+    <?php else: ?>    
+        <?=$this->description($this->description);?>
+    <?php endif; ?> 
+<?php $this->keywords()->setSeparator(', ');?>
+<?php if(!$this->keywords):?>    
+    <?=$this->keywords($configurationModel->getValue('site_keywords').', '.$this->page_keywords);?>
+ <?php else: ?>    
+     <?=$this->keywords($this->keywords);?>
+<?php endif; ?> 
+<?php $this->headLink()->prependStylesheet($this->baseUrl().'/skin/site/css/screen.css')                                      
+        ->appendStylesheet($this->baseUrl().'/skin/site/css/prettyPhoto.css')                                      
+        ->appendStylesheet($this->baseUrl().'/skin/site/css/blue.css')                                      
+        ->appendStylesheet($this->baseUrl().'/skin/site/css/base.css')                                                                   
+        ->appendStylesheet($this->baseUrl().'/skin/site/css/blitzer/jquery-ui-1.10.3.custom.css')            
+        ->appendStylesheet($this->baseUrl().'/skin/site/css/style.css')         
+        ->headLink(array('rel' => 'icon', 'type' => 'image/png', 
+            'href' => $this->imagePath('favicon.png',false,'site')),array('rel' => 'shortcut icon', 'type' => 'image/x-icon', 
+            'href' => $this->imagePath('favicon.ico',false,'site'))                               
+        );?>
+<?php if($this->type == App_Model_Configuration_DbTable::PAGE_TYPE_MOBILE):?>
+    <?php $this->headLink()->appendStylesheet($this->baseUrl().'/skin/site/css/mobile.css');?> 
+<?php endif;?> 
+<?=$this->headLink();?>
+<?=$this->headStyle(); ?>
+<?=$this->headScript()->prependFile($this->baseUrl().'/skin/site/js/jquery-1.9.1.js')
+                     ->appendFile($this->baseUrl().'/skin/site/js/jquery-ui-1.10.3.custom.min.js');?>
+ <script>
+    $('#x_infos, #close_infos').click(function(e){
+        e.preventDefault()
+        $(this).parent().hide();
+    });
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W2NT538');</script>
+<!-- End Google Tag Manager -->

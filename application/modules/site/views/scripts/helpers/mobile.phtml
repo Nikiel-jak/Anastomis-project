@@ -1,0 +1,177 @@
+<form id="forms" action="<?=$this->url(array('lang' => $this->lang),'site-mobile')?>" method="GET">
+    <div class="radio" style="overflow: hidden;"> 
+        <label ><input checked="checked" type="radio" value="1" name="options">[C+C<sub>tr</sub>]</label>
+        <label ><input type="radio" value="2" name="options">[R<sub>A</sub>+R<sub>Atr</sub>]</label>
+    </div>
+    <?php $z=1; foreach($this->group as $group_name =>  $sliders):?>
+        <?php $array_keys = array_keys($sliders);?>
+        <?php $elem =($sliders[array_shift($array_keys)]->toArray());?>
+        <div class="table_like">
+            <div class="element <?=($z != 1 && $elem['can_hide'] == 1) ? 'to_hide hide' : '';?>">
+                <?Php $right = (380/(count($sliders)+1)-40);?>
+                <div class="item" style='position:relative; width:20px; margin-left: 6px;'>
+                    <p><?=$elem['group_name']?></p>
+                    <p class="info_db" style="position: absolute;bottom: 0px;left: 0px;"><?=$elem['hint']?></p>
+                </div>
+                <?php foreach($sliders as $value):?>
+                <?php 
+                   $val = (empty($value->min_value)|| !in_array($value->id, array('10','12','13'))) ? 0 : $value->min_value;
+                if($value->id == 14 ){
+                     $s1 = $sliders[10]->toArray();
+                     $s2 = $sliders[12]->toArray();
+                     $val = $s1['min_value'] + $s2['min_value'];
+                 }
+                 if($value->id == 15 ){
+                     $s1 = $sliders[10]->toArray();
+                     $s2 = $sliders[13]->toArray();
+                     $val = $s1['min_value'] + $s2['min_value'];
+                 }
+                    $start = (empty($value->min_value) || !in_array($value->id, array('10','12','13'))) ? 0 : $value->min_value;
+                    $stop = (empty($value->max_value) || !in_array($value->id, array('10','12','13'))) ? 100 : $value->max_value;
+                    $step = preg_replace('/,/', '.', $value->step);
+                         ?>
+                    <div class="item" >
+                        <p><?=$value->name?></p>
+                        <?php if (in_array($value->id, array('15','14'))):?>
+                        <?php endif;?>
+                            <select class="<? (in_array($value->id, array('15','14'))) ? 'di as' : ''; ?>" id="slider_item_<?=$value->id?>"   name="<?=$value->id?>" type="text"  />
+                            <?php for($i = $start; $i <= $stop; $i++):?>
+                            <option <?=($i == $val) ? 'selected="selected"': ''?>><?=$i?></option>
+                            <?php endfor; ?>
+                            </select>
+                    </div>
+                <?php endforeach;?>
+            </div>
+        </div>
+        <?php if($z == 1 && count($this->group) > 1):?>
+            <div class="table_like">
+                <div class="element noborder" style="margin-top: 15px;">
+                    <div class="item" >
+                        <button  id="tercion" class="mobile_submit"  ><?=$this->translate('SITE_SHOW_TERC')?></button>
+                    </div>
+                </div>
+            </div>
+        <?php endif;?>
+    <?php $z++; endforeach; ?>
+    <div class="table_like">
+        <div class="element noborder" style="margin-top: 15px;">
+            <div class="item" >
+               <button  id="show_button" class="mobile_submit"  ><?=$this->translate('SITE_SHOW_RESULTS')?> (<span>0</span>)</button>
+            </div>
+       </div>
+    </div>
+    <input style="display:none;" id="submit_print" type="submit" value="" />
+</form>
+<script>
+$(function() {
+    $('input[name="options"]').click(function(){
+       if($(this).val() == 2){
+           $('#slider_item_12').hide();
+           $('#slider_item_12').prev().hide();
+           $('#slider_item_13').hide();
+           $('#slider_item_13').prev().hide();
+           
+           $('#slider_item_14').show();
+           $('#slider_item_14').prev().show();
+           $('#slider_item_15').show();
+           $('#slider_item_15').prev().show();
+       } else {
+           $('#slider_item_12').show();
+           $('#slider_item_12').prev().show();
+           $('#slider_item_13').show();
+           $('#slider_item_13').prev().show();
+           
+           $('#slider_item_14').hide();
+           $('#slider_item_14').prev().hide();
+           $('#slider_item_15').hide();
+           $('#slider_item_15').prev().hide();
+       }
+    }).first().click();
+    var text_search = '<?=$this->translate('SITE_SEARCH_RESULTS')?>';
+    var text_nag = '<?=$this->translate('SITE_HEADER_TITLE')?>';
+    $('#show_button').click(function(e){
+        e.preventDefault();
+        $('.pull-left').hide();
+        $('.results').show(); 
+        $('h2').html(text_search);
+    });
+    $('#tercion').click(function(e){
+        e.preventDefault();
+        $('.to_hide').toggleClass('hide'); 
+    });
+    $('#forms select').change(function(){
+        var lenght = $(this).val().length;
+        if(lenght == 1){
+            $(this).attr('style','text-indent:12px;');
+        }
+        if(lenght == 2){
+            $(this).attr('style','text-indent:6px;');
+        }
+        if(lenght == 3){
+            $(this).attr('style','text-indent:1px;');
+        }
+        
+        $.ajax({
+            url: "<?=$this->url(array('lang' => $this->lang),'site-ajax')?>",
+            method: 'POST',
+            data: $('#forms').serialize()
+        }).done(function(data ) {
+            var html = '';
+            var z = 0;
+            for(x in data){
+                    if(x == 1){
+                        txt = '<?=$this->translate('SITE_GLASS_1')?>';
+                    }
+                    if(x == 2){
+                        txt = '<?=$this->translate('SITE_GLASS_2')?>';
+                    }
+                    if(x == 3){
+                        txt = '<?=$this->translate('SITE_GLASS_3')?>';
+                    }
+                html += '<h3 style="text-align: left;padding-left: 10px;">' + txt+ '</h3>';
+                html += '<ul style="padding: 0px; list-style:none;">';
+                var c = 1;
+                for(d in data[x]){
+                    z++;
+                    c++;
+                    html += '<li>' + c + '. &nbsp  '+ data[x][d].name + '</li>';
+                }
+                html += '</ul>';
+            }
+            $('#resuls').html(html);
+            $('#show_button span').html(z);
+        });
+    });
+    $.ajax({
+        url: "<?=$this->url(array('lang' => $this->lang),'site-ajax')?>",
+        method: 'POST',
+        data: $('#forms').serialize()
+    }).done(function(data ) {
+        var html = '';
+        var z = 0;
+        for(x in data){
+                if(x == 1){
+                    txt = '<?=$this->translate('SITE_GLASS_1')?>';
+                }
+                if(x == 2){
+                    txt = '<?=$this->translate('SITE_GLASS_2')?>';
+                }
+                if(x == 3){
+                    txt = '<?=$this->translate('SITE_GLASS_3')?>';
+                }
+            html += '<h3 style="text-align: left;padding-left: 10px;">' + txt+ '</h3>';
+            html += '<ul style="padding: 0px; list-style:none;">';
+             var c = 1;
+            for(d in data[x]){
+                html += '<li>' + c + '. &nbsp  '+ data[x][d].name + '</li>';
+                z++;
+                c++;
+            }
+            html += '</ul>';
+        }
+        $('#resuls').html(html);
+        $('#show_button span').html(z);
+    });
+      
+});
+</script>

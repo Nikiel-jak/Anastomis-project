@@ -1,0 +1,51 @@
+"TABLE_LIST__LP";"Lp."
+
+"ADMIN_HEADER_LOGOUT";"Wyloguj"  
+"ADMIN_CHOSEN_CONTENT_LANGUAGE";"Wybrany język:"   
+"ADMIN_HEADER_LOGIN_AS";"Jesteś zalogowany jako:"     
+
+"ADMIN_HEADER_LAST_LOGIN";"Ostanie logowanie:"
+"ADMIN_HEADER_LAST_FAIL_LOGIN";"Ostatnie błędne logowanie:"
+"ADMIN_HEADER_TODAY_DATE";"Data/Czas: "
+
+"ADMIN_BACK_TO_LIST";"Powrót na listę"
+
+"ADMIN_MESSAGE_DATA_ADD_SUCCESS";"Dane zostały zapisane."
+
+"ADMIN_FORM_LOGIN_LOGIN";"Login"
+"ADMIN_FORM_LOGIN_PASSWORD";"Hasło"
+"ADMIN_FORM_LOGIN_SUBMIT";"Zaloguj"
+
+"ACCOUNT_REMAIND";"Przypominj hasło"
+"APPLICATION_VERSION";"Wersja aplikacji:"
+
+"ADMIN_LOGIN";"Panel administracyjny - logowanie"
+"ADMIN_ACCOUNT_FOREGET_PASSWORD";"Panel administracyjny - przypominj hasło"
+
+"ADMIN_FORM_FOREGETPASSWORD_SUBMIT";"Przypomnij hasło"
+"ADMIN_ACCOUNT_LOGIN";"Logowanie"
+
+"ADMIN_SLIDER_DESCRIPTION";"Możliwe rozszrzenia: jpg,png,gif"
+"ADMIN_SLIDER_REDIRECT";"Przekierowanie"
+
+"ADMIN_SLIDER_ADD_SUCCESS";"Dane zostały zapisane"
+"ADMIN_SLIDER_EDIT_SUCCESS";"Dane zostały zapisane"
+"ADMIN_BANNERS_DELETE_SUCCESS";"Dane zostały zapisane"
+"ADMIN_BANNERS_ACTIVE_SUCCESS";"Dane zostały zapisane"
+"ADMIN_BANNERS_DEACTIVE_SUCCESS";"Dane zostały zapisane"
+
+"LISTVIEW_NO_ITEM";"Brak elementów na liście"
+
+"COMMON_ACCEPTED_DELETE_ITEMS";"Jesteś pewien, że chcesz usunąć wybrane elementy?"
+
+"ADMIN_PAGINATOR_PAGE_POSITION";"z"
+"ADMIN_PAGINATOR_PAGE";"strona"
+"ADMIN_PAGINATOR_PAGE_FROM";"z"
+
+"TYPE_FORM_1";"Realizacja"
+"TYPE_FORM_2";"Projekty"
+
+"TABLE_BANNERS_LIST__FOLDER_NAME";"Dodane do folderu"
+
+"SLIDER_SElECT_STATUS_1";"aktywny"
+"SLIDER_SElECT_STATUS_2";"nieaktywny"

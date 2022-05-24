@@ -1,0 +1,21 @@
+table#navi{
+    text-align: center;
+}
+table#navi td,table#navi  tr{
+    border: 1px solid #DBDBDB;
+}
+table.date tr{
+    border-bottom: 1px solid #DBDBDB;
+}
+table#navi td{
+    height: 120px;
+}
+table#navi td a{
+   color: #006699;
+   display: block;
+   width: 190px;
+}
+table#navi td img{
+    text-decoration: none !important;
+    border: none;
+}

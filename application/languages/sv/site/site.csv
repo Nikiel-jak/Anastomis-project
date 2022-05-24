@@ -1,0 +1,98 @@
+SITE_HEADER_TITLE;"AKUSTISK KONFIGURATOR"
+SITE_ACOUSTIC_INSULATION_REQUIRED;"LJUDREDUKTION SÖKT"
+SITE_SEARCH_RESULTS;SÖKRESULTAT
+SITE_COMMENTS;ANMÄRKNINGAR
+SITE_DATE_GENERATION;"Genererad den"
+SITE_INFO;"1. De akustiska egenskaperna hos alla presenterade produkter bekräftas genom prov utförda i anmälda forskningsenheter. <br> 2. Om det inte finns någon information om typen av distansram som används i glaskonstruktionen, gäller parametrarna för alla ramtyper . <br>
+3. Utrymmena mellan glass i alla de testade isolerglasenheterna är fyllda med argon. Parametrar gäller även för isolerglas med krypton.<br>
+4. Parametrarna är giltiga för alla glasrutor av platta kalk sodasilikatglas, som tillverkas med float-metoden.<br>5. Rw, C och Ctr-värdena kommer också att bekräftas för glasrutor där följande konstruktiosändringar har tillämpats:<br> -  utvidgning av utrymmet mellan glas <br> -  ökning av mängden film i laminerat glas<br> - applicering av emalj eller tryck på glasytan<br> - termisk härdning, värmeprovning, HST<br> - Byte av Thermofloat beläggning till en annan, eller brist på det<br>6. De angivna parametrarna kan inte användas för glas med dekorglas.<br>7. Följande markeringar användes i beskrivningarna av glasrutorna:<br>  X/Y/X ; X/Y/X/Y/X – beskrivning av 2- och 3-glas isolerglasenheter där tjockleken på det efterföljande komponentglaset uttrycks som ¨X¨ och bredden på det gasfyllda utrymmet mellan rutorna uttryckts som ¨Y¨. Tjocklekarna anges i minimimetrar.<br>   (VSG XX.Z) – laminerat isolerglas (VSG), bestående av två monolitiska rutor med en tjocklek ¨X¨ uttryckt i minimimetrar, separerade ¨Z¨ skikt av folie.<br>  Argon (Ar), Krypton (Kr) – gas som fyller utrymmena mellan glass <br>  T – Termofloat-värmeisoleringsbeläggning applicerad på glaset<br>  Float – Typen av använt enkelglas"
+
+SITE_MOBILE_POPUP_ONLINE;ONLINE
+SITE_MOBILE_POPUP_PRINT;"SKRIV UT"
+SITE_MOBILE_POPUP_OPEN;ÖPPNA
+SITE_MOBILE_POPUP_DOWNLOAD;"LADDA NER"
+
+SITE_SAVE;Spara
+SITE_SHOW_TERC;"Visa/Dölj Tercer"
+SITE_SHOW_RESULTS;"Visa resultat"
+
+SITE_GLASS_1;ENKELGLAS
+SITE_GLASS_2;"2-GLAS ISOLERGLAS"
+SITE_GLASS_3;"3-GLAS ISOLERGLAS"
+
+SITE_MOBILE_SHOW_CONFIG;"VISA INSTÄLLNINGAR"
+
+SITE_DISABLE;Inaktivera
+SITE_USE_BAND;"Inkludera band"
+SITE_USE_PARAMS;"slå av [C;C<sub>tr</sub>] i [R<sub>A</sub>;R<sub>Atr</sub>]"
+
+SITE_SELECT_MODE;"Välj inmatningsdata"
+SITE_TERC_ON;"Aktivera tercer"
+SITE_TERC_OFF;"Inaktivera tercer"
+SITE_OKTAWY_ON;"Aktivera oktaver"
+SITE_OKTAWY_OFF;"Inaktivera oktaver"
+SITE_DEPENDENCY_BUTTON;"Anpassa inställningarna för all aktiv data och en lista över resultat till inställningarna för den redigerade parametern"
+SITE_MOBILE_DEPENDENCY_BUTTON;"Anpassa inställningarna till befintliga isolerglasenheter"
+SITE_MAX;max
+SITE_MIN;min
+
+SITE_PDF_DOWNLOAD_NAME;LJUDREDUCERANDEGLASKONFIGURATOR_PRESS_GLASS
+
+SITE_ANASTOMOSIS_TYPE;"Välj typ av isolerglas"
+SITE_ANASTOMOSIS_TYPE_0;Valfri
+SITE_ANASTOMOSIS_TYPE_1;Enkel
+SITE_ANASTOMOSIS_TYPE_2;2-glas
+SITE_ANASTOMOSIS_TYPE_3;3-glas
+
+SITE_THICKNESS_LEGEND_1;"Tjockleken på enkelglas eller ytterst glas i isolerglas"
+SITE_THICKNESS_LEGEND_2;"Tjockleken på mittglasrutan i 3-glas isolerglas"
+SITE_THICKNESS_LEGEND_3;"Tjockleken på ytterst glas i isolerglas"
+
+SITE_SECTION_TOTAL_WIDTH;"Begränsa paketets tjocklek"
+SITE_SECTION_GLASES_WIDTH;"Begränsa tjockleken på glasrutorna i paketet"
+SITE_SECTION_WEIGHT;"Ange paketets vikt"
+SITE_SECTION_PROTECTION_CLASS;"Ange skyddsklass"
+SITE_SECTION_SECURITY_CLASS;"Ange säkerhetsklass"
+SITE_SECTION_LAMINATED_GLASS;"Ta hänsyn endast till enheter innehållande laminerat glas"
+
+SITE_UNIT_DB;[dB]
+SITE_UNIT_MM;[mm]
+SITE_UNIT_CLASS;[klass]
+SITE_UNIT_KG;[kg]
+
+SITE_TITLE_TOTAL_WIDTH;"Paketets totala tjocklek"
+SITE_TITLE_GLASES_WIDTH;"Tjockleken på glarutorna i paketet"
+SITE_TITLE_WEIGHT;"Paketets vikt 1m<sup>2</sup>"
+SITE_TITLE_PROTECTION_CLASS;"Klass av laminerat skyddsglas"
+SITE_TITLE_SECURITY_CLASS;"Klass av laminerat säkerhetsglas"
+SITE_TITLE_LAMINATED_GLASS;"Ta hänsyn endast till enheter innehållande laminerat glas"
+SITE_TITLE_LAMINATED_PDF;"Laminerat glas"
+
+SITE_YES;Ja
+SITE_NO;Nej
+SITE_EMPTY;Brist
+
+table.title;"Certifierade isolerade glasenheter (Rw dB) bekräftade på CE-deklarationen"
+table.model;Modell
+table.acoustic_performance;"Akustisk prestanda (dB)"
+table.type_of_glass;"Typ av Glas"
+table.composition;Konstruktion
+table.glass_1;"Glas 1"
+table.spacer_1;"Distanshållare 1"
+table.glass_2;"Glas 2"
+table.spacer_2;"Distanshållare 2"
+table.glass_3;"Glas 3"
+table.structure;"Structur [mm]"
+table.thickness;"Total tjocklek"
+table.glass_weight;"Total glasvikt"
+table.items;objekt
+table.type_of_used_gas;Fyllning
+table.acoustic_insulation_coefficient;Ljudreduktion
+table.acoustic_insulation_coefficient_at_average;"Ljudisolering vid oktavband"
+table.filter_reset;"Återställ filter"
+table.value.single_glass;Enkelglas
+table.value.double_IGU;"2-glas isolerglas"
+table.value.triple_IGU;"3-glas isolerglas"
+table.Szyba_Laminowana;"Szyba laminowana"
+table.value.1;"NIE"
+table.value.2;"TAK"

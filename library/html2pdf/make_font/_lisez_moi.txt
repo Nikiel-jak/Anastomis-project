@@ -1,0 +1,70 @@
+*******************************************************
+** Ce programme est distribué sous la licence GPL,   **
+** reportez-vous au fichier _GPL.txt ou à            **
+** http://www.gnu.org/licenses/licenses.fr.html#GPL  **
+** pour en savoir plus.                              **
+**                                                   **
+**  Copyright 2000-2009 par Laurent Minguet          **
+*******************************************************
+*******************************************
+* MakeFont v1.0 for HTML2PDF - 13/03/2009 *
+*******************************************
+
+ATTENTION :
+----------
+ ne marche que depuis un serveur WINDOWS à cause de ttf2pt1
+ 
+ bien LIRE et bien COMPRENDRE le tutorial de creation de font de FPDF
+ http://fpdf.org/fr/tutorial/tuto7.htm, ainsi que le script index.php
+ avant de l'utiliser.
+
+Utilisation :
+------------
+ - Le repertoire de ce script doit être copié dans le répertoire de HTML2PDF
+  
+ - Exemple pour la fonte Arial,
+   ecrite en normal, gras, italique, et gras+italique,
+   de type 'ISO-8859-1',
+   en corrigeant le symbol de l'Euro
+ 
+    * Les noms des 4 fichiers ttf doivent être en minuscule :
+       arial.ttf, arialb.ttf, ariali.ttf, arialbi.ttf
+    
+    * Copier les 4 fichiers ttf dans le répertoire de ce script
+ 
+    * Editer le script index.php et indiquer les paramètres suivants :
+       $real  = 'Arial';                    // nom de la fonte
+       $name  = 'arial';                    // base du nom des fichiers ttf
+       $types = array('', 'b', 'i', 'bi');  // les differents types d'ecriture
+       $enc   = 'ISO-8859-1';               // nom de l'encodage
+       $patch = array(164=>'Euro');         // correction du symbole Euro
+
+    * Lancer le script index.php depuis un navigateur WEB
+ 
+    * La fonte est automatiquement créée et copiée dans le répertoire fonte de FPDF,
+      et utilisable dans HTML2PDF. Un exemple s'affiche automatiquement
+         
+Modification :
+-------------
+ 1.0 : modification du script afin de facilité la génération
+       première version diffusée
+
+Aide et Support :
+----------------
+ pour toutes questions et rapport de bug, merci d'utiliser exclusivement le lien de support ci-dessous.
+ Je ne répondrais à aucune question en dehors, afin que tout le monde puisse profiter des réponses.
+
+Informations :
+-------------
+ Programmation en PHP4
+
+ Programmeur :	Spipu
+		email   : webmaster@spipu.net
+		site    : http://html2pdf.fr/
+		support : http://html2pdf.fr/forum.php
+		
+Remerciement :
+-------------
+ * Olivier PLATHEY pour son script makefont inclus dans Fpdf (http://www.fpdf.org/)
+ * Andrew Weeks pour ttf2pt1
+ * yAronet pour l'hebergement du forum de support

@@ -1,0 +1,57 @@
+<?php if(Orion_Auth::isLogged()): ?>
+    <div class="panel_top">
+        <div class="header_left">
+            <p><?=$this->translate('ADMIN_MENU_CMS')?></p>
+        </div>
+        <div class="header_right">
+            <div id="link_1" class="icon_nonactive"></div>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="both"></div>
+        <ul class="list" >
+           <li>
+                <a <?=($this->isCurrentLink('admin-groups'))  ? 'class="active"' : ''; ?> href="<?=$this->url(array(),'admin-groups')?>">
+                    <?=$this->translate('Grupy');?>
+                </a>
+            
+            </li>
+           <li class="link">
+                <a <?=($this->isCurrentLink('admin-attributes'))  ? 'class="active"' : ''; ?> href="<?=$this->url(array(),'admin-attributes')?>">
+                    <?=$this->translate('Atrybuty');?>
+                </a>
+            
+            </li>
+           <li class="link">
+                <a <?=($this->isCurrentLink('admin-anastomosis'))  ? 'class="active"' : ''; ?> href="<?=$this->url(array(),'admin-anastomosis')?>">
+                    <?=$this->translate('Zespolenia');?>
+                </a>
+            
+            </li>
+        </ul>
+    </div>
+    <div class="both"></div>
+    <br />
+ <div class="panel_top">
+        <div class="header_left">
+            <p><?=$this->translate('ADMIN_MENU_SYSTEM')?></p>
+        </div>
+        <div class="header_right">
+            <div id="link_1" class="icon_nonactive"></div>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="both"></div>
+        <ul>
+            <li>
+                <a <?=($this->isCurrentLink('admin-users')) ? 'class="active"' : ''; ?>href="<?=$this->url(array(),'admin-users')?>"><?=$this->translate('ADMIN_MENU_USERS') ?></a>
+            </li>
+            <li class="link">
+                <a <?=($this->isCurrentLink('admin-language')) ? 'class="active"' : ''; ?>href="<?=$this->url(array(),'admin-language')?>"><?=$this->translate('Języki') ?></a>
+            </li>
+            <li class="link">
+                <a <?=($this->isCurrentLink('admin-configuration')) ? 'class="active"' : ''; ?>href="<?=$this->url(array(),'admin-configuration')?>"><?=$this->translate('Ustawienia') ?></a>
+            </li>
+        </ul>
+    </div>
+<?php endif; ?>

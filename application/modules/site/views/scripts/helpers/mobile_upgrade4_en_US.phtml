@@ -1,0 +1,1027 @@
+<form id="forms" action="<?=$this->url(array('lang' => $this->lang),'site-mobile')?>" method="GET">
+    
+
+    <?php $z=1; foreach($this->group as $group_name =>  $sliders):?>
+        <?php $array_keys = array_keys($sliders);?>
+        <?php $elem =($sliders[array_shift($array_keys)]->toArray());?>
+    
+        <?php
+        
+        // upgrade4: dodatkowe atrybuty sterowane przyciskami z widocznością
+        $button_id = '';
+        if (($elem['css_class']) != '') {
+            
+            if($elem['css_class'] == 'protection_class special22') {
+                $button_text = $this->translate('SITE_SECTION_PROTECTION_CLASS');
+                $button_id = 'special_4';
+                $button_url = $this->imagePath('ok.png');
+            }
+            if($elem['css_class'] == 'size special22') {
+                $button_text = $this->translate('SITE_SECTION_TOTAL_WIDTH');
+                $button_id = 'special_1';
+                $button_url = $this->imagePath('gs.png');
+            }
+            if($elem['css_class'] == 'glass_laminate') {
+                $button_text = $this->translate('SITE_SECTION_LAMINATED_GLASS');
+                $button_id = 'special_6';
+                $button_url = $this->imagePath('unlocked.jpg');
+            }
+            if($elem['css_class'] == 'safety special22') {
+                $button_text = $this->translate('SITE_SECTION_SECURITY_CLASS');
+                $button_id = 'special_5';
+                $button_url = $this->imagePath('okb.png');
+            }
+            if($elem['css_class'] == 'weight special22') {
+                $button_text = $this->translate('SITE_SECTION_WEIGHT');
+                $button_id = 'special_3';
+                $button_url = $this->imagePath('lb.png');
+            }
+            if($elem['css_class'] == 'glass_size special22') {
+                $button_text = $this->translate('SITE_SECTION_GLASES_WIDTH');
+                $button_id = 'special_2';
+                $button_url = $this->imagePath('og.png');
+            }
+       ?>
+       <div class="table_like special_button special_button<?=$button_id?>">
+                <div class="element noborder" style="margin-top: 15px;">
+                    <div class="radio" style="overflow: hidden; margin-top: 0px; width: 100%;">
+                        <div class="radio_tr" id="button_<?= $button_id ?>">
+                   <div class="radio_td " style="width: 50px; padding: 0px 5px; display: table-cell;">
+                        <button  class="mobile_button_img"   style="padding: 0px 4px 0px 0px !important;"><img src="<?= $button_url ?>" /></button>
+                      </div>
+                        <div class="radio_td2 button_<?= $button_id ?>_description" style="">
+                        <?= $button_text ?>
+                           </div>
+                       </div>
+                
+                        
+                    </div>
+                </div>
+            </div>
+    
+<?php  if($elem['css_class'] == 'glass_size special22') {   ?>    
+           <div class="radio" id="special_2_radio" style="overflow: hidden; margin-top: 20px;">
+<div class="radio_tr">
+<div class="radio_td"><?/*= $this->translate('SITE_ANASTOMOSIS_TYPE') */?></div>
+<div class="radio_td2">
+<div class="glass_size_options_div">
+<select id="glass_size_options" style="visibility: hidden">
+<option value="0"><?= $this->translate('SITE_ANASTOMOSIS_TYPE_0') ?></option>
+<option value="1"><?= $this->translate('SITE_ANASTOMOSIS_TYPE_1') ?></option>
+<option value="2"><?= $this->translate('SITE_ANASTOMOSIS_TYPE_2') ?></option>
+<option value="3"><?= $this->translate('SITE_ANASTOMOSIS_TYPE_3') ?></option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<?php  }   ?>      
+    
+       <?php
+        }
+        
+        
+        ?>
+    
+       <?php
+      
+       
+       
+       ?>
+    
+    
+        <div class="table_like"  <?= ($button_id != '') ? 'style="display: none;"' : '';?> >
+            <div  <?php if ($button_id != '') { echo  "id='sliders_$button_id'"; }     ?> 
+                
+                class="element 
+                <?= ($z == 1) ? 'params table_element' : ''?> 
+                <?= ($z != 1 && $button_id == '' && $elem['can_hide'] == 1) ? 'to_hide hide tercja' : '';?> 
+                <?= ($z != 1 && $button_id == '' && $elem['can_hide'] != 1) ? 'to_disabled hide' : '';?>
+                <?= ($button_id != '') ? 'table_element' : '';?>
+ 
+                ">
+                
+                    
+                <?Php 
+                if ($z == 1) {
+                   // $elem['group_name'] = 'max';
+                   // $elem['hint'] = 'min';
+                }
+                
+                $right = (380/(count($sliders)+1)-40);?>
+                
+                
+                <?php if ($z == 1 || ($button_id != '')) {  ?>
+                   <div class="item indicators" style='position:relative; margin-left: 6px;'>
+                    <div class="max_indicator"><?= $this->translate('SITE_MAX') ?></div>
+                    <div  class="min_indicator"><?= $this->translate('SITE_MIN') ?></div>
+                </div>
+                <?php } else { ?>
+                
+          
+                 <?php } ?>
+                
+                <?php 
+                $k = 1;
+                foreach($sliders as $value):?>
+					
+                <?php
+					if ($value->group_id!=24) {
+				
+             switch ($value->id ) {
+                 case 10:
+                     $item_prefix = 'Rw';
+                     break;
+                 case 12:
+                     $item_prefix = 'C';
+                     break;
+                 case 13:
+                     $item_prefix = 'Ctr';
+                     break;
+                 case 14:
+                     $item_prefix = 'Ra';
+                     break;
+                 case 15:
+                     $item_prefix = 'Ratr';
+                     break;
+                 default :
+                     $item_prefix = '';
+                     break;
+             }
+             
+             if (!empty($item_prefix)) {
+         ?>
+            
+            <script type="text/javascript">
+                
+                var <?= $item_prefix ?> = 'item_<?= $value->id ?>';
+                var <?= $item_prefix ?>_min = <?= $value->min_value ?>;
+                var <?= $item_prefix ?>_max = <?= $value->max_value ?>;
+                
+            </script>
+            
+            
+          <?php    
+
+             }
+           
+                        $val = $value->min_value;
+                        $start = $value->min_value;
+                        $stop = $value->max_value;
+                        $step = preg_replace('/,/', '.', $value->step);
+                         ?>
+                
+                    <div class="item" id="item_<?= $value->id ?>">
+                        <p class="slider_name">
+						<?
+						if ($value->id == 38) {
+							echo $this->translate('SITE_TITLE_TOTAL_WIDTH');
+						} else if ($value->id == 42){
+							echo $this->translate('SITE_TITLE_WEIGHT');
+						} else if ($value->id == 40) {
+							echo $this->translate('SITE_TITLE_PROTECTION_CLASS');
+						} else if ($value->id == 41) {
+							echo $this->translate('SITE_TITLE_SECURITY_CLASS');
+						} else {
+							echo $value->name;	
+						}
+						?>
+                        </p>
+                            
+                        <?php if ($z == 1) {  ?>
+                        <p><?= $this->translate('SITE_UNIT_DB') ?></p>
+                        <?php } ?>
+                        
+                        <?php if (in_array($button_id, array('special_1', 'special_2') )) {  ?>
+                        <p><?= $this->translate('SITE_UNIT_MM') ?></p>
+                        <?php } ?>
+                        
+                        <?php if (in_array($button_id, array('special_3') )) {  ?>
+                        <p><?= $this->translate('SITE_UNIT_KG') ?></p>
+                        <?php } ?>
+                        
+                        <?php if (in_array($button_id, array('special_4', 'special_5') )) {  ?>
+                        <p><?= $this->translate('SITE_UNIT_CLASS') ?></p>
+                        <?php } ?>
+                            
+                          <?php if ($z == 1 || ($button_id != '')) {  ?>
+                            <p style="height: auto;" class="<?php if (!in_array($value->id, array('10','14','15', '38', '40', '41', '42',  '43', '44', '45','46','47') )) echo 'max_value'; ?>">
+                                <?php if($k ==-1):?>
+                                    <span style=" font-size: 0.8em;">max</span>
+                                <?php endif;?>
+                                    
+                            <?php 
+                           
+                            if (in_array($value->id, array('10','14','15', '38', '40', '41', '42', '43', '44', '45','46','47') )) { ?>        
+                              									
+								<select <?= ($button_id != '') ? 'disabled' : '';?>  onchange="javascript: handle<?= ($button_id != '')?'_special':'' ?>_change('<?= ($button_id != '')?$value->id:$item_prefix ?>', 'first');" class="first" style="margin-left: 2px;"  id="slider_item_max_<?=$value->id?>"   name="<?=$value->id?>[max]" type="text"  />
+                                  <?php 
+                                  
+                                  $current_step = 1;
+                                  if ($button_id != '') {
+                                     $current_step = floatval(str_replace(',', '.', $value->step));
+                                  }
+                                 // echo 'step ' . $value->step;
+                                  
+                                  
+                                  for($i = $stop; $i >= $start; $i = $i - $current_step) {
+                                      $i = round($i, 1);
+                                      $option_text = preg_replace('/.00/','',$i);
+                                      if (in_array($value->id, array( '40', '41') )) {
+                                          $option_text = @$this->values[$value->id][$i];
+                                          if ( $option_text == '')
+                                              continue;
+                                      }
+                                      
+                                     $current_value = preg_replace('/.00/','',$i);
+                                     if ($button_id != '') {
+                                        $current_value = $i;
+                                     }
+                                  
+										
+										/**
+										 * Dla amerykańskiej wersji wagę zamieniamy na funty.
+										 */
+										if ($value->id==42) {											
+											$current_value=($current_value/0.45359237);											
+											$option_text=ceil($option_text/0.45359237);											
+										}
+										?>									 
+									 
+                                      ?>
+                                    <option value="<?= $current_value ?>" <?=($i == $stop) ? 'selected="selected"': ''?>><?php if(in_array($option_text, array('BRAK', 'Brak', 'brak'))){
+                                                echo $this->translate('SITE_EMPTY');
+                                            }else{
+                                                echo $option_text;
+                                            }?></option>
+                                <?php } ?>
+                                </select> 
+                             <?php } else {  ?> 
+                            <?= $value->max_value ?>
+                            <?php }  
+                            ?>         
+                            </p>        
+                          <?php }  
+                            ?>     
+                            <p style="height: auto; margin-top: 20px;">
+                                   <?php if($k == -1):?>
+                                        <span style=" font-size: 0.8em; ">min</span>
+                                    <?php endif;?>
+			
+                                <select <?= ($button_id != '') ? 'disabled' : '';?> onchange="javascript: handle<?= ($button_id != '')?'_special':'' ?>_change('<?= ($button_id != '')?$value->id:$item_prefix ?>', 'last');" class="last" style="margin-left: 2px;"  id="slider_item_min_<?=$value->id?>"   name="<?=$value->id?><?php if (in_array($value->id, array('10','14','15', '38', '40', '41', '42', '43', '44', '45') )) echo '[min]'; ?>" type="text"  />
+                                    <?php 
+                                    $current_step = 1;
+                                  if ($button_id != '') {
+                                     $current_step = floatval(str_replace(',', '.', $value->step));
+                                  }
+                                    
+                                    for($i = $start; $i <= $stop; $i = $i + $current_step) {
+                                        
+                                        $i = round($i, 1);
+                                        
+                                        
+                                        $option_text = preg_replace('/.00/','',$i);
+                                      if (in_array($value->id, array( '40', '41') )) {;
+                                          $option_text = @$this->values[$value->id][$i];
+                                          if ( $option_text == '')
+                                              continue;
+                                      }
+                                      
+                                      
+                                      $current_value = preg_replace('/.00/','',$i);
+                                     if ($button_id != '') {
+                                        $current_value = $i;
+                                     }
+                                        
+                                        ?>
+								
+										<?
+										/**
+										 * Dla amerykańskiej wersji wagę zamieniamy na funty.
+										 */
+										if ($value->id==42) {
+											
+											$current_value=($current_value/0.45359237);											
+											$option_text=ceil($option_text/0.45359237);											
+										}
+										
+										/**
+										 * Dla amerykańskiej wersji zaokraglamy wartości
+										 * tercji i oktaw
+										 */										
+										if ($value->group_id==25 || $value->group_id==26 || $value->group_id==28) {
+											
+											$current_value=ceil($current_value);											
+											$option_text=ceil($option_text);	
+											
+											/**
+											 * Huj wie dlaczego.
+											 */
+											if ($option_text=="No") {
+												$option_text="0";
+											}	
+										}
+										
+										?>
+								
+                                        <option value="<?=$current_value ?>" <?=($i == $start) ? 'selected="selected"': ''?>><?php if(in_array($option_text, array('BRAK', 'Brak', 'brak'))){
+                                                echo $this->translate('SITE_EMPTY');
+                                            }else{
+                                                echo $option_text;
+                                            }?></option>
+                                    <?php }; ?>
+                                </select>
+                            </p>
+                        </div>
+                    <!--
+                    <div class="item" >
+                        <p><?=$value->name?></p>
+                        <?php if (in_array($value->id, array('15','14'))):?>
+                        <?php endif;?>
+                            <select class="<? (in_array($value->id, array('15','14'))) ? 'di as' : ''; ?>" id="slider_item_<?=$value->id?>"   name="<?=$value->id?>" type="text"  />
+                            <?php for($i = $start; $i <= $stop; $i++):?>
+                            <option <?=($i == $val) ? 'selected="selected"': ''?>><?=$i?></option>
+                            <?php endfor; ?>
+                            </select>
+                    </div>
+                    -->
+                    
+                     
+                    
+                    
+                <?php 
+                $k++;						
+					}
+				
+				
+
+                endforeach;?>
+            </div>
+        </div>
+        <?php if($z == 1 && count($this->group) > 1):?>
+    <div class="table_like">
+                <div class="element noborder" style="margin-top: 15px;">
+                    <div class="radio" style="overflow: hidden; margin-top: 20px; width: 100%;">
+                        <div class="radio_tr">
+                   <div class="radio_td" style="width: 50px; padding: 0px 5px; display: table-cell;">
+                        <button id="lock_button" class="mobile_submit"   style="padding: 5px 4px 0px 0px !important;"><img src="<?= $this->imagePath('locked.png') ?>" /></button>
+                      </div>
+                        <div class="radio_td2" style="vertical-align: top; text-align: left; padding-left: 5px; display: table-cell;">
+                        <?= $this->translate('SITE_DEPENDENCY_BUTTON') ?>
+                           </div>
+                       </div>
+                
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="table_like">
+                <div class="element noborder" style="margin-top: 15px;">
+                    <div class="line_spacer" >
+                        <button id="oktawy_button"  class="mobile_submit"   style=""><?= $this->translate('SITE_OKTAWY_ON') ?></button>&nbsp;
+                        <button id="terc_button"  class="mobile_submit"   style=" display: none;"><?= $this->translate('SITE_TERC_ON') ?></button>
+   
+                    </div>
+                </div>
+            </div>
+        <?php endif;?>
+    
+      <?php if($elem['css_class'] == 'glass_size special22'):?>
+                    <div class="legend" id="special_2_legend">
+                        <ul style="list-style:none;">
+                            <li>
+                                <img style="position: relative; top: 4px;" src="<?=$this->imagePath('x.jpg')?>"/>
+                                <?= $this->translate('SITE_THICKNESS_LEGEND_1') ?>
+                            </li>
+                            <li>
+                                <img style="position: relative; top: 4px;" src="<?=$this->imagePath('y.jpg')?>"/>
+                                <?= $this->translate('SITE_THICKNESS_LEGEND_2') ?>
+                            </li>
+                            <li>
+                                <img style="position: relative; top: 4px;" src="<?=$this->imagePath('z.jpg')?>"/>
+                                <?= $this->translate('SITE_THICKNESS_LEGEND_3') ?>
+                            </li>
+                        </ul>
+                    </div>
+                    <?php endif;?>
+    
+    
+    <?php $z++; endforeach; ?>
+    <div class="table_like">
+        <div class="element noborder" style="margin-top: 15px;">
+            <div class="line_spacer" >
+               <button  id="show_button" class="mobile_submit"  ><?=$this->translate('SITE_SHOW_RESULTS')?> (<span>0</span>)</button>
+            </div>
+       </div>
+    </div>
+    <input style="display:none;" id="submit_print" type="submit" value="" />
+</form>
+<script>
+    
+
+    
+var attributes = [];
+    <?php
+   
+     $i = 0;
+     foreach ($this->attributes_realtion as $r_k => $r_v) {
+         echo 'var a_' . $r_k . ' = [];
+             ';  
+         foreach ($r_v as $a_k => $a_v) {
+             echo 'a_' . $r_k . '['.$a_k.'] = '.$a_v.';
+             '; 
+         }
+         echo 'attributes['.$i.'] = a_' . $r_k . ';
+             ';
+         
+         $i++;
+     }
+    ?>
+        
+    //Rw: id = 10
+    //C: id = 12
+    //Ctr: id = 13
+    //RA: id = 14
+    //RAtr: id = 15
+    var current_mode = '1';
+    var semafor = 0; //do kontroli kto odpalił zmianę wartości
+    var is_locked = true;  //wzajemna zależność suwaków
+    
+    
+    function set_dependency_lock(lock) {
+        is_locked = lock;
+        if (is_locked) {
+            $('#lock_button img').attr('src', '<?= $this->imagePath('locked.png') ?>');
+        }
+        else {
+            $('#lock_button img').attr('src', '<?= $this->imagePath('unlocked.png') ?>');
+        }
+    }
+    
+    function set_item_mode(item_id, disabled ) {
+       // alert($(item_id));
+        $('#' + item_id + ' input').attr('disabled', disabled);
+        $('#' + item_id + ' select').attr('disabled', disabled);
+        
+        if (disabled) {
+            $('#' + item_id).hide();
+        }
+        else {
+            $('#' + item_id).show();
+        }
+        
+    }
+    
+    function set_item_values(item_id, min_value, min_scale, max_value, max_scale) {
+        semafor = 1;
+        $('#' + item_id + ' select.first').val(max_value);
+        $('#' + item_id + ' select.last').val(min_value);
+        semafor = 0;
+    }
+    
+    function get_item_values(item_id, value_type) {
+        values = [0, 0];
+        values[0] = $('#' + item_id + ' select.last').val();
+        values[1] = $('#' + item_id + ' select.first').val();
+        if (values[1] != '') {
+            if (values[1] < values[0] ) {
+                if (value_type == 'first') {
+                    values[0] = values[1];
+                    $('#' + item_id + ' select.last').val(values[1]);
+                }
+                else {
+                    values[1] = values[0];
+                    $('#' + item_id + ' select.first').val(values[0]);
+                }
+            }
+        }
+        return values;
+    }
+    
+    
+    function handle_change(item_code, value_type) {
+        
+        if (is_locked) {
+        
+       // Rw_values = get_item_values(Rw, value_type);
+       // C_values = get_item_values(C, value_type);
+       // Ctr_values = get_item_values(Ctr, value_type);
+       // Ra_values = get_item_values(Ra, value_type);
+       // Ratr_values = get_item_values(Ratr, value_type);
+        
+         
+         switch(item_code) {
+             case 'Rw':
+                 switch(current_mode) {
+                     
+                     case '2':
+                       
+                dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                set_item_values(C, dep[12][0], C_min, null, C_max );
+               // alert(Rw_values[1]);
+              //  alert(dep[12][0]);   
+                set_item_values(Ctr, dep[13][0], Ctr_min, null, Ctr_max );
+ 
+ 
+                     break;
+                     
+                     case '3':
+                         
+                       dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                       set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );  
+                       set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );    
+
+                     break;
+                     
+                     case '5':
+                         
+                         dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                         set_item_values(C, dep[12][0], C_min, null, C_max );
+
+                     break;
+                     
+                     case '6':
+
+                     dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                     set_item_values(Ctr, dep[13][0], Ctr_min, null, Ctr_max );
+
+                     break;
+                     
+                     
+                     
+                     case '7':
+                         
+                         dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                       set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );  
+   
+                     break;
+                     
+                     case '8':
+                       dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                       set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );          
+                   
+                     break;
+                     
+
+                 }
+                 break;
+                 
+                 case 'C':
+                     
+                 switch(current_mode) {
+                     case '2':
+                         
+                         dep = calculate_dependencies(12, C_values[0], C_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(Ctr, dep[13][0], Ctr_min, dep[13][1], Ctr_max );    
+                         
+                         break;
+                         
+                         
+                         case '5':
+                         
+                         dep = calculate_dependencies(12, C_values[0], C_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+  
+                         
+                         break;
+                 }
+                 
+                 break;
+                 
+                 
+                 case 'Ctr':
+                     
+                 switch(current_mode) {
+                     
+                     case '2':
+                         
+                         dep = calculate_dependencies(13, Ctr_values[0], Ctr_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(C, dep[12][0], C_min, dep[12][1], C_max );    
+ 
+                         break;
+                         
+                         case '6':
+                         
+                         dep = calculate_dependencies(13, Ctr_values[0], Ctr_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                                             
+                         break;
+   
+                 }
+                 
+                 break;
+                 
+                 case 'Ra':
+                    switch(current_mode) {
+                     
+                     case '3':
+                         
+                         dep = calculate_dependencies(14, Ra_values[0], Ra_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );    
+ 
+                         break;
+
+                    case '7':
+                         
+                         dep = calculate_dependencies(14, Ra_values[0], Ra_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+   
+                         break;
+                         
+                         case '9':
+                         
+                         dep = calculate_dependencies(14, Ra_values[0], Ra_values[1]);
+                         set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );    
+   
+                         break;
+                    }
+                 
+                 break;
+                 
+                 case 'Ratr':
+                    switch(current_mode) {
+                     
+                     case '3':
+                         
+                         dep = calculate_dependencies(15, Ratr_values[0], Ratr_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );      
+ 
+                         break;
+
+                    case '8':
+                         
+                         dep = calculate_dependencies(15, Ratr_values[0], Ratr_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+   
+                         break;
+                         
+                         case '9':
+                         
+                         dep = calculate_dependencies(15, Ratr_values[0], Ratr_values[1]);
+                         set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );    
+   
+                         break;
+                    }
+                 
+                 break;
+         }
+         
+        }
+        
+        postAjax();
+    }
+    
+    
+    function handle_special_change(slider_id, trigger_type) {
+        
+        max_value = parseFloat($('#slider_item_max_' +slider_id).val());
+        min_value = parseFloat($('#slider_item_min_' +slider_id).val());
+        if (max_value < min_value)
+            if (trigger_type == 'first')
+                $('#slider_item_min_' +slider_id).val(max_value);
+            else
+               $('#slider_item_max_' +slider_id).val(min_value);
+        postAjax();
+    }
+    
+    
+    function calculate_dependencies(slider_id, min_value, max_value) {
+        
+        var res = [];
+        res_10 = [0, 0];
+        res[10] = res_10;
+        res_12 = [0, 0];
+        res[12] = res_12;
+        res_13 = [0, 0];
+        res[13] = res_13;
+        res_14 = [0, 0];
+        res[14] = res_14;
+        res_15 = [0, 0];
+        res[15] = res_15;
+         
+        for (index = 0; index < attributes.length; ++index) {
+          slider_values = attributes[index];
+          //sprawdz czy spełnia
+          if (slider_values[slider_id] < min_value) {
+              continue;
+          }
+          
+          if (max_value != 0 && slider_values[slider_id] > max_value ) {
+              continue;
+          }
+          
+          if (res[10][0] == 0 ) {
+              res[10][0] = slider_values[10];
+              res[10][1] = slider_values[10];
+          }
+          
+          if (res[12][0] == 0 ) {
+              res[12][0] = slider_values[12];
+              res[12][1] = slider_values[12];
+          }
+          
+          if (res[13][0] == 0 ) {
+              res[13][0] = slider_values[13];
+              res[13][1] = slider_values[13];
+          }
+          
+          if (res[14][0] == 0 ) {
+              res[14][0] = slider_values[14];
+              res[14][1] = slider_values[14];
+          }
+          
+          if (res[15][0] == 0 ) {
+              res[15][0] = slider_values[15];
+              res[15][1] = slider_values[15];
+          }
+          
+          if (res[10][0] > slider_values[10])
+              res[10][0] = slider_values[10];
+          
+          if (res[10][1] < slider_values[10])
+              res[10][1] = slider_values[10];
+          
+          if (res[12][0] > slider_values[12])
+              res[12][0] = slider_values[12];
+          
+          if (res[12][1] < slider_values[12])
+              res[12][1] = slider_values[12];
+          
+          
+          if (res[13][0] > slider_values[13])
+              res[13][0] = slider_values[13];
+          
+          if (res[13][1] < slider_values[13])
+              res[13][1] = slider_values[13];
+          
+          if (res[14][0] > slider_values[14])
+              res[14][0] = slider_values[14];
+          
+          if (res[14][1] < slider_values[14])
+              res[14][1] = slider_values[14];
+          
+          if (res[15][0] > slider_values[15])
+              res[15][0] = slider_values[15];
+          
+          if (res[15][1] < slider_values[15])
+              res[15][1] = slider_values[15];
+        } 
+         
+        return res;
+    } 
+    
+    //ustaw nowy tryb
+    function set_mode(mode) {
+        current_mode = mode;
+         
+        postAjax(); 
+    }    
+
+        function glass_size_options_changed() {
+            var value = $('#glass_size_options').val();
+        switch(parseInt(value)) {
+            case 0:
+            case 3:
+                set_item_mode('item_43', false);
+                set_item_mode('item_44', false);
+                set_item_mode('item_45', false);
+                break;
+            case 1:
+                set_item_mode('item_43', false);
+                set_item_mode('item_44', true);
+                set_item_mode('item_45', true);
+                break;
+            case 2:
+                set_item_mode('item_43', false);
+                set_item_mode('item_44', true);
+                set_item_mode('item_45', false);
+                break;
+        }
+        postAjax();
+        }
+        
+        
+        $('#glass_size_options').change(function(){
+           glass_size_options_changed();
+    });
+    
+    
+$(function() {
+    
+    $('.hide  select').attr('disabled', true);
+     set_mode(current_mode); //domyślny tryb
+    
+     $('#mode').change(function(e) {
+         set_mode($('#mode').val());
+     });
+         
+         
+    
+        
+        $('#lock_button').click(function(e) {
+            e.preventDefault();
+            set_dependency_lock(!is_locked);
+        });     
+    
+    $('#oktawy_button').click(function(e){
+            e.preventDefault();
+            $('#terc_button').toggle(); 
+            if ($('#oktawy_button').html() == '<?= $this->translate('SITE_OKTAWY_ON') ?>') {
+                $('#oktawy_button').html('<?= $this->translate('SITE_OKTAWY_OFF') ?>');
+                 $('.hide').not('.tercja').show(); 
+                 if ($('#terc_button').html() == '<?= $this->translate('SITE_TERC_OFF') ?>') {
+                     $('.tercja').show();
+                 }
+            }
+            else {
+                $('#oktawy_button').html('<?= $this->translate('SITE_OKTAWY_ON') ?>');
+                 $('.hide').hide(); 
+            }
+           
+            $('.hide select').attr('disabled', true); 
+            $('.hide:visible select').attr('disabled', false); 
+            $('.hide:visible').css('display', 'table-row'); 
+            postAjax();
+        });
+        
+        
+        $('#terc_button').click(function(e){
+            e.preventDefault();
+            if ($('#terc_button').html() == '<?= $this->translate('SITE_TERC_ON') ?>') {
+                $('#terc_button').html('<?= $this->translate('SITE_TERC_OFF') ?>');
+            }
+            else {
+                $('#terc_button').html('<?= $this->translate('SITE_TERC_ON') ?>');
+            }
+            $('.tercja').toggle(); 
+            //$('.element').toggleClass('bg');
+            
+            $('.hide select').attr('disabled', true); 
+            $('.hide:visible select').attr('disabled', false); 
+            $('.hide:visible').css('display', 'table-row'); 
+            postAjax();
+        });
+        
+    
+    
+    var text_search = '<?=$this->translate('SITE_SEARCH_RESULTS')?>';
+    var text_nag = '<?=$this->translate('SITE_HEADER_TITLE')?>';
+    $('#show_button').click(function(e){
+        e.preventDefault();
+        $('.pull-left').hide();
+        $('.results').show(); 
+        $('h2').html(text_search);
+    });
+    
+    
+     //upgrde_4
+ var button_special_1_lock = true;
+ $('#button_special_1').click(function(e) {
+      e.preventDefault();
+      button_special_1_lock = !button_special_1_lock;
+      if (button_special_1_lock) {
+          $('#sliders_special_1').parent().hide();
+          
+          $('#sliders_special_1 select').attr('disabled',  true); 
+      }
+      else {
+          $('#sliders_special_1').parent().show();
+          $('#sliders_special_1 select').attr('disabled', false); 
+      }
+      postAjax();
+ });  
+ 
+  var button_special_2_lock = true;
+ $('#button_special_2').click(function(e) {
+      e.preventDefault();
+      button_special_2_lock = !button_special_2_lock;
+      if (button_special_2_lock) {
+          $('#sliders_special_2').parent().hide();
+          $('#special_2_legend').hide();
+          $('#special_2_radio').hide();
+          $('#sliders_special_2 select').attr('disabled',  true); 
+      }
+      else {
+          $('#sliders_special_2').parent().show();
+          $('#special_2_legend').show();
+          $('#special_2_radio').show();
+          $('#sliders_special_2 select').attr('disabled', false); 
+          glass_size_options_changed();
+      }
+      postAjax();
+ }); 
+ 
+ 
+ var button_special_3_lock = true;
+ $('#button_special_3').click(function(e) {
+      e.preventDefault();
+      button_special_3_lock = !button_special_3_lock;
+      if (button_special_3_lock) {
+          $('#sliders_special_3').parent().hide();
+          
+          $('#sliders_special_3 select').attr('disabled',  true); 
+      }
+      else {
+          $('#sliders_special_3').parent().show();
+          $('#sliders_special_3 select').attr('disabled', false); 
+      }
+      postAjax();
+ });  
+ 
+ var button_special_4_lock = true;
+  $('#button_special_4').click(function(e) {
+      e.preventDefault();
+      button_special_4_lock = !button_special_4_lock;
+      if (button_special_4_lock) {
+          $('#sliders_special_4').parent().hide();
+          
+          $('#sliders_special_4 select').attr('disabled',  true); 
+      }
+      else {
+          $('#sliders_special_4').parent().show();
+          $('#sliders_special_4 select').attr('disabled', false); 
+      }
+      postAjax();
+ }); 
+ 
+ var button_special_5_lock = true;
+ $('#button_special_5').click(function(e) {
+      e.preventDefault();
+      button_special_5_lock = !button_special_5_lock;
+      if (button_special_5_lock) {
+          $('#sliders_special_5').parent().hide();
+          
+          $('#sliders_special_5 select').attr('disabled',  true); 
+      }
+      else {
+          $('#sliders_special_5').parent().show();
+          $('#sliders_special_5 select').attr('disabled', false); 
+      }
+      postAjax();
+ }); 
+        
+    //special_2_legend  special_2_radio
+    
+    var laminowana_lock = false;
+    $('#button_special_6').click(function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        laminowana_lock = !laminowana_lock;
+        if(laminowana_lock){
+            $('#slider_item_min_39').val(2);
+            $('#button_special_6 button img ').attr('src', '<?= $this->imagePath('locked.jpg') ?>');
+            $('#sliders_special_6 select').attr('disabled',  false); 
+            
+        } else {
+            $('#slider_item_min_39').val(1);
+            $('#button_special_6 button img ').attr('src', '<?= $this->imagePath('unlocked.jpg') ?>');
+            $('#sliders_special_6 select').attr('disabled',  true); 
+        }
+        postAjax();
+    });
+    
+   
+      
+});
+
+function postAjax() {
+
+$.ajax({
+        url: "<?=$this->url(array('lang' => $this->lang),'site-ajax')?>",
+        method: 'POST',
+        data: $('#forms').serialize()
+    }).done(function(data ) {
+        var html = '';
+        var z = 0;
+        for(x in data){
+                if(x == 1){
+                    txt = '<?=$this->translate('SITE_GLASS_1')?>';
+                }
+                if(x == 2){
+                    txt = '<?=$this->translate('SITE_GLASS_2')?>';
+                }
+                if(x == 3){
+                    txt = '<?=$this->translate('SITE_GLASS_3')?>';
+                }
+            html += '<h3 style="text-align: left;padding-left: 10px;">' + txt+ '</h3>';
+            html += '<ul style="padding: 0px; list-style:none;">';
+             var c = 1;
+            for(d in data[x]){
+                html += '<li>' + c + '. &nbsp  '+ data[x][d].name + '</li>';
+                z++;
+                c++;
+            }
+            html += '</ul>';
+        }
+        $('#resuls').html(html);
+        $('#show_button span').html(z);
+    });
+    
+    }
+
+</script>

@@ -1,0 +1,8 @@
+<script>
+$('input[name="actiontype[delete]"]').click(function(){
+    if(confirm('<?=$this->translate("COMMON_ACCEPTED_DELETE_ITEMS")?>') == false){
+        return false;
+    }
+
+});
+</script>

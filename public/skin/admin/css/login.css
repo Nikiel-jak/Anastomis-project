@@ -1,0 +1,55 @@
+div#login_box{
+        border: 1px solid #006699;
+        width: 360px;
+        height: auto;
+        margin: 0 auto;
+        position: relative;
+}
+div#login_box .login_group{
+    width: 100%;
+    clear: both;
+    margin: 5px;
+
+}
+div#login_box input.text{
+    width: 187px;
+}
+div#login_box input.password{
+    width: 187px;
+}
+div#login_box .password_group{
+    width: 100%;
+    margin: 5px;
+    clear: both;   
+}
+div#login_box .submit{
+    margin-right: 3px;
+}
+div#login_box .bottom_info{
+    margin-top: 20px;
+    border-top: 1px solid #006699;
+    height: 18px;
+    padding: 0 5px 0 13px;
+}
+div#login_box .top_info{
+    height: 18px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #006699;
+    padding: 0 5px 0 13px;
+}
+div#login_box .remind_password{
+    display: block;
+    position: absolute;
+    bottom: 45px;
+    left: 6px;
+}
+div#login_box a.remind_password {
+    color: #006699;   
+}
+div#login_box a.remind_password:hover {
+    text-decoration: underline;   
+}
+div#login_box span.top{
+    color: #006699;
+    font-weight: bold;
+}

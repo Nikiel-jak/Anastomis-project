@@ -1,0 +1,21 @@
+<?=$this->doctype();?>
+<html>
+<head>
+    <?=$this->render('helpers/head.phtml');?>
+</head>
+<body class="lang-<?=$_SESSION['language']['page']['prefix']?>" data-lang="<?=$_SESSION['language']['page']['prefix']?>">
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2NT538"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->	
+	
+    <div id="block"></div>
+    <div id="wrapper">
+        <div class="container">
+            <?=$this->render('helpers/_flashmessanger.phtml');?>
+            <?php echo $this->layout()->content; ?>
+        </div>
+    </div>
+</body>
+</html>

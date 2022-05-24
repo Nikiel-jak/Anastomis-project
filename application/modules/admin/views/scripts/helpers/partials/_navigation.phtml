@@ -1,0 +1,8 @@
+<div class="navi">
+    <?php if(isset($this->name)): ?>
+        <h2><?=$this->edit?> <?=$this->name?></h2>
+    <?php else:?>
+        <h2><?=$this->add?></h2>
+    <?php endif;?>
+    <a class="btn right" href="<?=$this->back?>" class="back"><?=$this->translate('ADMIN_BACK_TO_LIST')?></a>
+</div>

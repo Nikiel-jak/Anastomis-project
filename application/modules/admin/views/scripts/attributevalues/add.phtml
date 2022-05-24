@@ -1,0 +1,18 @@
+<?=$this->partial('helpers/partials/_navigation.phtml',array('add' => 'Atrybut - '.$this->attribute->name.' - nowa wartość','back' => $this->url(array('attribute_id' => $this->attribute->id),'admin-attributes-values')));?>
+<div class="box">
+<div id="taf" style="border-bottom: 1px solid #DBDBDB; margin-bottom: 20px;">
+    <nav class="navbar navbar-default navbar-static-top" style="overflow: hidden; clear: both;">
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li >
+                    <a href="<?=$this->url(array('id' => $this->attribute->id),'admin-attributes-edit')?>">Dane podstawowe</a>
+                </li>
+                <li class="active">
+                    <a href="#">Definiuj warości</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+    <?=$this->form?>
+</div>

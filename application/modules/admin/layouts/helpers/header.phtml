@@ -1,0 +1,57 @@
+<?php 
+$languages = Orion_Language::getLanguages();
+unset($languages[Orion_Language::getContentPrefix()])
+?>
+<div id="dialog" title="">
+    <!-- LOADING -->
+    <div class="load"><img src="<?=$this->imagePath('ajax-loader.gif',false,'admin')?>"/></div>
+    <!-- SAVING -->
+    <div class="save"><img src="<?=$this->imagePath('ajax-loader.gif',false,'admin')?>"/></div>
+</div>
+
+<?php if(Orion_Auth::isLogged()): ?>
+<div id="header_left_column">
+    <div id="logo"><a href="<?=$this->url(array(),'admin') ?>"><img src="<?=$this->globalImages('site_logo') ?>"/></a></div>
+    <div class="both"></div>
+    <nav id="menu">
+        <ul class="header">
+            <li class="first"><a class="logout" href="<?=$this->url(array(),'admin-auth-logout')?>"><?=$this->translate('ADMIN_HEADER_LOGOUT')?></a></li>
+            <li class="lang_switcher" style="display: none;" >
+                <a><?=$this->translate('ADMIN_CHOSEN_CONTENT_LANGUAGE')?> <?=Orion_Language::getContentPrefix()?></a>
+                <?php if(count($languages)): ?>
+                <ul class="language">
+                    <?php foreach($languages as $lang): ?>
+                    <li>
+                        <a style="padding: 0;" href="<?=$this->url(array('prefix' => $lang['prefix']),'admin-change-language')?>"><?=$lang['prefix']; ?></a>
+                    </li>
+                    <?php endforeach;?>
+                </ul>
+                <?php endif;?>
+            </li>
+            <li class="last"><p><?=$this->translate('ADMIN_HEADER_LOGIN_AS')?> <strong><?= Orion_Auth::getProfile()->email; ?></strong></p></li>
+        </ul>
+    </nav>
+</div>          
+<div id="header_right_column">
+    <table class="date" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <td class="border" ><?=$this->translate('ADMIN_HEADER_LAST_LOGIN')?></td><td class="right border"><?=(Orion_Auth::getLastLogIn()) ? Orion_Auth::getLastLogIn() : $this->translate('ADMIN_HEADER_FIRST_LOGIN'); ?></td>
+            </tr>
+            <tr>
+                <td class="border"><?=$this->translate('ADMIN_HEADER_LAST_FAIL_LOGIN')?></td><td class="right border"><?=(Orion_Auth::getLastFailedLogIn()) ? Orion_Auth::getLastFailedLogIn() : $this->translate('ADMIN_HEADER_FIRST_LOGIN'); ?></td>
+            </tr>
+            <tr style="border: none;">
+                <td><?=$this->translate('ADMIN_HEADER_TODAY_DATE')?></td><td class="right"><div style="float: right;"><?=date('Y-m-d')?></div><div style="float: right;" id="jclock"></div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<?php endif; ?>
+<script>
+$('.lang_switcher').hover(function(){
+//    $('.language').show();
+}, function(){
+//    $('.language').hide();
+})
+</script>

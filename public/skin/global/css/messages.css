@@ -1,0 +1,70 @@
+div#infos {
+    -moz-border-radius: 0 0 6px 6px;
+    -moz-box-shadow: 0 0 10px #666666;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 200001;
+    font-size: 12px;
+    text-align: center;
+}
+div#infos ol {
+    border-width: 1px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    text-shadow: 0 1px 0 #D6D6D6;
+    list-style: none;
+}
+div#infos ol.error {
+    background: none repeat scroll 0 0 #FFBFBD;
+    color: #880000;
+    z-index: 200003;
+}
+div#infos ol.success {
+    background: none repeat scroll 0 0 #DBF28E;
+    border-color: #A2BF36;
+    color: #556405;
+    z-index: 200002;
+}
+div#infos ol.information {
+    background: none repeat scroll 0 0 #86AAEF;
+    border-color: #A2BF36;
+    color: black;
+    z-index: 200002;
+}
+div#infos a#x_infos {
+    -moz-border-radius: 0 0 0 6px;
+    background: none repeat scroll 0 0 #000000;
+    color: #FFFFFF;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 25px;
+    margin-left: -55px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 25px;
+}
+div#infos ol li {
+    padding: 8px 0 8px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+div#infos a#close_infos {
+    background: url("../images/hider.png") no-repeat scroll center -1px transparent;
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 25px;
+    left: 50%;
+    line-height: 16px;
+    margin: 0 auto 0 -55px;
+    position: absolute;
+    text-align: center;
+    width: 110px;

@@ -1,0 +1,6 @@
+"emailAddressInvalid";"Email jest nie poprawny."
+"emailAddressInvalidFormat";"Email jest nie poprawny."
+"emailAddressInvalidHostname";"Email jest nie poprawny."
+"isEmpty";"To pole jest wymagane."
+"valueExist";"Ten wartość już istnieje w bazie danych."
+"notMatch";"Podane hasła nie są takie same."

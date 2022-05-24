@@ -1,0 +1,80 @@
+#left_column .header_left{
+    float: left;
+    height: 23px;
+    width: 175px;
+    font-weight: bold;
+}
+#left_column .header_right{
+    width: 20px;
+    height: 23px;
+    float: right; 
+}
+#left_column .middle{
+    border-left: #d3d3d3 1px solid;
+    border-right: #d3d3d3 1px solid;
+    border-bottom: #d3d3d3 1px solid;
+    -moz-border-radius: 0px 0px 2px 2px;
+}
+#left_column .header_left p{
+    margin: 0;
+    padding: 0;
+    margin: 4px 0 0 6px;
+    color: #006699; 
+}
+#left_column div.icon_nonactive{
+    cursor: pointer;
+    position: relative;
+    top:7px;
+    background: url(../images/ico_min_type1.gif) no-repeat;
+    height: 10px;
+}
+#left_column div.icon_active{
+    cursor: pointer;
+    position: relative;
+    top:7px;
+
+    width: 10px;
+    background: url(../images/ico_max_type1_off.gif) no-repeat;
+    height: 10px;
+}
+
+#left_column .panel_top{
+    background: url(../images/bg_box.jpg) repeat-x;
+    height: 24px;
+    border: 1px solid #DBDBDB;
+    -moz-border-radius: 2px 2px 0px 0px;
+}
+
+#left_column ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#left_column ul li a{
+    padding: 0 0 0 16px;
+    width: 120px;
+    text-decoration: none;
+    color: black;
+}
+#left_column ul li a:hover{
+    text-decoration: underline;
+    color: #006699;
+}
+#left_column ul li a.active{
+    text-decoration: underline;
+    color: #006699; 
+    background: url("../images/blue_arrow.png") no-repeat scroll 8px center transparent;
+}
+#left_column ul li a.litle{
+    width: 80px;
+    float:  right;
+    display: none;
+    font-size: 10px;
+    padding: 0;
+}
+#left_column ul li.link{
+    border-top: 1px solid #DBDBDB;
+}
+#left_column ul li {
+        padding: 6px 0 6px 0px;
+}

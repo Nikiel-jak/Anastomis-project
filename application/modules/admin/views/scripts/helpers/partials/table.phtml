@@ -1,0 +1,99 @@
+<div style="margin: 5px;">
+<?php if($this->paginator->count()): ?>
+    <div id="itemperpage" >
+        <span><?=$this->translate('TABLE_ITEMS_PER_PAGE')?></span>
+        <select name="<?=$this->url(array(),Zend_Controller_Front::getInstance()->getRouter()->getCurrentRouteName()) ?>" id="itemonpage">
+            <option  <?=($this->paginator->getItemCountPerPage() == '10') ? 'selected="selected"' : '';?>>10</option>
+            <option <?=($this->paginator->getItemCountPerPage() == '20') ? 'selected="selected"' : '';?>>20</option>
+            <option <?=($this->paginator->getItemCountPerPage() == '50') ? 'selected="selected"' : '';?>>50</option>
+            <option <?=($this->paginator->getItemCountPerPage() == '100') ? 'selected="selected"' : '';?>>100</option>
+        </select>
+    </div>
+    <form id="table_action" style="margin: 0;" action="<?=$this->url(array(),'admin-'.strtolower($this->table_name).'-manage')?>" method="POST" enctype="application/x-www-form-urlencoded">
+    <?php 
+        $class = 'App_Model_'.$this->table_name.'_DbTable'; 
+        $model = new $class;
+    ?>
+    <div class="manage">
+        <select id="action_table" name="action">
+            <?php foreach($model->getStatus() as $key => $status): ?>
+                <option value="<?=$key?>"><?=$this->translate($status)?></option>
+            <?php endforeach; ?>
+        </select>
+        <input id="submit_manage" type="submit" value="<?=$this->translate('TABEL_ACTION')?>"/>
+    </div>
+    <div class="both"></div>
+    <table cellspacing="0" cellpadding="0" border="0" class="list" >
+    <thead>
+        <th class="checkbox first"><input id="checkbox_up" name="noimportnat_u" type="checkbox" class="th_manage" /></th>
+        <th class="lp"><?=$this->translate('TABLE_LIST__LP')?></th>
+        <?php foreach ($this->cols as $cols): ?>
+            <th><?=$this->translate('TABLE_'.strtoupper($this->table_name).'_LIST__'.strtoupper($cols))?></th>
+        <?php endforeach;?>
+        <?php foreach($this->action as $action):?>
+            <th class="center"><?=$this->translate('TABLE_'.strtoupper($this->table_name).'_LIST__'.strtoupper($action))?></th>
+        <?php endforeach; ?>
+    </thead>
+    <tbody>
+    <?php $count = 1; ?>
+    <?php foreach($this->paginator as $key => $value):?>
+        <tr class = "<?=$value->id?> ">
+            <td class="checkbox"> 
+                <input name="<?=$value->id?>" class="td_manage" type="checkbox" id="<?=$value->id?>"/>
+            </td>
+            <td class="ac">
+            <?php $item_count = $this->paginator->getCurrentPageNumber()-1 ?>
+            <?php if($item_count <= 0): ?>
+                <?=$count?> 
+            <?php else: ?>
+                <?=$item_count.$count?>
+            <?php endif;?>      
+            </td>
+            <?php foreach ($this->cols as $cols): ?>
+            <td class="ac">
+                <?php if($cols == 'status'): ?>
+                    <?=$this->translate('TABLE_'.strtoupper($this->table_name).'_STATUS_'.strtoupper($value->$cols))?>
+                <?php elseif($cols == 'type'):?>
+                    <?=$this->translate('TABLE_'.strtoupper($this->table_name).'_TYPE_'.strtoupper($value->$cols))?>
+                <?php elseif($value->$cols): ?>
+                    <?=$this->translate($value->$cols)?>
+                <?php else: ?>
+                    ------
+                <?php endif; ?> 
+            </td>
+            <?php endforeach; ?> 
+            <?php foreach($this->action as $action):?>
+            <td>
+                <?php if(isset($value->to_action)):?>
+                    <?php if(Orion_Auth::canManage($value->to_action) || (isset($value->can_edit) && $value->can_edit == 1)): ?>
+                        <a <?=($action == 'delete') ? 'class="nyroModal"' : '';?> href="<?=$this->url(array('id'=>$value->id), 'admin-'.strtolower($this->table_name).'-'.$action)?>"><?=$this->translate('TABLE_'.strtoupper($this->table_name).'_LIST__ACTION_'.strtoupper($action))?></a>
+                    <?php else: ?>
+                        ------
+                    <?php endif; ?>
+                <?php else: ?>
+                     <a <?=($action == 'delete') ? 'class="nyroModal"' : '';?> href="<?=$this->url(array('id'=>$value->id), 'admin-'.strtolower($this->table_name).'-'.$action)?>"><?=$this->translate('TABLE_'.strtoupper($this->table_name).'_LIST__ACTION_'.strtoupper($action))?></a>
+                <?php endif; ?>
+            </td>
+            <?php endforeach; ?>
+        </tr>
+    <?php $count++?>
+    <?php endforeach; ?>
+    
+    </tbody>
+    <tfoot>
+        <th class="checkbox first"><input id="checkbox_down" name="noimportnat_d" type="checkbox" class="th_manage" /></th>
+        <th class="lp"><?=$this->translate('TABLE_LIST__LP')?></th>
+        <?php foreach ($this->cols as $cols): ?>
+            <th><?=$this->translate('TABLE_'.strtoupper($this->table_name).'_LIST__'.strtoupper($cols))?></th>
+        <?php endforeach;?>
+        <?php foreach($this->action as $action):?>
+            <th class="center"><?=$this->translate('TABLE_'.strtoupper($this->table_name).'_LIST__'.strtoupper($action))?></th>
+        <?php endforeach; ?>
+    </tfoot>
+    </table>
+    </form>
+    <?=$this->paginationControl($this->paginator, 'Sliding', 'helpers/partials/pagination.phtml'); ?>
+<?php else : ?>
+    <?=$this->translate('COMMON_TABEL_NO_ITEM') ?>
+<?php endif; ?>
+</div>

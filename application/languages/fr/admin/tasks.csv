@@ -1,0 +1,28 @@
+"ADMIN_TASK";"Zadania"
+ 
+"MENU_ADMIN_TASK";"Zadania"
+ 
+"ADMIN_TASK_BLOCKER";"Zadania - Bloker"
+"ADMIN_TASK_CRITICAL";"Zadania - Criticale"
+"ADMIN_TASK_MAJNOR";"Zadania - Ważne"
+"ADMIN_TASK_MINOR";"Zadania - Dodatkowe"
+"ADMIN_TASK_PROPOSAL";"Zadania - Propozycje"
+"ADMIN_TASK_ALL";"Wszystkie zadania"
+"ADMIN_TASK_MYTASK";"Moje zadania"
+"ADMIN_TASK_ADD";"Dodaj zadanie"
+"ADMIN_TASK_BUG";"Błędy"
+
+"TABLE_LIST__LP";"Lp."
+"TABLE_TASK_LIST__NAME";"Nazwa"
+"TABLE_TASK_LIST__STATUS";"Status"
+"TABLE_TASK_LIST__PRIORITY";"Priorytet"
+"TABLE_TASK_LIST__TYPE";"Typ"
+"TABLE_TASK_LIST__DEVELOPER";"Developer"
+"TABLE_TASK_LIST__CREATED_AT";"Utworzone"
+"TABLE_TASK_LIST__EDIT";"Edycja"
+"TABLE_TASK_LIST__DELETE";"Usuwanie"
+"TABLE_TASK_LIST__VIEW";"Podgląd"
+
+"TABLE_TASK_LIST__ACTION_EDIT";"Edytuj"
+"TABLE_TASK_LIST__ACTION_DELETE";"Usuń"
+"TABLE_TASK_LIST__ACTION_VIEW";"Zobacz"

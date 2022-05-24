@@ -1,0 +1,38 @@
+div.comment{
+    -moz-background-clip: border;
+    -moz-background-origin: padding;
+    -moz-background-size: auto auto;
+    -moz-border-radius: 3px 3px 3px 3px;
+    background-attachment: scroll;
+    background-color: #FFFFFF !important;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    border-color: #AAAAAA #CCCCCC #CCCCCC #AAAAAA;
+    border-style: solid;
+    border-width: 1px;
+    color: #777777;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    outline: 0 none;
+    padding: 4px 4px 4px 4px;
+    width: 488px;
+}
+div#comment_information{
+    width: 290px;
+    float: left;
+}
+div#comment_action{
+    width: 120px;
+    float: left;
+}
+div#comment_action img{
+    border: none;
+}
+
+form#contactanswer{
+    display: none;
+}
+#uniform-show_answered_form{
+    margin: 5px;
+}

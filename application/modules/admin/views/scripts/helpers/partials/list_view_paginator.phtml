@@ -1,0 +1,63 @@
+<div class="paginator pag_<?=$this->type?> <?=$this->listview?>">
+    <div class="page_info">
+            <?= $this->firstItemNumber; ?> - <?= $this->lastItemNumber; ?> <?=$this->translate('ADMIN_PAGINATOR_PAGE_POSITION')?> <?=$this->totalItemCount?>
+    </div>
+    <div class="page">
+            <?php if (isset($this->previous)): ?>
+                  <a class="btn" href="<?=$this->first?>">
+                      <i class=" icon-backward"></i>
+                  </a>
+                  <a class="btn" href="<?=$this->previous?>">
+                      <i class=" icon-chevron-left"></i>
+                  </a>
+            <?php else: ?>
+                 <a class="btn disabled">
+                      <i class=" icon-backward icon-white"></i>
+                  </a>
+                    <a class="btn disabled">
+                      <i class=" icon-chevron-left icon-white"></i>
+                  </a>
+            <?php endif;?>
+
+        <div class="pagintor_forms">
+            <p><?=$this->translate('ADMIN_PAGINATOR_PAGE')?></p>
+            <form class="pagin" method="POST" >
+                <input type="hidden" name="__listview__" value="<?=$this->listview?>" />
+                <input class="page span1"type="text" name="paginator" value="<?=$this->current?>" />
+            </form>
+            <p><?=$this->translate('ADMIN_PAGINATOR_PAGE_FROM')?> <?=$this->pageCount?></p>
+        </div>
+            <?php if (isset($this->next)): ?>
+            <a class="btn" href="<?=$this->next?>">
+                <i class="icon-chevron-right"></i>
+            </a>
+            <a class="btn" href="<?=$this->last?>">
+                <i class="icon-forward"></i>
+            </a>
+            <?php else: ?>
+                    <a class="btn disabled">
+                      <i class="icon-chevron-right icon-white"></i>
+                  </a>
+                    <a class="btn disabled">
+                      <i class="icon-forward icon-white"></i>
+                  </a>
+            <?php endif;?>
+   
+    </div>
+</div>
+<script type="text/javascript">
+    $('.<?=$this->listview?>.paginator .btn').click(function() {
+        var id = $(this).attr('href');
+        if($(this).hasClass('disabled')){
+            return false;
+        }
+        $('.<?=$this->listview?>.paginator input[name=paginator]').val(id);
+        $('.<?=$this->listview?>.paginator form.pagin').submit();
+        return false;
+    })
+
+    $('.<?=$this->listview?>.paginator input[name=paginator]').live('blur',function(){
+        $('.<?=$this->listview?>.paginator form.pagin').submit();
+    });
+</script>
+    

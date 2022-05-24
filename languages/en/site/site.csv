@@ -1,0 +1,104 @@
+SITE_HEADER_TITLE;"SOUNDPROOF GLASS CONFIGURATOR"
+SITE_ACOUSTIC_INSULATION_REQUIRED;"REQUIRED SPECIFIC"
+SITE_SEARCH_RESULTS;"SEARCH RESULTS"
+SITE_COMMENTS;REMARKS
+SITE_DATE_GENERATION;Date
+SITE_INFO;" <br>1. Acoustic properties of all products presented are confirmed by tests carried out by   notified testing entities. <br>
+2. In the event no type of space bar used in the glass pane design is defined parameters apply to all types of space bars. <br>
+3. Spaces between panes in all tested glazed units are filled with argon. Parameters are valid also for glazed units filled with krypton.<br>
+4. Parameters remain valid for all glass panes made of flat sodium-calcareous-siliceous glass manufactured using the float method. <br>
+5. Values Rw C and Ctr shall also be confirmed for glass panes manufactured with following design modifications; <br>
+- expansion of spaces between panes  <br>
+- increasing the quantity of film in laminated panes<br>
+- application of enamel or print on pane surface  - hardening thermal strengthening HST test <br>
+- replacing Thermofloat coat with other coat or no coat at all <br>
+6. Specified parameters are not applicable to panes made of ornamental glass.  <br> 
+7. The following symbols are used; <br>
+X/Y/X; X/Y/X/Y/X –characteristics of one- or two-chamber glazed units where 
+""X""   means the thickness of consecutive component panes and ""Y"" the width of gas-filled   spaces between panes. Thickness values are expressed in millimetres. <br>
+(VSG XX.Z) – VSG laminar pane comprising two monolithic panes thickness <br> 
+""X"" expressed in millimetres separated with<br>
+""Z"" layers of film. Argon (Ar) Krypton (Kr) – gas filling spaces between panes <br> 
+T – Thermofloat thermal insulation coat applied on the pane <br>  
+Float – Type of individual glass pane used"
+
+SITE_MOBILE_POPUP_ONLINE;ONLINE
+SITE_MOBILE_POPUP_PRINT;PRINT
+SITE_MOBILE_POPUP_OPEN;OPEN
+SITE_MOBILE_POPUP_DOWNLOAD;DOWNLOAD
+
+SITE_SAVE;SAVE
+SITE_SHOW_TERC;"SHOW / HIDE THE THIRD"
+SITE_SHOW_RESULTS;"SHOW THE RESULT"
+
+SITE_GLASS_1;"SINGLE GLASS PANES"
+SITE_GLASS_2;"ONE-CHAMBER GLAZED UNITS"
+SITE_GLASS_3;"TWO-CHAMBER GLAZED UNITS"
+
+SITE_MOBILE_SHOW_CONFIG;"SHOW SETTINGS"
+
+SITE_SELECT_MODE;"Select input data"
+SITE_TERC_ON;"Enable thirds"
+SITE_TERC_OFF;"Disable thirds"
+SITE_OKTAWY_ON;"Enable octaves"
+SITE_OKTAWY_OFF;"Disable octaves"
+SITE_DEPENDENCY_BUTTON;"Adjust settings for all enabled data and the list of results to settings of the edited parameter."
+SITE_MOBILE_DEPENDENCY_BUTTON;"Adjust settings to existing units."
+SITE_MAX;max
+SITE_MIN;min
+
+SITE_PDF_DOWNLOAD_NAME;Szyby_akustyczne_PRESS_GLASS
+
+SITE_ANASTOMOSIS_TYPE;"Wybierz typ zespolenia"
+SITE_ANASTOMOSIS_TYPE_0;Dowolne
+SITE_ANASTOMOSIS_TYPE_1;Pojedyńcze
+SITE_ANASTOMOSIS_TYPE_2;Jednokomorowe
+SITE_ANASTOMOSIS_TYPE_3;Dwukomorowe
+
+SITE_THICKNESS_LEGEND_1;"Thickness of single glass pane or outside glass pane in glazed unit"
+SITE_THICKNESS_LEGEND_2;"Thickness of central glass pane in two chamber glazed unit"
+SITE_THICKNESS_LEGEND_3;"Thickness of outside glass pane in glazed unit"
+
+SITE_SECTION_TOTAL_WIDTH;"Reduce package thickness"
+SITE_SECTION_GLASES_WIDTH;"Reduce thickness of glass in the package"
+SITE_SECTION_WEIGHT;"Define package weight"
+SITE_SECTION_PROTECTION_CLASS;"Define protection class"
+SITE_SECTION_SECURITY_CLASS;"Define safety class"
+SITE_SECTION_LAMINATED_GLASS;"Only consider glass panels containing laminated glass."
+
+SITE_UNIT_DB;[dB]
+SITE_UNIT_MM;[mm]
+SITE_UNIT_CLASS;[class]
+SITE_UNIT_KG;[kg]
+
+SITE_TITLE_TOTAL_WIDTH;"Overall package thickness"
+SITE_TITLE_GLASES_WIDTH;"Thickness of glass in the package"
+SITE_TITLE_WEIGHT;"Package weight 1m<sup>2</sup>"
+SITE_TITLE_PROTECTION_CLASS;"Laminated security glass class"
+SITE_TITLE_SECURITY_CLASS;"Laminated safety glass class"
+SITE_TITLE_LAMINATED_GLASS;"Only consider glass panels containing laminated glass."
+SITE_TITLE_LAMINATED_PDF;"Laminated glass"
+
+SITE_YES;Yes
+SITE_NO;No
+SITE_EMPTY;No
+
+table.title;"Certified IGUs with Rw dB confirmed on CE declaration"
+table.model;Model
+table.acoustic_performance;"Acoustic performance (dB)"
+table.type_of_glass;"Type of Glass"
+table.composition;Composition
+table.glass_1;"Glass 1"
+table.spacer_1;"Spacer 1"
+table.glass_2;"Glass 2"
+table.spacer_2;"Spacer 2"
+table.glass_3;"Glass 3"
+table.structure;"Structure [mm]"
+table.total;-
+table.thickness;"Total thickness"
+table.glass_weight;"Total glass weight"
+table.items;items
+table.type_of_used_gas;"Type of used gas"
+table.acoustic_insulation_coefficient;"Acoustic insulation coefficient"
+table.acoustic_insulation_coefficient_at_average;"Acoustic insulation coefficient at average [Hz] R [dB]"
+table.filter_reset;"Reset Filters"

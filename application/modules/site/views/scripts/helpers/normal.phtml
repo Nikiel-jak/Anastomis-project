@@ -1,0 +1,211 @@
+<form id="forms" action="<?=$this->url(array('lang' => $this->lang),'site-pdf')?>" method="POST">
+    <?php $i=1; foreach($this->group as $group_name =>  $sliders):?>
+        <?php $array_keys = array_keys($sliders); ?>
+        <?php $elem =($sliders[array_shift($array_keys)]->toArray());?>
+        <div class="element <?=($i != 1 && $elem['can_hide'] == 1) ? 'hide' : '';?>">
+            <?Php $right = (532/(count($sliders)+1)-50);?>
+            <div class="item" style='margin-right: <?=$right?>px; position:relative;'>
+                <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px; height: 27px;"><?=$elem['group_name']?></p>
+                <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px; height: 27px; position: absolute;bottom: 18px;left: 14px;"><?=$elem['hint']?></p>
+            </div>
+            <?php foreach($sliders as $value):?>
+            <?php 
+             $val = (empty($value->min_value)|| !in_array($value->id, array('10','12','13'))) ? 0 : $value->min_value;
+             if($value->id == 14 ){
+                 $s1 = $sliders[10]->toArray();
+                 $s2 = $sliders[12]->toArray();
+                 $val = $s1['min_value'] + $s2['min_value'];
+             }
+             if($value->id == 15 ){
+                 $s1 = $sliders[10]->toArray();
+                 $s2 = $sliders[13]->toArray();
+                 $val = $s1['min_value'] + $s2['min_value'];
+             }
+            ?>
+                <div class="item" style='margin-right: <?=$right?>px;'>
+                    <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; "><?=$value->name?></p>
+                    <a class="up" href="#"><img src="<?=$this->imagePath('arrow_up.png')?>" /></a>
+                    <div id="slider_item_<?=$value->id?>" class="slider-vertical" style="height:200px;"></div>
+                    <a class="down" href="#"><img src="<?=$this->imagePath('arrow_down.png')?>" /></a>
+                    <input <?=( in_array($value->id, array(14,15))) ? 'readonly = "readonly"': ''?>  name="<?=$value->id?>" type="text" value="<?=$val?>" class="slider_amount" />
+                </div>
+                <script>
+                    $(function() {
+                        $( "#slider_item_<?=$value->id?>" ).slider({
+                                orientation: "vertical",
+                                disabled: <?=( in_array($value->id, array(14,15))) ? 'true': 'false'?> ,
+                                range: "min",
+                                min: parseInt('<?=(empty($value->min_value) || !in_array($value->id, array('10','12','13'))) ? 0 : $value->min_value ?>'),
+                                max: parseInt('<?=(empty($value->max_value) || !in_array($value->id, array('10','12','13'))) ? 100 : $value->max_value ?>'),
+                                step: parseFloat('<?=preg_replace('/,/', '.', $value->step)?>'),
+                                value: parseInt('<?=$val?>'),
+                                slide: function( event, ui ) {
+                                    $(ui.handle).parent().parent().find('.slider_amount').val( ui.value );
+                                },
+                                change: function( event, ui ) {
+                                    $(ui.handle).parent().parent().find('.slider_amount').val( ui.value );
+                                    <?php if($value->id == 10):?>
+                                            s_value1 = $('#slider_item_12').slider( "value" );
+                                            $('#slider_item_14').slider( "value",s_value1+ui.value);
+                                            s_value2 = $('#slider_item_13').slider( "value" );
+                                            $('#slider_item_15').slider( "value",s_value2+ui.value);
+                                    <?php endif;?>
+                                    <?php if($value->id == 12 ):?>
+                                            s_value1 = $('#slider_item_10').slider( "value" );
+                                            $('#slider_item_14').slider( "value",s_value1+ui.value);
+                                    <?php endif;?>
+                                    <?php if($value->id == 13 ):?>
+                                            s_value1 = $('#slider_item_10').slider( "value" );
+                                            $('#slider_item_15').slider( "value",s_value1+ui.value);
+                                    <?php endif;?>
+                                    <?php if($value->id == 14 ):?>
+                                            s_value1 = $('#slider_item_12').slider( "value" );
+                                            min_value = $('#slider_item_10').slider( "option", "min" );
+                                            value = $('#slider_item_10').slider( "value" );
+                                            if(min_value+s_value1 > ui.value){
+                                                alert('Wartość Rw jest jest na poziomie minimalnym');
+                                                $('#slider_item_10').slider( "value",$('#slider_item_10').slider( "option", "min" ) );
+                                                return false;
+                                            } 
+                                    <?php endif;?>
+                                    <?php if($value->id == 15 ):?>
+                                            s_value1 = $('#slider_item_13').slider( "value" );
+                                            min_value = $('#slider_item_10').slider( "option", "min" );
+                                            value = $('#slider_item_10').slider( "value" );
+                                            if(min_value+s_value1 > ui.value){
+                                                alert('Wartość Rw jest jest na poziomie minimalnym');
+                                                $('#slider_item_10').slider( "value",$('#slider_item_10').slider( "option", "min" ) );
+                                                return false;
+                                            } 
+                                    <?php endif;?>
+                                    $.ajax({
+                                        url: "<?=$this->url(array('lang' => $this->lang),'site-ajax')?>",
+                                        method: 'POST',
+                                        data: $('#forms').serialize(),
+                                    beforeSend: function( xhr ) {
+                                        $('#block').show();
+                                    }
+                                    }).done(function(data ) {
+                                        $('#block').hide();
+                                        var html = '';
+                                        var z = 0;
+                                        for(x in data){
+                                                if(x == 1){
+                                                    txt = '<?=$this->translate('SITE_GLASS_1')?>';
+                                                }
+                                                if(x == 2){
+                                                    txt = '<?=$this->translate('SITE_GLASS_2')?>';
+                                                }
+                                                if(x == 3){
+                                                    txt = '<?=$this->translate('SITE_GLASS_3')?>';
+                                                }
+                                            html += '<h3 style="margin-bottom: 2px; font-size:16px; padding-bottom:0px;">' + txt+ '</h3>';
+                                            html += '<ul style="margin-top: 4px;">';
+                                            for(d in data[x]){
+                                                z++;
+                                                html += '<li>' + data[x][d].name + '</li>';
+                                            }
+                                            html += '</ul>';
+                                        }
+                                        $('#resuls').html(html)
+                                    });
+                                }
+                        });
+                    });
+                </script>
+            <?php endforeach;?>
+            <?php if($i == 1 && count($this->group) > 1):?>
+                <a id="terc"  class="btn-slider" href="#" style="float:right; position: relative; top: 40px; right: 26px;"><?=$this->translate('SITE_SHOW_TERC')?></a>
+            <?php endif;?>
+        </div>
+    <?php $i++; endforeach; ?>
+    <input class="btn-slider" id="submit_print" type="submit" value="<?=$this->translate('SITE_SAVE')?>" />
+</form>
+<script>
+$(function() {
+    $('#block').height($(document).height());
+    $('#terc').click(function(e){
+        e.preventDefault();
+        $('.hide').toggle(); 
+        $('.element').toggleClass('bg');
+    });
+    $('.up').click(function(e){
+        e.preventDefault();
+        var value = $( this ).next().slider( "value" );
+        if($( this ).next().slider( "option", "disabled"  ) == true){
+            return false;
+        }
+        $( this ).next().slider( "value", value+1 );
+    });
+    $('.down').click(function(e){
+        e.preventDefault();
+        var value = $( this ).prev().slider( "value" );
+        if($( this ).prev().slider( "option", "disabled"  ) == true){
+            return false;
+        }
+        $( this ).prev().slider( "value", value-1 );
+    });
+    $('.slider_amount').change(function(){
+        var value = $(this).val();
+        if($( this ).prev().prev().slider( "option", "disabled"  ) == true){
+            return false;
+        }
+        $( this ).prev().prev().slider( "value", value);
+        $.ajax({
+            url: "<?=$this->url(array('lang' => $this->lang),'site-ajax')?>",
+            method: 'POST',
+            data: $('#forms').serialize()
+        }).done(function(data ) {
+            var html = '';
+            var z = 0;
+            for(x in data){
+                    if(x == 1){
+                        txt = '<?=$this->translate('SITE_GLASS_1')?>';
+                    }
+                    if(x == 2){
+                        txt = '<?=$this->translate('SITE_GLASS_2')?>';
+                    }
+                    if(x == 3){
+                        txt = '<?=$this->translate('SITE_GLASS_3')?>';
+                    }
+                html += '<h3 style="margin-bottom: 2px; font-size:16px; padding-bottom:0px;">' + txt+ '</h3>';
+                html += '<ul style="margin-top: 4px;">';
+                for(d in data[x]){
+                    z++;
+                    html += '<li>' + data[x][d].name + '</li>';
+                }
+                html += '</ul>';
+            }
+            $('#resuls').html(html)
+        });
+    });
+    $.ajax({
+        url: "<?=$this->url(array('lang' => $this->lang),'site-ajax')?>",
+        method: 'POST',
+        data: $('#forms').serialize()
+    }).done(function(data ) {
+        var html = '';
+        var z = 0;
+        for(x in data){
+                if(x == 1){
+                    txt = '<?=$this->translate('SITE_GLASS_1')?>';
+                }
+                if(x == 2){
+                    txt = '<?=$this->translate('SITE_GLASS_2')?>';
+                }
+                if(x == 3){
+                    txt = '<?=$this->translate('SITE_GLASS_3')?>';
+                }
+            html += '<h3 style="margin-bottom: 2px; font-size:16px; padding-bottom:0px;">' + txt+ '</h3>';
+            html += '<ul style="margin-top: 4px;">';
+            for(d in data[x]){
+                z++;
+                html += '<li>' + data[x][d].name + '</li>';
+            }
+            html += '</ul>';
+        }
+        $('#resuls').html(html);
+    });
+      
+});
+</script>

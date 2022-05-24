@@ -1,0 +1,110 @@
+SITE_HEADER_TITLE;"DER KONFIGURATOR FÜR DAS SCHALSCHUTZGLAS"
+SITE_ACOUSTIC_INSULATION_REQUIRED;"GEFORDERTE SCHALLDÄMMUNG"
+SITE_SEARCH_RESULTS;SUCHERGEBNISSE
+SITE_COMMENTS;ANMERKUNGEN
+SITE_DATE_GENERATION;Datum
+SITE_INFO;"1. Akustische Eigenschaften aller dargestellten Produkte werden mit den in anerkannten   Prüfstellen durchgeführten Tests bestätigt. <br>
+2. Sind keine Daten im Verglasungsaufbau zum verwendeten Abstandhalter angege-ben, gelten die Parameter für alle Abstandhalter. <br>
+3. Der Scheibenzwischenraum aller getesteten Isolierglaskonstruktionen ist argongefüllt. Die Parameter sind auch für kryptongefülltes Isolierglas gültig.<br>
+4. Die Parameter gelten für alle Floatglasisolierverglasungen auf Basis von Natrium - Calcium – Silikat. <br>
+5. Die Werte Rw, C und Ctr werden auch für hergestellte Glasscheiben bestätigt, in denen   folgende Konstruktionsänderungen eingeführt wurden: <br>
+- Vergrößerung der Scheibenzwischenräume <br> 
+- Vergrößerung der Folienmenge in mehrschichtigen Scheiben <br>
+- Auftrag von Emaille oder Aufdruck auf die Scheibenoberfläche <br>
+- Härten, thermische Verfestigung, HST-Test <br>
+- Wechsel der Thermofloatbeschichtung gegen eine andere oder ihr Wegfall <br>
+6. Genannte Parameter dürfen bei Glasscheiben mit Ornamentglas nicht verwendet werden. <br>
+7. In den Scheibenbeschreibungen wurden folgende Symbole verwendet:  
+X/Y/X; X/Y/X/Y/X – Beschreibung von Ein- oder Doppelkammer-Isolierglas,   dabei bedeuten „X“ einzelne Aufbauglasdicken, „Y“ Breiten der gasgefüllten Scheibenzwischenräume. Dickenangaben in Millimeter.  <br> 
+(VSG XX.Z) – laminiertes VSG, bestehend aus zwei monolithischen Scheiben mit der   Dicke <br>
+„X“ in Millimeter, getrennt mit  <br>
+„Z“ Folienschichten.  Argon (Ar), Krypton (Kr) – Scheibenzwischenraum-Füllgas   <br>
+T – auf der Glasscheibe aufgetragene Thermofloat-Wärmeschutzschicht    <br>
+Float – Art der verwendeten Einzelscheibe"
+
+SITE_MOBILE_POPUP_ONLINE;ONLINE
+SITE_MOBILE_POPUP_PRINT;DRUCKEN
+SITE_MOBILE_POPUP_OPEN;ÖFFNEN
+SITE_MOBILE_POPUP_DOWNLOAD;DOWNLOADEN
+
+SITE_SAVE;SPEICHERN
+SITE_SHOW_TERC;"TERZ EIN- / AUSBLENDEN"
+SITE_SHOW_RESULTS;"ERGEBNISSE EINBLENDEN"
+
+SITE_GLASS_1;"EINFACHE GLASSCHEIBEN"
+SITE_GLASS_2;EINKAMMER-IG
+SITE_GLASS_3;DOPPELKAMMER-IG
+
+SITE_MOBILE_SHOW_CONFIG;"EINSTELLUNGEN EINBLENDEN"
+
+
+SITE_SELECT_MODE;"Eingabedaten wählen"
+SITE_TERC_ON;"Terz ein"
+SITE_TERC_OFF;"Terz ausschalten"
+SITE_OKTAWY_ON;"Oktaven ein"
+SITE_OKTAWY_OFF;"Oktaven ausschalten"
+SITE_DEPENDENCY_BUTTON;"Einstellungen aller aktiven Daten und Ergebnisliste an die Einstellungen des bearbeiteten Parameters anpassen."
+SITE_MOBILE_DEPENDENCY_BUTTON;"Einstellungen an vorhandene Isolierverglasungen anpassen."
+SITE_MAX;max
+SITE_MIN;min
+
+SITE_PDF_DOWNLOAD_NAME;Szyby_akustyczne_PRESS_GLASS
+
+SITE_ANASTOMOSIS_TYPE;"Wybierz typ zespolenia"
+SITE_ANASTOMOSIS_TYPE_0;Dowolne
+SITE_ANASTOMOSIS_TYPE_1;Pojedyńcze
+SITE_ANASTOMOSIS_TYPE_2;Jednokomorowe
+SITE_ANASTOMOSIS_TYPE_3;Dwukomorowe
+
+SITE_THICKNESS_LEGEND_1;"Dicke des Einscheibenglases bzw. der externen Isolierglasscheiben "
+SITE_THICKNESS_LEGEND_2;"Dicke der Mittelscheibe im Doppelkammer-IG"
+SITE_THICKNESS_LEGEND_3;"Dicke der externen Isolierglasscheibe"
+
+SITE_SECTION_TOTAL_WIDTH;"Scheibenpaketdicke einschränken"
+SITE_SECTION_GLASES_WIDTH;"Scheibendicke im Paket einschränken"
+SITE_SECTION_WEIGHT;"Scheibenpaketgewicht festlegen"
+SITE_SECTION_PROTECTION_CLASS;"Schutzklasse festlegen"
+SITE_SECTION_SECURITY_CLASS;"Sicherheitsklasse festlegen"
+SITE_SECTION_LAMINATED_GLASS;"Nur Scheibenpakete mit VSG berücksichtigen"
+
+SITE_UNIT_DB;[dB]
+SITE_UNIT_MM;[mm]
+SITE_UNIT_CLASS;[Klasse]
+SITE_UNIT_KG;[kg]
+
+SITE_TITLE_TOTAL_WIDTH;Scheibenpaketgesamtdicke
+SITE_TITLE_GLASES_WIDTH;"Scheibendicke im Paket"
+SITE_TITLE_WEIGHT;"Paketgewicht 1m<sup>2</sup>"
+SITE_TITLE_PROTECTION_CLASS;VSG-klasse
+SITE_TITLE_SECURITY_CLASS;VSG-klasse
+SITE_TITLE_LAMINATED_GLASS;"Nur Scheibenpakete mit VSG berücksichtigen"
+SITE_TITLE_LAMINATED_PDF;"Scheibenpakete mit VSG"
+
+SITE_YES;Yes
+SITE_NO;No
+SITE_EMPTY;No
+
+table.title;"Zertifiziertes akustisches Mehrscheiben-Isolierglas (Rw dB), bestätigt durch CE-Erklärung"
+table.model;Modell
+table.acoustic_performance;"Schalldämmwert (dB)"
+table.type_of_glass;Glasart
+table.composition;Aufbau
+table.glass_1;"Glas 1"
+table.spacer_1;"Abstandsrahmen 1"
+table.glass_2;"Glas 2"
+table.spacer_2;"Abstandsrahmen 2"
+table.glass_3;"Glas 3"
+table.structure;"Struktur [mm]"
+table.thickness;Gesamt-dicke
+table.glass_weight;Gesamt-glasgewicht
+table.items;Ergebnisse
+table.type_of_used_gas;Füllgas
+table.acoustic_insulation_coefficient;Schalldämmwerte
+table.acoustic_insulation_coefficient_at_average;"Schalldämmwert bei mittleren Oktavenfrequenzen [Hz] R [dB]"
+table.filter_reset;"Filter zurücksetzen"
+table.value.single_glass;Einkammer-ig
+table.value.double_IGU;"2-Fach Isolierglas"
+table.value.triple_IGU;"3-Fach Isolierglas"
+table.Szyba_Laminowana;"Laminated glass"
+table.value.1;"NO"
+table.value.2;"YES"

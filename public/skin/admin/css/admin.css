@@ -1,0 +1,190 @@
+body{
+    color: #333333;
+    font-family: Lucida Grande,Lucida Sans Unicode,Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 12px;    
+}
+body.logged {
+    background-image: url("../images/bg.gif");
+    background-position: center top;
+    background-repeat: repeat-x;
+}
+body.nonlogged {
+
+}
+#wrapper {
+    background-image: url("../images/bg_footer.gif");
+    background-position: center bottom;
+    background-repeat: repeat-x;
+}
+#wrapper_content {
+    margin: 0 auto;
+    text-align: left;
+    width: 1150px;
+}
+#context {
+    margin-bottom: 10px;
+    width: 100%;
+}
+#left_column {
+    float: left;
+    overflow: hidden;
+    width: 200px;
+}
+#content.non_logged_content{
+    width: 100%;
+    float: none;
+}
+div#page_content {
+    float: right;
+    min-height: 350px !important;
+    overflow: hidden;
+    width: 936px;
+}
+#page_content h2{
+    color: #006699;
+    margin: 5px 0 0 5px;
+    padding: 0;
+}
+#footer {
+    height: 25px;
+    margin-top: 70px;
+    width: 100%;
+}
+#header {
+    height: 104px;
+    margin-bottom: 45px;
+    width: 100%;
+}
+.box{
+    -moz-border-radius: 2px 2px 2px 2px;
+    border: 1px solid #DBDBDB;
+    min-height: 350px;
+    overflow: hidden;
+    padding: 2px;
+}
+a, input, button {
+    outline: medium none !important;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+.confirm{
+    width: 55px;
+    margin-left: 5px;
+    float: left;
+}
+a img{
+    border: none;
+}
+.navi .button{
+    float: right;
+}
+.navi{
+    margin: 0 0 10px 0;
+    overflow: hidden;
+}
+.navi h2{
+    float: left;
+    margin: 8px 0 0 5px;
+}
+.buttons h2{
+    float: left;
+}
+.buttons{
+    overflow: hidden;
+    margin: 0 0 10px 0;
+}
+.buttons a.btn{
+    float: right;
+    margin-top: 15px;
+    margin-right: 8px;
+}
+.date tr{
+    height: 42px;
+}
+span.required{
+    color: red;
+}
+/* DIALOG */
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+#dialog{
+    display: none;
+}
+#dialog .save { display: none; }
+#dialog .load { display: none; }
+.loading #dialog .load {display: block;}
+.saving #dialog .save {display: block; margin-top: 15px;}
+
+.right{
+    float: right;
+}
+.navi a.btn{
+    margin-right: 8px;
+    margin-top: 15px;
+}
+form .submit .btn{
+    margin: 0 10px 5px 0;
+    text-transform: uppercase;
+}
+.autoVisible input[type="submit"]{
+    float:left;
+    margin: 0px 0 5px 5px;
+}
+.clearSpace{
+    clear: both;
+}
+.tableFiltr{
+    float:right;
+}
+#grid table tbody td.td_edit, #grid table tbody td.td_translate {
+    text-align: center;
+    width: 120px;
+}
+#grid table tbody td.td_checkbox, #grid table thead th.th_checkbox {
+    text-align: center;
+}
+form#filtr{
+    margin: 5px;
+}
+form#filtr .filtr_element .ui-datepicker-trigger{
+    margin-top: -8px;
+}
+form#filtr .search{
+    margin-left: 4px;
+}
+form#filtr .input-prepend span.add-on{
+    margin-right: -5px;
+}
+form#filtr .filtr_element input.span1{
+    width: 65px;
+}
+form#filtr .filtr_element .filtrinput,form#filtr .filtr_element #status{
+    margin-left: 4px;
+}
+#grid{
+    margin: 5px;
+}
+.button {
+    float: right;
+margin: 5px;
+}
+
+.jsdesc {
+	margin: -10px 10px 20px 10px;
+	font-style: italic;
+	font-size: 90%;
+	color: rgb(0, 152, 245);
+	border-bottom: rgb(214, 231, 255) 1px solid;
+}
+
+.jsdescfield {
+	font-style: italic;
+	font-size: 80%;
+}

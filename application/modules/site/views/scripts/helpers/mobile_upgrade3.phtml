@@ -1,0 +1,830 @@
+<form id="forms" action="<?=$this->url(array('lang' => $this->lang),'site-mobile')?>" method="GET">
+    <div class="radio" style="overflow: hidden; margin-top: 20px;"> 
+        <div class="radio_tr">
+        <div class="radio_td" ><?= $this->translate('SITE_SELECT_MODE') ?>&nbsp;&nbsp;&nbsp;</div>
+        <div class="radio_td2">
+            <div class="mode_div">
+        <select id="mode">
+            <option value="1">Rw</option>
+            <option value="2">Rw, C, Ctr</option>
+            <option value="3">Rw, Ra, Ratr</option>
+           <!-- <option value="4">Rw, C, Ctr, Ra, Ratr</option>  -->
+            <option value="5">Rw, C</option>
+            <option value="6">Rw, Ctr</option>
+            <option value="7">Rw, Ra</option>
+            <option value="8">Rw, Ratr</option>
+            <option value="9">Ra, Ratr</option>
+            <option value="10">Ra</option>
+            <option value="11">Ratr</option>
+        </select>
+                </div>
+      </div>
+        </div>
+        </div>
+    <?php $z=1; foreach($this->group as $group_name =>  $sliders):?>
+        <?php $array_keys = array_keys($sliders);?>
+        <?php $elem =($sliders[array_shift($array_keys)]->toArray());?>
+        <div class="table_like">
+            <div class="element <?=($z == 1) ? 'params table_element' : ''?> <?=($z != 1 && $elem['can_hide'] == 1) ? 'to_hide hide tercja' : '';?> <?=($z != 1 && $elem['can_hide'] != 1) ? 'to_disabled hide' : '';?>">
+                <?Php 
+                if ($z == 1) {
+                   // $elem['group_name'] = 'max';
+                   // $elem['hint'] = 'min';
+                }
+                
+                $right = (380/(count($sliders)+1)-40);?>
+                
+                
+                <?php if ($z == 1) {  ?>
+                   <div class="item indicators" style='position:relative; margin-left: 6px;'>
+                    <div class="max_indicator"><?= $this->translate('SITE_MAX') ?></div>
+                    <div  class="min_indicator"><?= $this->translate('SITE_MIN') ?></div>
+                </div>
+                <?php } else { ?>
+                
+                <div class="item" style='position:relative; width:20px; margin-left: 6px;'>
+                    <p><?=$elem['group_name']?></p>
+                    <p class="info_db" style="position: absolute;bottom: 0px;left: 0px;"><?=$elem['hint']?></p>
+                </div>
+                 <?php } ?>
+                
+                <?php 
+                $k = 1;
+                foreach($sliders as $value):?>
+                
+                <?php
+        
+             switch ($value->id ) {
+                 case 10:
+                     $item_prefix = 'Rw';
+                     break;
+                 case 12:
+                     $item_prefix = 'C';
+                     break;
+                 case 13:
+                     $item_prefix = 'Ctr';
+                     break;
+                 case 14:
+                     $item_prefix = 'Ra';
+                     break;
+                 case 15:
+                     $item_prefix = 'Ratr';
+                     break;
+                 default :
+                     $item_prefix = '';
+                     break;
+             }
+             
+             if (!empty($item_prefix)) {
+         ?>
+            
+            <script type="text/javascript">
+                
+                var <?= $item_prefix ?> = 'item_<?= $value->id ?>';
+                var <?= $item_prefix ?>_min = <?= $value->min_value ?>;
+                var <?= $item_prefix ?>_max = <?= $value->max_value ?>;
+                
+            </script>
+            
+            
+          <?php    
+
+             }
+           
+                        $val = $value->min_value;
+                        $start = $value->min_value;
+                        $stop = $value->max_value;
+                        $step = preg_replace('/,/', '.', $value->step);
+                         ?>
+                
+                    <div class="item" id="item_<?= $value->id ?>"  >
+                            <p><?= $value->name ?></p>
+                            
+                            <?php if ($z == 1) {  ?>
+                        <p>[dB]</p>
+                        <?php } ?>
+                            
+                          <?php if ($z == 1) {  ?>
+                            <p style="height: auto;" class="<?php if (!in_array($value->id, array('10','14','15') )) echo 'max_value'; ?>">
+                                <?php if($k ==-1):?>
+                                    <span style=" font-size: 0.8em;">max</span>
+                                <?php endif;?>
+                                    
+                            <?php 
+                           
+                            if (in_array($value->id, array('10','14','15') )) { ?>        
+                                <select onchange="javascript: handle_change('<?= $item_prefix ?>', 'first');" class="first" style="margin-left: 2px;"  id="slider_item_max_<?=$value->id?>"   name="<?=$value->id?>[max]" type="text"  />
+                                  <?php for($i = $stop; $i >= $start; $i--):?>
+                                    <option <?=($i == $stop) ? 'selected="selected"': ''?>><?=preg_replace('/.00/','',$i)?></option>
+                                <?php endfor; ?>
+                                </select> 
+                             <?php } else {  ?> 
+                            <?= $value->max_value ?>
+                            <?php }  
+                            ?>         
+                            </p>        
+                          <?php }  
+                            ?>     
+                            <p style="height: auto; margin-top: 20px;">
+                                   <?php if($k == -1):?>
+                                        <span style=" font-size: 0.8em; ">min</span>
+                                    <?php endif;?>
+                                <select onchange="javascript: handle_change('<?= $item_prefix ?>', 'last');" class="last" style="margin-left: 2px;"  id="slider_item_min_<?=$value->id?>"   name="<?=$value->id?><?php if (in_array($value->id, array('10','14','15') )) echo '[min]'; ?>" type="text"  />
+                                    <?php for($i = $start; $i <= $stop; $i++):?>
+                                        <option <?=($i == $start) ? 'selected="selected"': ''?>><?=preg_replace('/.00/','',$i)?></option>
+                                    <?php endfor; ?>
+                                </select>
+                            </p>
+                        </div>
+                    <!--
+                    <div class="item" >
+                        <p><?=$value->name?></p>
+                        <?php if (in_array($value->id, array('15','14'))):?>
+                        <?php endif;?>
+                            <select class="<? (in_array($value->id, array('15','14'))) ? 'di as' : ''; ?>" id="slider_item_<?=$value->id?>"   name="<?=$value->id?>" type="text"  />
+                            <?php for($i = $start; $i <= $stop; $i++):?>
+                            <option <?=($i == $val) ? 'selected="selected"': ''?>><?=$i?></option>
+                            <?php endfor; ?>
+                            </select>
+                    </div>
+                    -->
+                <?php 
+                $k++;
+                endforeach;?>
+            </div>
+        </div>
+        <?php if($z == 1 && count($this->group) > 1):?>
+    <div class="table_like">
+                <div class="element noborder" style="margin-top: 15px;">
+                    <div class="radio" style="overflow: hidden; margin-top: 20px; width: 100%;">
+                        <div class="radio_tr">
+                   <div class="radio_td" style="width: 50px; padding: 0px 5px; display: table-cell;">
+                        <button id="lock_button" class="mobile_submit"   style="padding: 5px 4px 0px 0px !important;"><img src="<?= $this->imagePath('locked.png') ?>" /></button>
+                      </div>
+                        <div class="radio_td2" style="vertical-align: top; text-align: left; padding-left: 5px; display: table-cell;">
+                        <?= $this->translate('SITE_DEPENDENCY_BUTTON') ?>
+                           </div>
+                       </div>
+                
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="table_like">
+                <div class="element noborder" style="margin-top: 15px;">
+                    <div class="line_spacer" >
+                        <button id="oktawy_button"  class="mobile_submit"   style=""><?= $this->translate('SITE_OKTAWY_ON') ?></button>&nbsp;
+                        <button id="terc_button"  class="mobile_submit"   style=" display: none;"><?= $this->translate('SITE_TERC_ON') ?></button>
+                        
+                
+                        
+                    </div>
+                </div>
+            </div>
+        <?php endif;?>
+    <?php $z++; endforeach; ?>
+    <div class="table_like">
+        <div class="element noborder" style="margin-top: 15px;">
+            <div class="line_spacer" >
+               <button  id="show_button" class="mobile_submit"  ><?=$this->translate('SITE_SHOW_RESULTS')?> (<span>0</span>)</button>
+            </div>
+       </div>
+    </div>
+    <input style="display:none;" id="submit_print" type="submit" value="" />
+</form>
+<script>
+    
+    
+    
+var attributes = [];
+    <?php
+   
+     $i = 0;
+     foreach ($this->attributes_realtion as $r_k => $r_v) {
+         echo 'var a_' . $r_k . ' = [];
+             ';  
+         foreach ($r_v as $a_k => $a_v) {
+             echo 'a_' . $r_k . '['.$a_k.'] = '.$a_v.';
+             '; 
+         }
+         echo 'attributes['.$i.'] = a_' . $r_k . ';
+             ';
+         
+         $i++;
+     }
+    ?>
+        
+    //Rw: id = 10
+    //C: id = 12
+    //Ctr: id = 13
+    //RA: id = 14
+    //RAtr: id = 15
+    var current_mode = '1';
+    var semafor = 0; //do kontroli kto odpalił zmianę wartości
+    var is_locked = true;  //wzajemna zależność suwaków
+    
+    
+    function set_dependency_lock(lock) {
+        is_locked = lock;
+        if (is_locked) {
+            $('#lock_button img').attr('src', '<?= $this->imagePath('locked.png') ?>');
+        }
+        else {
+            $('#lock_button img').attr('src', '<?= $this->imagePath('unlocked.png') ?>');
+        }
+    }
+    
+    function set_item_mode(item_id, disabled ) {
+       // alert($(item_id));
+        $('#' + item_id + ' input').attr('disabled', disabled);
+            $('#' + item_id + ' select').attr('disabled', disabled);
+        
+        if (disabled) {
+            $('#' + item_id).hide();
+        }
+        else {
+            $('#' + item_id).show();
+        }
+        
+    }
+    
+    function set_item_values(item_id, min_value, min_scale, max_value, max_scale) {
+        semafor = 1;
+        $('#' + item_id + ' select.first').val(max_value);
+        $('#' + item_id + ' select.last').val(min_value);
+        semafor = 0;
+    }
+    
+    function get_item_values(item_id, value_type) {
+        values = [0, 0];
+        values[0] = $('#' + item_id + ' select.last').val();
+        values[1] = $('#' + item_id + ' select.first').val();
+        if (values[1] != '') {
+            if (values[1] < values[0] ) {
+                if (value_type == 'first') {
+                    values[0] = values[1];
+                    $('#' + item_id + ' select.last').val(values[1]);
+                }
+                else {
+                    values[1] = values[0];
+                    $('#' + item_id + ' select.first').val(values[0]);
+                }
+            }
+        }
+        return values;
+    }
+    
+    
+    function handle_change(item_code, value_type) {
+        
+        if (is_locked) {
+        
+        Rw_values = get_item_values(Rw, value_type);
+        C_values = get_item_values(C, value_type);
+        Ctr_values = get_item_values(Ctr, value_type);
+        Ra_values = get_item_values(Ra, value_type);
+        Ratr_values = get_item_values(Ratr, value_type);
+        
+         
+         switch(item_code) {
+             case 'Rw':
+                 switch(current_mode) {
+                     
+                     case '2':
+                       
+                dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                set_item_values(C, dep[12][0], C_min, null, C_max );
+               // alert(Rw_values[1]);
+              //  alert(dep[12][0]);   
+                set_item_values(Ctr, dep[13][0], Ctr_min, null, Ctr_max );
+ 
+ 
+                     break;
+                     
+                     case '3':
+                         
+                       dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                       set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );  
+                       set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );    
+
+                     break;
+                     
+                     case '5':
+                         
+                         dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                         set_item_values(C, dep[12][0], C_min, null, C_max );
+
+                     break;
+                     
+                     case '6':
+
+                     dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                     set_item_values(Ctr, dep[13][0], Ctr_min, null, Ctr_max );
+
+                     break;
+                     
+                     
+                     
+                     case '7':
+                         
+                         dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                       set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );  
+   
+                     break;
+                     
+                     case '8':
+                       dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                       set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );          
+                   
+                     break;
+                     
+
+                 }
+                 break;
+                 
+                 case 'C':
+                     
+                 switch(current_mode) {
+                     case '2':
+                         
+                         dep = calculate_dependencies(12, C_values[0], C_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(Ctr, dep[13][0], Ctr_min, dep[13][1], Ctr_max );    
+                         
+                         break;
+                         
+                         
+                         case '5':
+                         
+                         dep = calculate_dependencies(12, C_values[0], C_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+  
+                         
+                         break;
+                 }
+                 
+                 break;
+                 
+                 
+                 case 'Ctr':
+                     
+                 switch(current_mode) {
+                     
+                     case '2':
+                         
+                         dep = calculate_dependencies(13, Ctr_values[0], Ctr_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(C, dep[12][0], C_min, dep[12][1], C_max );    
+ 
+                         break;
+                         
+                         case '6':
+                         
+                         dep = calculate_dependencies(13, Ctr_values[0], Ctr_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                                             
+                         break;
+   
+                 }
+                 
+                 break;
+                 
+                 case 'Ra':
+                    switch(current_mode) {
+                     
+                     case '3':
+                         
+                         dep = calculate_dependencies(14, Ra_values[0], Ra_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );    
+ 
+                         break;
+
+                    case '7':
+                         
+                         dep = calculate_dependencies(14, Ra_values[0], Ra_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+   
+                         break;
+                         
+                         case '9':
+                         
+                         dep = calculate_dependencies(14, Ra_values[0], Ra_values[1]);
+                         set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );    
+   
+                         break;
+                    }
+                 
+                 break;
+                 
+                 case 'Ratr':
+                    switch(current_mode) {
+                     
+                     case '3':
+                         
+                         dep = calculate_dependencies(15, Ratr_values[0], Ratr_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );      
+ 
+                         break;
+
+                    case '8':
+                         
+                         dep = calculate_dependencies(15, Ratr_values[0], Ratr_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+   
+                         break;
+                         
+                         case '9':
+                         
+                         dep = calculate_dependencies(15, Ratr_values[0], Ratr_values[1]);
+                         set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );    
+   
+                         break;
+                    }
+                 
+                 break;
+         }
+         
+        }
+        
+        postAjax();
+    }
+    
+    
+    function calculate_dependencies(slider_id, min_value, max_value) {
+        
+        var res = [];
+        res_10 = [0, 0];
+        res[10] = res_10;
+        res_12 = [0, 0];
+        res[12] = res_12;
+        res_13 = [0, 0];
+        res[13] = res_13;
+        res_14 = [0, 0];
+        res[14] = res_14;
+        res_15 = [0, 0];
+        res[15] = res_15;
+         
+        for (index = 0; index < attributes.length; ++index) {
+          slider_values = attributes[index];
+          //sprawdz czy spełnia
+          if (slider_values[slider_id] < min_value) {
+              continue;
+          }
+          
+          if (max_value != 0 && slider_values[slider_id] > max_value ) {
+              continue;
+          }
+          
+          if (res[10][0] == 0 ) {
+              res[10][0] = slider_values[10];
+              res[10][1] = slider_values[10];
+          }
+          
+          if (res[12][0] == 0 ) {
+              res[12][0] = slider_values[12];
+              res[12][1] = slider_values[12];
+          }
+          
+          if (res[13][0] == 0 ) {
+              res[13][0] = slider_values[13];
+              res[13][1] = slider_values[13];
+          }
+          
+          if (res[14][0] == 0 ) {
+              res[14][0] = slider_values[14];
+              res[14][1] = slider_values[14];
+          }
+          
+          if (res[15][0] == 0 ) {
+              res[15][0] = slider_values[15];
+              res[15][1] = slider_values[15];
+          }
+          
+          if (res[10][0] > slider_values[10])
+              res[10][0] = slider_values[10];
+          
+          if (res[10][1] < slider_values[10])
+              res[10][1] = slider_values[10];
+          
+          if (res[12][0] > slider_values[12])
+              res[12][0] = slider_values[12];
+          
+          if (res[12][1] < slider_values[12])
+              res[12][1] = slider_values[12];
+          
+          
+          if (res[13][0] > slider_values[13])
+              res[13][0] = slider_values[13];
+          
+          if (res[13][1] < slider_values[13])
+              res[13][1] = slider_values[13];
+          
+          if (res[14][0] > slider_values[14])
+              res[14][0] = slider_values[14];
+          
+          if (res[14][1] < slider_values[14])
+              res[14][1] = slider_values[14];
+          
+          if (res[15][0] > slider_values[15])
+              res[15][0] = slider_values[15];
+          
+          if (res[15][1] < slider_values[15])
+              res[15][1] = slider_values[15];
+        } 
+         
+        return res;
+    } 
+    
+    //ustaw nowy tryb
+    function set_mode(mode) {
+        current_mode = mode;
+        switch(mode) {
+            case '1':   //RW
+                set_item_mode(Rw, false);
+                
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, true);
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                break;
+                
+            case '2':   //RW, c, Ctr
+                set_item_mode(Rw, false);
+                set_item_mode(C, false);
+                set_item_mode(Ctr, false);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                Rw_values = get_item_values(Rw, '');
+                
+                dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                set_item_values(C, dep[12][0], C_min, null, C_max );
+                    
+                set_item_values(Ctr, dep[13][0], Ctr_min, null, Ctr_max );
+
+                break; 
+                
+           case '3':   //Rw, Ra, Ratr
+                set_item_mode(Rw, false);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, false);
+                
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                
+                handle_change('Rw');
+                
+                break; 
+                
+           
+           case '4':   //RW, c, Ctr, Ra, Ratr
+ 
+                set_item_mode(Rw, false);
+                set_item_mode(C, false);
+                set_item_mode(Ctr, false);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, false);
+                
+                handle_change('Rw');
+                
+                break; 
+                
+                
+           case '5':   //Rw, C
+                set_item_mode(Rw, false);
+                set_item_mode(C, false);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                           
+                handle_change('Rw');
+                
+                break; 
+                
+                
+                
+                case '6':   //RW,  Ctr
+                set_item_mode(Rw, false);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, false);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                set_item_values(C, C_min, C_min, null, C_max );
+                
+                handle_change('Rw');
+                
+                break; 
+                
+                case '7':   //Rw, Ra
+                set_item_mode(Rw, false);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                handle_change('Rw');
+
+                break; 
+                
+                
+                case '8':   //Rw, Ratr
+                set_item_mode(Rw, false);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, false);
+                
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                
+                handle_change('Rw');           
+               
+                break; 
+                
+                
+                case '9':   //Ra, Ratr
+                set_item_mode(Rw, true);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, false);
+                
+                set_item_values(Rw, Rw_min, Rw_min, Rw_max, Rw_max );
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+
+                break; 
+                
+                case '10':   //Ra
+                set_item_mode(Rw, true);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(Rw, Rw_min, Rw_min, Rw_max, Rw_max );
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+ 
+                break; 
+                
+                case '11':   //Ratr
+                set_item_mode(Rw, true);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, false);
+                
+                set_item_values(Rw, Rw_min, Rw_min, Rw_max, Rw_max );
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                break;
+                
+        } 
+        postAjax(); 
+    }    
+        
+    
+    
+    
+$(function() {
+    
+    $('.hide  select').attr('disabled', true);
+     set_mode(current_mode); //domyślny tryb
+    
+     $('#mode').change(function(e) {
+         set_mode($('#mode').val());
+     });
+         
+         
+    
+        
+        $('#lock_button').click(function(e) {
+            e.preventDefault();
+            set_dependency_lock(!is_locked);
+        });     
+    
+    $('#oktawy_button').click(function(e){
+            e.preventDefault();
+            $('#terc_button').toggle(); 
+            if ($('#oktawy_button').html() == '<?= $this->translate('SITE_OKTAWY_ON') ?>') {
+                $('#oktawy_button').html('<?= $this->translate('SITE_OKTAWY_OFF') ?>');
+                 $('.hide').not('.tercja').show(); 
+                 if ($('#terc_button').html() == '<?= $this->translate('SITE_TERC_OFF') ?>') {
+                     $('.tercja').show();
+                 }
+            }
+            else {
+                $('#oktawy_button').html('<?= $this->translate('SITE_OKTAWY_OFF') ?>');
+                 $('.hide').hide(); 
+            }
+           
+            $('.hide select').attr('disabled', true); 
+            $('.hide:visible select').attr('disabled', false); 
+            $('.hide:visible').css('display', 'table-row'); 
+            postAjax();
+        });
+        
+        
+        $('#terc_button').click(function(e){
+            e.preventDefault();
+            if ($('#terc_button').html() == '<?= $this->translate('SITE_TERC_ON') ?>') {
+                $('#terc_button').html('<?= $this->translate('SITE_TERC_OFF') ?>');
+            }
+            else {
+                $('#terc_button').html('<?= $this->translate('SITE_TERC_ON') ?>');
+            }
+            $('.tercja').toggle(); 
+            //$('.element').toggleClass('bg');
+            
+            $('.hide select').attr('disabled', true); 
+            $('.hide:visible select').attr('disabled', false); 
+            $('.hide:visible').css('display', 'table-row'); 
+            postAjax();
+        });
+        
+    
+    
+    var text_search = '<?=$this->translate('SITE_SEARCH_RESULTS')?>';
+    var text_nag = '<?=$this->translate('SITE_HEADER_TITLE')?>';
+    $('#show_button').click(function(e){
+        e.preventDefault();
+        $('.pull-left').hide();
+        $('.results').show(); 
+        $('h2').html(text_search);
+    });
+    
+   
+      
+});
+
+function postAjax() {
+
+$.ajax({
+        url: "<?=$this->url(array(),'site-ajax')?>",
+        method: 'POST',
+        data: $('#forms').serialize()
+    }).done(function(data ) {
+        var html = '';
+        var z = 0;
+        for(x in data){
+                if(x == 1){
+                    txt = '<?=$this->translate('SITE_GLASS_1')?>';
+                }
+                if(x == 2){
+                    txt = '<?=$this->translate('SITE_GLASS_2')?>';
+                }
+                if(x == 3){
+                    txt = '<?=$this->translate('SITE_GLASS_3')?>';
+                }
+            html += '<h3 style="text-align: left;padding-left: 10px;">' + txt+ '</h3>';
+            html += '<ul style="padding: 0px; list-style:none;">';
+             var c = 1;
+            for(d in data[x]){
+                html += '<li>' + c + '. &nbsp  '+ data[x][d].name + '</li>';
+                z++;
+                c++;
+            }
+            html += '</ul>';
+        }
+        $('#resuls').html(html);
+        $('#show_button span').html(z);
+    });
+    
+    }
+
+</script>

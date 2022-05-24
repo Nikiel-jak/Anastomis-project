@@ -1,0 +1,62 @@
+<?php $fm = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');
+	if($fm->hasMessages() || $fm->hasCurrentMessages()):
+		$this->messages = array_merge($fm->getMessages(), $fm->getCurrentMessages());
+		$fm->clearMessages(); $fm->clearCurrentMessages();
+?>
+<?php
+	$error 			= array();
+	$information 	= array();
+	$success 		= array();
+?>
+<? foreach ($this->messages as $message): ?>
+	<? if (is_array($message) && isset($message[0]) && isset($message[1])): ?>
+		<? switch ($message[1]):
+			case Orion_FlashMessenger::ERROR:
+				$error[] = $message[0];
+				break;
+			case Orion_FlashMessenger::SUCCESS:
+				$success[] = $message[0];
+				break;
+			default:
+				$information[] = $message[0];
+				break;	
+		endswitch; ?>
+	<? else: ?>
+		<? $information[] = $message; ?>
+	<? endif; ?>
+<?php endforeach; ?>
+
+<? if(count($error)): ?>
+	<div id="infos">
+        <a class="info_closer" id="x_infos" href="#">×</a>
+        <ol class="error">
+		<? foreach ($error as $message): ?>
+			<li><?=$message;?></li>
+		<? endforeach; ?>
+        </ol>
+        <a class="info_closer" id="close_infos" href="#"><?=$this->translate('Close')?></a>
+	</div>
+<? endif; ?>
+<? if(count($information)): ?>
+	<div id="infos">
+        <a class="info_closer" id="x_infos" href="#">×</a>
+        <ol class="information">
+		<? foreach ($information as $message): ?>
+			<li><?=$message;?></li>
+		<? endforeach; ?>
+        </ol>
+        <a class="info_closer" id="close_infos" href="#"><?=$this->translate('Close')?></a>
+	</div>
+<? endif; ?>
+<? if(count($success)): ?>
+	<div id="infos">
+        <a class="info_closer" id="x_infos" href="#">×</a>
+        <ol class="success">
+		<? foreach ($success as $message): ?>
+			<li><?=$message;?></li>
+		<? endforeach; ?>
+        </ol>
+        <a class="info_closer" id="close_infos" href="#"><?=$this->translate('Close')?></a>
+	</div>
+<? endif; ?>
+<?php endif; ?>

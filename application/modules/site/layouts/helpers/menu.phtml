@@ -1,0 +1,49 @@
+<nav class="nav-collapse collapse">       
+<?php
+    $count = count($this->menu);
+    if($count > 0):
+        $tree = '';
+        $current_depth = 1;
+        $counter = 0;
+        $menu = $this->menu;
+        foreach($this->menu as $key => $item) {
+            $node_depth = $item['depth'];
+            if($node_depth == $current_depth) {
+                if($counter > 0) {
+                    $tree .= '</li>';
+                }
+            } elseif($node_depth > $current_depth) {
+                if($node_depth == 2){
+                    $tree .= '<ul class="clearfix none nmp inline"><li><a href='.$this->url(array(),'site').'>HOME</a></li>';
+                } else {
+                    $ul_class = (array_key_exists(($counter-1), $this->menu) && $this->menu[$counter-1]['depth'] < $item['depth']) ? 'dropdown-menu' : '';
+                    $tree .= '<ul class="'.$ul_class.'">';
+                }
+                $current_depth = $current_depth + ($node_depth - $current_depth);
+            } elseif($node_depth < $current_depth) {
+                $tree .= str_repeat('</li></ul>', $current_depth - $node_depth).'</li>';
+                $current_depth = $current_depth - ($current_depth - $node_depth);
+            }
+            $li_class = (array_key_exists(($counter+1), $this->menu) && $this->menu[$counter+1]['depth'] > $item['depth']) ? 'dropdown' : '';
+            $a_class = (array_key_exists(($counter+1), $this->menu) && $this->menu[$counter+1]['depth'] > $item['depth']) ? 'dropdown-toggle' : '';
+            $a_data_toggle = (array_key_exists(($counter+1), $this->menu) && $this->menu[$counter+1]['depth'] > $item['depth']) ? 'data-toggle="dropdown"' : '';
+            $a_data_target = (array_key_exists(($counter+1), $this->menu) && $this->menu[$counter+1]['depth'] > $item['depth']) ? 'data-target="#"' : '';
+            $tree .= '<li class="'.$li_class.'">';
+            if(!empty($item['link'])){
+                $href = $item['link'];
+            } else {
+                $href = $this->url(array(),'page_'.$item['id']);
+            }
+            
+            $tree .= '<a class="'.$a_class.'" '.$a_data_target.' '.$a_data_toggle.'  href="'.$href.'">';
+                $tree .= $item['name']; 
+            $tree .= '</a>';
+            ++$counter;
+            
+        }
+        
+        $tree .= str_repeat('</li></ul>', $node_depth).'</li>';
+        echo $tree;
+    ?>
+<?php endif; ?>
+</nav>

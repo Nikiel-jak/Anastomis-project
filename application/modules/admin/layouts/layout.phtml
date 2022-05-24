@@ -1,0 +1,28 @@
+<?=$this->doctype();?>
+<html>
+<head>
+    <?=$this->render('helpers/head.phtml');?>
+</head>
+<body <?=(Orion_Auth::isLogged()) ? 'class="logged"': 'class="nonlogged"';?>>
+    <div id="wrapper">
+        <div id="wrapper_content">
+            <div id="header">
+                <?=$this->render('helpers/header.phtml');?>
+            </div>
+            <div id="context">
+                <div id="left_column">
+                    <?=$this->render('helpers/menu.phtml');?>
+                </div>
+                <div id="page_content" <?=(Orion_Auth::isLogged()) ? 'class=""': 'class="non_logged_content"';?> >
+                    <?=$this->render('helpers/_flashmessanger.phtml');?>
+                    <?php echo $this->layout()->content; ?>
+                </div>
+                <div class="both"></div>
+            </div>
+            <div id="footer">
+                <?=$this->render('helpers/footer.phtml');?>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

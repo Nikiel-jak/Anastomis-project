@@ -1,0 +1,81 @@
+/*
+	Sitemap Styler 	 
+*/
+
+#sitemap, #sitemap ul, #sitemap li{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#sitemap{background:url(../images/sitemapstyler/line1.gif) repeat-y;}
+#sitemap li{
+	line-height:28px;
+	margin-top:1px;
+	position:relative;
+	width:100%;
+}
+/* IE leaves a blank space where span is added so this is to avoid that */
+* html #sitemap li{
+	float:left;
+	display:inline;
+}
+
+#sitemap li a.name{padding-left:28px; text-transform: uppercase;
+font-size: 14px;}
+#sitemap li span{float:left;position:absolute;top:5px;left:5px;width:13px;height:13px;cursor:auto;font-size:0;}
+#sitemap li span, #sitemap li span.collapsed{background:url(../images/sitemapstyler/collapsed.gif) no-repeat 0 0;} 
+#sitemap li span.expanded{background:url(../images/sitemapstyler/expanded.gif) no-repeat 0 0;}
+
+/* sub levels */
+
+#sitemap li ul{	
+	margin-left:28px;
+	background:url(../images/sitemapstyler/line1.gif) repeat-y;
+}
+#sitemap li li{	
+	background:url(../images/sitemapstyler/line2.gif) no-repeat 0 0;
+}
+
+/* etc. */
+
+/* float fix */
+
+#sitemap:after, #sitemap ul:after{
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+#sitemap, #sitemap ul{display:block;}
+/*  \*/
+#sitemap, #sitemap ul{min-height:1%;}
+* html #sitemap, * html #sitemap ul{height:1%;}
+ /*  */
+#sitemap ul{display:none;}
+
+#sitemap .line{
+    background: url('../../admin/images/bg_box.jpg') repeat-x;
+    border-bottom: 1px solid #DBDBDB;
+    cursor: move;
+}
+#sitemap .line p{
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+#sitemap .line a.delete img{
+    height: 20px;
+}
+#sitemap .line a.status img{
+    height: 20px;
+}
+#sitemap .line a.edit img{
+    height: 20px;
+}
+#sitemap .line a:hover{
+    text-decoration: underline;
+}
+#sitemap .line a{
+    color: black;
+}

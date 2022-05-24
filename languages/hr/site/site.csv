@@ -1,0 +1,108 @@
+SITE_HEADER_TITLE;"KONFIGURATOR IZO STAKLA SA ZVUČNOM IZOLACIJOM"
+SITE_ACOUSTIC_INSULATION_REQUIRED;"ZAHTJEVANA ZVUČNA PROPUSTLJIVOST"
+SITE_SEARCH_RESULTS;"REZULTATI PRETRAŽIVANJA"
+SITE_COMMENTS;NAPOMENE
+SITE_DATE_GENERATION;"Data wygenerowania"
+SITE_INFO;"1. Zvučne karakteristike svih predstavljenih proizvoda potvrđuju ispitivanja provedena od strane notificiranih tijela.<br>
+2. Ukoliko na konstrukciji stakla nema podataka o vrsti distancera, parametri važe za sve vrste distantnih profila.<br>
+3. Međuprostore kod svih ispitanih slojevitih stakla popunjava argon. Parametri važe i za slojevito staklo s kriptonom.<br>
+4. Parametri važe za sva stakla napravljena od pljosnatog natrijkalcijevog silikatnog stakla proizvedenog float metodom.<br>
+5. Rw, C i Ctr vrijednosti će biti potvrđene i za staklo kod kojeg su uvedene sljedeće konstrukcijske izmjene:<br>
+- prošireni međuprostori<br>
+- povećan broj slojeva folije kod laminiranog stakla<br>
+- nanošenje na površinu stakla emajla ili tiska<br>
+- kaljenje, toplinsko ojačanje, HST test<br>
+- sloj Thermofloat je zamijenjen drugim ili bez sloja <br>
+6. Navedeni parametri ne mogu se primijenjivati za ornamentno staklo.<br>
+7. U opisu stakla koriste se sljedeće oznake:<br>
+X/Y/X ; X/Y/X/Y/X – opis slojevitog stakla s jednom ili dvije šupljine, u kojem „X” znači debljinu ploha stakla u sklopu, „Y” je širina međuprostora popunjenih plinom. Debljine su navedene u minimetrima.<br>
+(VSG XX.Z) – slojevito laminirano staklo VSG s dvije monolitne staklene plohe debljine „X” izražene u minimetrima, razdjeljene „Z” slojevima folije.<br>
+Argon (Ar), Kripton (Kr) – plin koji popunjava šupljine odnosno međuprostor između staklenih ploha stakla<br>
+T – postavljen na staklo sloj Thermofloat za očuvanje topline<br>
+Float – Tip primijenjenog jednostrukog stakla
+"
+
+SITE_MOBILE_POPUP_ONLINE;ONLINE
+SITE_MOBILE_POPUP_PRINT;ISPIS
+SITE_MOBILE_POPUP_OPEN;OTVORI
+SITE_MOBILE_POPUP_DOWNLOAD;PREUZMI
+
+SITE_SAVE;Zapiši
+SITE_SHOW_TERC;"Pokaži/Sakrij Tercije"
+SITE_SHOW_RESULTS;"Pokaži  rezultate"
+
+SITE_GLASS_1;"JEDNOSTRUKO STAKLO"
+SITE_GLASS_2;"DVOSTRUKO STAKLO S DVIJE STAKLENE PLOHE I JEDNOM ŠUPLJINOM"
+SITE_GLASS_3;"TROSTRUKO STAKLO S TRI STAKLENE PLOHE I DVIJE ŠUPLJINE"
+
+SITE_MOBILE_SHOW_CONFIG;"POKAŽI POSTAVKE"
+
+SITE_DISABLE;isključi
+SITE_USE_BAND;"Zajedno s pojasevima"
+SITE_USE_PARAMS;"isključi [C;C<sub>tr</sub>] i [R<sub>A</sub>;R<sub>Atr</sub>]"
+
+SITE_SELECT_MODE;"Odaberi polazne podatke"
+SITE_TERC_ON;"Uključi tercije"
+SITE_TERC_OFF;"Isključi tercije"
+SITE_OKTAWY_ON;"Uključi oktave"
+SITE_OKTAWY_OFF;"Isključi oktave"
+SITE_DEPENDENCY_BUTTON;"Prilagodi postavke svih aktivnih podataka i popis rezultata za postavke parametra koji se može uređivati"
+SITE_MOBILE_DEPENDENCY_BUTTON;"Prilagodi postavke za postojeća slojevita stakla"
+SITE_MAX;Max
+SITE_MIN;Min
+
+SITE_PDF_DOWNLOAD_NAME;"Stakla sa zvučnom izolacijom_PRESS_GLASS"
+
+SITE_ANASTOMOSIS_TYPE;"Odaberi tip slojevitog stakla"
+SITE_ANASTOMOSIS_TYPE_0;Sve
+SITE_ANASTOMOSIS_TYPE_1;"Jednostruko staklo"
+SITE_ANASTOMOSIS_TYPE_2;"Dvostruko staklo s dvije staklene plohe i jednom šupljinom"
+SITE_ANASTOMOSIS_TYPE_3;"Trostruko staklo s tri staklene plohe i dvije šupljine"
+
+SITE_THICKNESS_LEGEND_1;"Debljina jednostrukog stakla ili krajnje staklene plohe kod slojevitog stakla"
+SITE_THICKNESS_LEGEND_2;"Debljina središnje plohe kod slojevitog stakla s dvije šupljine i tri plohe"
+SITE_THICKNESS_LEGEND_3;"Debljina krajnje staklene plohe kod slojevitog stakla"
+
+SITE_SECTION_TOTAL_WIDTH;"Smanji debljinu paketa"
+SITE_SECTION_GLASES_WIDTH;"Smanji debljinu staklenih ploha u paketu"
+SITE_SECTION_WEIGHT;"Odredi težinu paketa"
+SITE_SECTION_PROTECTION_CLASS;"Odredi klasu zaštite"
+SITE_SECTION_SECURITY_CLASS;"Odredi klasu sigurnosti"
+SITE_SECTION_LAMINATED_GLASS;"Samo staklo s laminiranom površinom"
+
+SITE_UNIT_DB;[dB]
+SITE_UNIT_MM;[mm]
+SITE_UNIT_CLASS;[klasa]
+SITE_UNIT_KG;[kg]
+
+SITE_TITLE_TOTAL_WIDTH;"Ukupna debljina paketa"
+SITE_TITLE_GLASES_WIDTH;"Debljina stakla u paketu"
+SITE_TITLE_WEIGHT;"Težina paketa 1m<sup>2</sup>"
+SITE_TITLE_PROTECTION_CLASS;"Klasa zaštitnog laminiranog stakla"
+SITE_TITLE_SECURITY_CLASS;"Klasa sigurnosnog laminiranog stakla"
+SITE_TITLE_LAMINATED_GLASS;"Samo staklo s laminiranom površinom"
+SITE_TITLE_LAMINATED_PDF;"Laminirano staklo"
+
+SITE_YES;Da
+SITE_NO;Ne
+SITE_EMPTY;Nema
+
+table.title;"Slojevita stakla sa zvučnom izolacijom (Rw dB) potvrđena CE certifikatom"
+table.model;Model
+table.acoustic_performance;"Zvučna izolacija (dB)"
+table.type_of_glass;"Tip stakla"
+table.composition;"Konstrukcija [mm]"
+table.glass_1;"Staklo 1"
+table.spacer_1;"Distancer 1 "
+table.glass_2;"Staklo 2"
+table.spacer_2;"Distancer 2"
+table.glass_3;"Staklo 3"
+table.structure;"Struktura [mm]"
+table.total;-
+table.thickness;"Ukupna debljina"
+table.glass_weight;"Ukupna težina stakla"
+table.items;rezultata
+table.type_of_used_gas;Popunjavanje
+table.acoustic_insulation_coefficient;"Pokazatelji zvučne izolacijej"
+table.acoustic_insulation_coefficient_at_average;"Zvučna izolacija uz oktave [Hz] R [dB]"
+table.filter_reset;"Ukloni filtere"

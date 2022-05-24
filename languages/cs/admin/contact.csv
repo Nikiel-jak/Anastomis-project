@@ -1,0 +1,35 @@
+"TABLE_CONTACT_LIST__SUBJECT";"Temat"
+"TABLE_CONTACT_LIST__STATUS";"Status"
+"TABLE_CONTACT_LIST__EMAIL";"Nadawca"
+"TABLE_CONTACT_LIST__DELETE";"Usuń"
+"TABLE_CONTACT_LIST__VIEW";"Podgląd"
+"TABLE_CONTACT_LIST__ACTION_DELETE";"Usuń"
+"TABLE_CONTACT_LIST__ACTION_VIEW";"Zobacz"
+
+"ADMIN_CONATCT_LIST_ALL";"Wszystkie"
+"ADMIN_CONATCT_LIST_NEW";"Nowe"
+"ADMIN_CONATCT_LIST_READED";"Przeczytane"
+"ADMIN_CONATCT_LIST_ANSWERED";"Odpowiedzanie"
+
+"CONTACT_STATUS_CHANGE_TO_READED";"Status zapytania kontaktowego został zmieniony na przeczytany."
+"ADMIN_CONATCT_VIEW";"Przeglądasz zgłoszenie o tytule: "
+
+"ADMIN_CONTACT_VIEW_SUBJECT";"Temat:"
+"ADMIN_CONTACT_VIEW_EMAIL";"Nadawca:"
+"ADMIN_CONTACT_VIEW_QUESTION";"Zapytanie:"
+"ADMIN_CONTACT_VIEW_ANSWERED";"Odpowiedz"
+"ADMIN_CONTACT_VIEW_STATUS";"Staus"
+ 
+"ADMIN_CONTACT_VIEW_READED";"Przeczytane"
+"TABLE_CONTACT_STATUS_READED";"Przeczytane"
+"TABLE_CONTACT_STATUS_NEW";"Nowe"
+"TABLE_CONTACT_STATUS_ANSWERED";"Odpowiedziane"
+
+"ADMIN_CONTACT_FORM_ANSWERED";"Odpowiedz"
+"FORMS_ADMIN_CONATACT_TITLE";"Tytuł"
+"FORMS_ADMIN_CONTACT_BODY";"Treść"
+"FORMS_ADMIN_CONTACT_SEND";"Wyślij"
+
+"ADMIN_CONTACT_DELETE";"Czy jesteś że chcesz usunąć wybrane zgłoszenie kontaktowe ?"
+"ADMIN_CONTACT_ANSWER_MAIL_SEND";"Odpowiedz został wysłana"
+"ADMIN_CONTACT_MANAGE_SUCCESS";"Akcja na wybranych elementach został przeproawdzona poprawnie"

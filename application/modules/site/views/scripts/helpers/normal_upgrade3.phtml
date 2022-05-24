@@ -1,0 +1,1474 @@
+<?php
+    $special22 = array(40, 41, 38, 43, 44, 45);
+    $special223 = array(40, 41);
+?>
+<form id="forms" style="padding-top: 20px;" action="<?= $this->url(array('lang' => $this->lang), 'site-pdf') ?>" method="POST">
+    <div style="margin: -10px 0px 30px 0px;">
+        <h3 style="margin-bottom: 2px; font-size:16px; padding-bottom:0px; padding-right: 10px; padding-top: 0px; float: left;"><?= $this->translate('SITE_SELECT_MODE') ?></h3>
+        <select id="mode">
+            <option value="1">Rw</option>
+            <option value="2">Rw, C, Ctr</option>
+            <option value="3">Rw, Ra, Ratr</option>
+           <!-- <option value="4">Rw, C, Ctr, Ra, Ratr</option>  -->
+            <option value="5">Rw, C</option>
+            <option value="6">Rw, Ctr</option>
+            <option value="7">Rw, Ra</option>
+            <option value="8">Rw, Ratr</option>
+            <option value="9">Ra, Ratr</option>
+            <option value="10">Ra</option>
+            <option value="11">Ratr</option>
+        </select>
+    </div>
+    <?php 
+    $i = 1;
+    foreach ($this->group as $group_name => $sliders): ?>
+        <?php $notshow = false;?>
+        <?php $array_keys = array_keys($sliders); ?>
+            <?php $elem = ($sliders[array_shift($array_keys)]->toArray()); ?>
+            <?php $ck = '';?>
+            <?php $ck .= ($i != 1 && $elem['can_hide'] == 1) ? 'hide tercja' : ''; ?>
+            <?php $ck .= ($i != 1) ? ' disabled hide' : ''; ?>
+        <div class="element <?=($elem['css_class'])?$elem['css_class']:$ck;?>">
+            <?php if($elem['css_class'] == 'protection_class special22'):?>
+                <?php $notshow = true;?>
+                <?php $size = 432;?>
+            <p style="display: block;overflow: hidden; margin-bottom: 5px">
+                <a id="button4"  class="<?=$elem['css_class']?> up4" href="#" >
+                    <img src="<?=$this->imagePath('ok.png')?>"/>
+                    <span><?= $this->translate('Określ klasę ochrony') ?></span>
+                </a>
+            </p>
+            <?php endif;?>
+            <?php if($elem['css_class'] == 'size special22'):?>
+                <?php $notshow = true;?>
+                <?php $size = 432;?>
+                <p style="display: block;overflow: hidden; margin-bottom: 5px">
+                    <a id="button1"  class="up4 <?=$elem['css_class']?>" href="#" >
+                        <img src="<?=$this->imagePath('gs.png')?>"/>
+                        <span><?= $this->translate('Ogranicz grubość pakietu') ?></span>
+                    </a>
+                </p>
+            <?php endif;?>
+            <?php if($elem['css_class'] == 'glass_laminate'):?>
+                <?php $notshow = true;?>
+                <?php $size = 432;?>
+                <p style="display: block;overflow: hidden; margin-bottom: 5px">
+                    <a id="button6"  class="up4" href="#" >
+                        <img id="ll" style="display:none;" src="<?=$this->imagePath('locked.jpg')?>"/>
+                        <img id="ul" src="<?=$this->imagePath('unlocked.jpg')?>"/>
+                        <span><?= $this->translate('Uwzględniaj tylko szyby zawierające szybę laminowaną') ?></span>
+                    </a>
+                 </p>
+            <?php endif;?>
+            <?php if($elem['css_class'] ==  'safety special22'):?>
+                <?php $notshow = true;?>
+                <?php $size = 432;?>
+                <p style="display: block;overflow: hidden; margin-bottom: 5px">
+                    <a id="button2"  class="up4 <?=$elem['css_class']?>" href="#" style=" float:left; " >
+                        <img src="<?=$this->imagePath('okb.png')?>"/>
+                        <span><?= $this->translate('Określ klasę bezpieczeństwa') ?></span>
+                    </a>
+                </p>
+            <?php endif;?>
+            <?php if($elem['css_class'] ==  'weight special22'):?>
+                <?php $notshow = true;?>
+                <?php $size = 432;?>
+                 <p style="display: block;overflow: hidden; margin-bottom: 5px">
+                    <a id="button3"  class="up4 <?=$elem['css_class']?>" href="#" style=" float:left; " >
+                        <img src="<?=$this->imagePath('kg.png')?>"/>
+                        <span><?= $this->translate('Określ wagę pakietu') ?></span>
+                    </a>
+                 </p>
+            <?php endif;?>
+            <?php if($elem['css_class'] ==  'glass_size special22'):?>
+                <?php $notshow = true;?>
+                <?php $size = 120;?>
+                <p style="display: block;overflow: hidden; margin-bottom:5px">
+                    <a id="button2"  class="up4 <?=$elem['css_class']?>" href="#" style=" float:left;" >
+                        <img src="<?=$this->imagePath('og.png')?>"/>
+                        <span><?= $this->translate('Ogranicz grubość szyb w pakiecie') ?></span>
+                    </a>
+                </p>
+                <p class="item" style="width: 100%; height: auto; margin-bottom: 10px;">
+                    <span style="color: #003968; font-size: 16px; margin-bottom: 5px; height: 27px; text-transform: uppercase;">Grubość szyb w pakiecie</span><br/>
+                    Wybierz typ zespolenia
+                    <select id="glass_size_options">
+                        <option value="0">Dowolne</option>
+                        <option value="1">Pojedyńcze</option>
+                        <option value="2">Jednokomorowe</option>
+                        <option value="3">Dwukomorowe</option>
+                    </select>
+                </p>
+             <?php endif;?>
+    <?Php $right = (532 / (count($sliders) + 1) - 50); ?>
+            <?php if ($i == 1 || in_array($i, array(5,6,7,8,9,10))) {  ?>
+                <div class="item" style='margin-right: <?= $right ?>px; position:relative;'>
+                    <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px; height: 27px; width: 45px; padding-top: 75px;"><?= $this->translate('SITE_MAX') ?></p>
+                    <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px; height: 27px; width: 45px; position: absolute;bottom: 0px;"><?= $this->translate('SITE_MIN') ?></p>
+                </div>
+           <?php } else { ?>
+                    <div class="item" style='margin-right: <?= $right ?>px; position:relative;'>
+                        <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px; height: 27px;"><?= $elem['group_name'] ?></p>
+                        <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px; height: 27px; position: absolute;bottom: 0px;left: 14px;"><?= $elem['hint'] ?></p>
+                    </div>
+                <?php if($notshow != FALSE):?>
+                    <?php $right = $size;?>
+                <?php endif;?>
+            <?php }  ?>
+            
+            <?php foreach ($sliders as $value): ?>
+
+
+        <?php
+        
+             switch ($value->id ) {
+                 case 10:
+                     $item_prefix = 'Rw';
+                     break;
+                 case 12:
+                     $item_prefix = 'C';
+                     break;
+                 case 13:
+                     $item_prefix = 'Ctr';
+                     break;
+                 case 14:
+                     $item_prefix = 'Ra';
+                     break;
+                 case 15:
+                     $item_prefix = 'Ratr';
+                     break;
+                 default :
+                     $item_prefix = '';
+                     break;
+             }
+             
+             if (!empty($item_prefix)) {
+         ?>
+            
+            <script type="text/javascript">
+                
+                var <?= $item_prefix ?> = 'item_<?= $value->id ?>';
+                var <?= $item_prefix ?>_min = <?= $value->min_value ?>;
+                var <?= $item_prefix ?>_max = <?= $value->max_value ?>;
+                
+            </script>
+            
+            
+          <?php    
+
+             }
+             
+        //slider - typ 1  
+        if ($value->id == 10 || $value->id == 14 || $value->id == 15 || $value->id == 42 || in_array($value->id, $special22)) {
+            ?>
+                    <div class="item" id="item_<?= $value->id ?>" style='margin-right: <?= $right ?>px;'>
+                            <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; "><?= $value->name ?></p>
+                        <?php if ($i == 1) {  ?>
+                       <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; ">[dB]</p>
+                        
+                        <?php } ?>
+
+                        <?php if ($elem['css_class'] ==  'glass_size special22'): ?>
+                            <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; ">[mm]</p>
+                        <?php endif; ?>
+
+                        <?php if ($elem['css_class'] ==  'protection_class special22'): ?>
+                            <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; ">[klasa]</p>
+                        <?php endif; ?>
+
+                        <?php if ($elem['css_class'] ==  'size special22'): ?>
+                            <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; ">[mm]</p>
+                        <?php endif; ?>
+                   
+                        <?php if ($elem['css_class'] ==  'weight special22'): ?>
+                            <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; ">[kg]</p>
+                        <?php endif; ?>
+
+                        <?php if ($elem['css_class'] ==  'safety special22'): ?>
+                            <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; ">[klasa]</p>
+                        <?php endif; ?>
+
+                        <?php if(in_array($value->id, $special223)):?>
+                            <p style="height: 50px; width: 43px; display: block;">
+                                <input value="<?=@$this->values[$value->id][$value->max_value]?>" readonly type="text" class="slider_amount first" />
+                            </p>
+                        <?php endif;?>
+                       <p style="height: 50px; width: 43px; display: block; <?=(in_array($value->id, $special223)) ? 'display:none;':''?>">
+                            <input name="<?= $value->id ?>[max]" type="text" value="<?= preg_replace('/.00/', '', $value->max_value) ?>" class="slider_amount first" />
+                        </p>
+                        <a class="up_f" href="#"><img class="img_arrow_up" src="<?= $this->imagePath('arrow_up.png') ?>" /></a>
+                        <a class="down_f" href="#"><img class="img_arrow_down" src="<?= $this->imagePath('arrow_down.png') ?>" /></a>
+                        <div id="slider_item_<?= $value->id ?>" class="slider-vertical" style="height:200px;"></div>
+                        <a class="up_l" href="#"><img class="img_arrow_up" src="<?= $this->imagePath('arrow_up.png') ?>" /></a>
+                        <a class="down_l" href="#"><img class="img_arrow_down"  src="<?= $this->imagePath('arrow_down.png') ?>" /></a>
+                        <?php if(in_array($value->id, $special223)):?>
+                            <p style="height: 50px; width: 43px; display: block;">
+                                <input value="<?=$this->values[$value->id][ $value->min_value]?>" readonly  type="text" class="slider_amount last" />
+                            </p>
+                        <?php endif;?>
+
+                        <p style="height: 50px; width: 43px; display: block; <?=(in_array($value->id, $special223)) ? 'display:none;':''?>">
+                            <input name="<?= $value->id ?>[min]" type="text" value="<?= preg_replace('/.00/', '', $value->min_value) ?>" class="slider_amount last" />
+                        </p>
+                    </div>
+
+
+            <script type="text/javascript">
+                        $( "#slider_item_<?= $value->id ?>" ).slider({
+                            orientation: "vertical",
+                            min: parseFloat('<?= preg_replace('/,/', '.', $value->min_value) ?>'),
+                            max: parseFloat('<?= preg_replace('/,/', '.', $value->max_value) ?>'),
+                            step: parseFloat('<?= preg_replace('/,/', '.', $value->step) ?>'),
+                            range: true,
+                            values: [<?= $value->min_value ?>, <?= $value->max_value ?>],
+                            slide: function( event, ui ) {
+                                $(ui.handle).parent().parent().find('.first').val(ui.values[1]);
+                                $(ui.handle).parent().parent().find('.last').val(ui.values[0]);
+                                changeValues(this);
+                            },
+                            change: function( event, ui ) {
+
+                                step = parseFloat($("#slider_item_<?= $value->id ?>").slider( "option", "step" ));
+                                max = parseFloat($("#slider_item_<?= $value->id ?>").slider( "option", "max" ));
+                                min = parseFloat($("#slider_item_<?= $value->id ?>").slider( "option", "min" ));
+
+                                if((max == ui.values[1] && ui.values[0] == ui.values[1])){
+                                    if(max <= ui.values[1]){
+
+                                       $(ui.handle).parent().parent().find('.last').val( max );
+                                    } else {
+                                        $(ui.handle).parent().parent().find('.last').val( ui.values[1]-step );
+                                        $( this ).parent().find('.slider-vertical').slider( "option", "values", [ ui.values[1]-step, ui.values[0]]);
+                                    }
+                                } else {
+                                    $(ui.handle).parent().parent().find('.last').val( ui.values[0] );
+                                }
+                                if((min == ui.values[0] && ui.values[0] == ui.values[1]) ){
+                                    if(min >= ui.values[1]){
+                                        $(ui.handle).parent().parent().find('.first').val( min );
+                                    } 
+                                } else {
+                                    $(ui.handle).parent().parent().find('.first').val( ui.values[1] );
+                                }
+                                
+                                if (semafor == 0) {
+                                   handle_change('<?= $item_prefix ?>');
+                                   postAjax();
+                                }
+                                changeValues(this);
+                                               
+                            }
+                        });
+                    </script>
+
+            <?php
+        } else {
+            ?>
+                    <div class="item item2" id="item_<?= $value->id ?>" style='margin-right: <?= $right ?>px;'>
+                        <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; "><?= $value->name ?></p>
+                        <?php if ($i == 1) {  ?>
+                       <p style="font-size: 18px; text-align: center; display: block; margin-bottom: 5px;height: 27px; ">[dB]</p>
+                        
+                        <?php } ?>
+                        <p style="height: 50px; width: 43px; display: block;">
+                            <input name="<?= $value->id ?>[max]" type="text" value="<?= preg_replace('/.00/', '', $value->max_value) ?>" class="item_max_indicator" />
+                        </p>
+                        
+                        <a class="up" href="#"><img class="img_arrow_up" src="<?= $this->imagePath('arrow_up.png') ?>" /></a>
+                        <div id="slider_item_<?= $value->id ?>" class="slider-vertical" style="height:200px;"></div>
+                        <a class="down" href="#"><img class="img_arrow_down"  src="<?= $this->imagePath('arrow_down.png') ?>" /></a>
+                        <input   name="<?= $value->id ?>" type="text" value="<?= $value->min_value ?>" class="slider_amount" />
+                    </div>
+                    <script>
+                        $(function() {
+                            $( "#slider_item_<?= $value->id ?>" ).slider({
+                                orientation: "vertical",
+                                range: "min",
+                                min: parseInt('<?= (empty($value->min_value) || !in_array($value->id, array('10', '12', '13'))) ? $value->min_value : $value->min_value ?>'),
+                                max: parseInt('<?= (empty($value->max_value) || !in_array($value->id, array('10', '12', '13'))) ? $value->max_value : $value->max_value ?>'),
+                                step: parseFloat('<?= preg_replace('/,/', '.', $value->step) ?>'),
+                                value: parseInt('<?= $value->min_value ?>'),
+                                slide: function( event, ui ) {
+                                    //alert(ui.value);
+                                    //$(ui.handle).parent().parent().find('.slider_amount').val( ui.value );
+                                                
+                                },
+                                change: function( event, ui ) {
+                                                
+                                    // console.log($(ui.handle).parent());
+                                        $(ui.handle).parent().parent().find('.slider_amount').val( ui.value );
+                                        if (semafor == 0) {
+                                           handle_change('<?= $item_prefix ?>');
+                                           postAjax();
+                                        }
+                                }
+                            });
+                        });
+                    </script>
+        <?php }
+
+    endforeach;
+    ?>
+            <?php if ($i == 1 && count($this->group) > 1): ?>
+                    <div style="clear: both; width: 100%;">
+                     <br />
+                    <a id="lock_button"  class="btn-slider" href="#" style="clear: both; float:left; padding: 3px 5px 3px 3px;" ><img class="img_arrow_down"  src="<?= $this->imagePath('locked.png') ?>" /></a>
+                    <div style="float:left; padding:2px 0px 0px 10px; width: 450px;"><?= $this->translate('SITE_DEPENDENCY_BUTTON') ?></div>
+                    <br />
+                    </div>
+                    <div style="clear: both; width: 100%;">
+                        <a id="terc_button"  class="btn-slider" href="#" style="float:right; margin-top: 30px; display: none;"><?= $this->translate('SITE_TERC_ON') ?></a>
+                        <a id="oktawy_button"  class="btn-slider" href="#" style=" float:left; margin-top: 30px; "><?= $this->translate('SITE_OKTAWY_ON') ?></a>
+                    </div>
+            <?php endif; ?>
+                    <?php if($elem['css_class'] == 'glass_size special22'):?>
+                    <div class="legend">
+                        <ul style="list-style:none;">
+                            <li>
+                                <img style="position: relative; top: 4px;" src="<?=$this->imagePath('x.jpg')?>"/>
+                                Grubość szyby pojedyńczej lub szyby skrajnej w szybie zespolnej
+                            </li>
+                            <li>
+                                <img style="position: relative; top: 4px;" src="<?=$this->imagePath('y.jpg')?>"/>
+                                Grubość szyby środkowej w szybie zepolonej dwukomowej
+                            </li>
+                            <li>
+                                <img style="position: relative; top: 4px;" src="<?=$this->imagePath('z.jpg')?>"/>
+                                Grubość szyby szyby skranjnej w szybie zespolonej
+                            </li>
+                        </ul>
+                    </div>
+                    <?php endif;?>
+        </div>
+    <?php $i++;
+endforeach; ?>
+    <input class="btn-slider" id="submit_print" type="submit" value="<?= $this->translate('SITE_SAVE') ?>" />
+</form>
+<script>
+    
+    //Rw: id = 10
+    //C: id = 12
+    //Ctr: id = 13
+    //RA: id = 14
+    //RAtr: id = 15
+    var current_mode = '1';
+    var semafor = 0; //do kontroli kto odpalił zmianę wartości
+    var is_locked = true;  //wzajemna zależność suwaków
+    
+
+    function changeValues(slider)
+    {
+        var slider_id = ($(slider).attr('id').replace('slider_item_',''));
+        var values = eval('(' + '<?=json_encode($this->values)?>' + ')');
+        if(values[slider_id] !== undefined){
+            $(slider).parent().parent().find('.last').val(values[slider_id][$(slider).parent().parent().find('.last').val()])
+            $(slider).parent().parent().find('.first').val(values[slider_id][$(slider).parent().parent().find('.first').val()])
+        }
+    }
+
+    function set_dependency_lock(lock) {
+        is_locked = lock;
+        if (is_locked) {
+            $('#lock_button img').attr('src', '<?= $this->imagePath('locked.png') ?>');
+        }
+        else {
+            $('#lock_button img').attr('src', '<?= $this->imagePath('unlocked.png') ?>');
+        }
+    }
+    
+    function set_item_mode(item_id, disabled ) {
+       // alert($(item_id));
+        $('#' + item_id + ' .slider-vertical').slider( "option", "disabled", disabled );
+        $('#' + item_id + ' input').attr('readonly', disabled);
+        $('#' + item_id + ' input').attr('disabled', disabled);
+        
+        if (disabled) {
+            $('#' + item_id + ' .img_arrow_up').attr('src', '<?= $this->imagePath('arrow_up_.png') ?>');
+            $('#' + item_id + ' .img_arrow_down').attr('src', '<?= $this->imagePath('arrow_down_.png') ?>');
+        }
+        else {
+            $('#' + item_id + ' .img_arrow_up').attr('src', '<?= $this->imagePath('arrow_up.png') ?>');
+            $('#' + item_id + ' .img_arrow_down').attr('src', '<?= $this->imagePath('arrow_down.png') ?>');
+        }
+        
+    }
+    
+    function set_item_values(item_id, min_value, min_scale, max_value, max_scale) {
+        semafor = 1;
+        if ( $('#' + item_id).hasClass("item2")  ) {  //stary slider
+            $('#' + item_id + ' .slider-vertical').slider( "option", "min", min_scale );
+            $('#' + item_id + ' .slider-vertical').slider( "option", "max", max_scale );
+            $('#' + item_id + ' .slider-vertical').slider( "value", min_value );
+            $('#' + item_id + ' input').not('.item_max_indicator').val(min_value);
+        }
+        else { //nowy slider
+            $('#' + item_id + ' .slider-vertical').slider( "option", "min", min_scale );
+            $('#' + item_id + ' .slider-vertical').slider( "option", "max", max_scale );
+            $('#' + item_id + ' .slider-vertical').slider( "values",[min_value, max_value] );
+            $('#' + item_id + ' input .last').val(min_value);
+            $('#' + item_id + ' input .first').val(max_value);
+        }
+        semafor = 0;
+    }
+    
+    function get_item_values(item_id) {
+        values = [0, 0];
+        if ( $('#' + item_id).hasClass("item2")  ) {  //stary slider
+            values[0] = $('#' + item_id + ' .slider-vertical').slider( "value" );
+        }
+        else { //nowy slider
+            values = $('#' + item_id + ' .slider-vertical').slider( "values" );
+        }
+        return values;
+    }
+    
+    
+    function handle_change(item_code) {
+        
+        if (is_locked) {
+        
+        Rw_values = get_item_values(Rw);
+        C_values = get_item_values(C);
+        Ctr_values = get_item_values(Ctr);
+        Ra_values = get_item_values(Ra);
+        Ratr_values = get_item_values(Ratr);
+        
+
+         switch(item_code) {
+             case 'Rw':
+                 switch(current_mode) {
+                     
+                     case '2':
+                         
+                dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                set_item_values(C, dep[12][0], C_min, null, C_max );
+ 
+                set_item_values(Ctr, dep[13][0], Ctr_min, null, Ctr_max );
+ 
+                         
+                 //    new_c_min = Math.max(Ra_min - Rw_values[0], C_values[0]);
+                //new_c_min_scale = Math.max(Ra_min - Rw_values[0], C_min);
+                //set_item_values(C, new_c_min, new_c_min_scale, null, C_max );
+                
+                //new_ctr_min = Math.max(Ratr_min - Rw_values[0], Ctr_values[0]);
+               // new_ctr_min_scale = Math.max(Ratr_min - Rw_values[0], Ctr_min);
+               // set_item_values(Ctr, new_ctr_min, new_ctr_min_scale, null, Ctr_max );
+                     
+                     break;
+                     
+                     case '3':
+                         
+                       dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                       set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );  
+                       set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );    
+                    // new_ra_min = Math.max(Rw_values[0] + C_min, Ra_min);
+                    // new_ra_max = Math.min(Rw_values[1] + C_max, Ra_max);
+                    // set_item_values(Ra, new_ra_min, Ra_min, new_ra_max, Ra_max );
+                
+                    // new_ratr_min = Math.max(Rw_values[0] + Ctr_min, Ratr_min);
+                    // new_ratr_max = Math.min(Rw_values[1] + Ctr_max, Ratr_max);
+                    // set_item_values(Ratr, new_ratr_min, Ratr_min, new_ratr_max, Ratr_max );
+                
+                     break;
+                     
+                     case '5':
+                         
+                         dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                         set_item_values(C, dep[12][0], C_min, null, C_max );
+                         
+                     //new_c_min = Math.max(Ra_min - Rw_values[0], C_values[0]);
+                //new_c_min_scale = Math.max(Ra_min - Rw_values[0], C_min);
+                //set_item_values(C, new_c_min, new_c_min_scale, null, C_max );
+                
+
+                     break;
+                     
+                     case '6':
+
+                     dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                     set_item_values(Ctr, dep[13][0], Ctr_min, null, Ctr_max );
+ 
+                //set_item_values(Ctr, dep[13][0], Ctr_min, null, Ctr_max );
+                //new_ctr_min = Math.max(Ratr_min - Rw_values[0], Ctr_values[0]);
+                //new_ctr_min_scale = Math.max(Ratr_min - Rw_values[0], Ctr_min);
+                //set_item_values(Ctr, new_ctr_min, new_ctr_min_scale, null, Ctr_max );
+                     
+                     break;
+                     
+                     
+                     
+                     case '7':
+                         
+                         dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                       set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );  
+                     //new_ra_min = Math.max(Rw_values[0] + C_min, Ra_min);
+                     //new_ra_max = Math.min(Rw_values[1] + C_max, Ra_max);
+                     //set_item_values(Ra, new_ra_min, Ra_min, new_ra_max, Ra_max );
+                
+                     break;
+                     
+                     case '8':
+                       dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                       set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );          
+                               /*
+                     new_ratr_min = Math.max(Rw_values[0] + Ctr_min, Ratr_min);
+                     new_ratr_max = Math.min(Rw_values[1] + Ctr_max, Ratr_max);
+                     set_item_values(Ratr, new_ratr_min, Ratr_min, new_ratr_max, Ratr_max );
+                    */
+                     break;
+                     
+                    /* case '4':
+              
+                new_c_min = Math.max(Ra_min - Rw_values[0], C_values[0]);
+                new_c_min_scale = Math.max(Ra_min - Rw_values[0], C_min);
+                set_item_values(C, new_c_min, new_c_min_scale, null, C_max );
+                
+                new_ctr_min = Math.max(Ratr_min - Rw_values[0], Ctr_values[0]);
+                new_ctr_min_scale = Math.max(Ratr_min - Rw_values[0], Ctr_min);
+                set_item_values(Ctr, new_ctr_min, new_ctr_min_scale, null, Ctr_max );
+                
+                C_values = get_item_values(C);
+                Ctr_values = get_item_values(Ctr);
+                
+                new_ra_min = Math.max(Rw_values[0] + C_values[0], Ra_min);
+                new_ra_max = Math.min(Rw_values[1] + C_values[0], Ra_max);
+                set_item_values(Ra, new_ra_min, Ra_min, new_ra_max, Ra_max );
+                
+                new_ratr_min = Math.max(Rw_values[0] + Ctr_values[0], Ratr_min);
+                new_ratr_max = Math.min(Rw_values[1] + Ctr_values[0], Ratr_max);
+                set_item_values(Ratr, new_ratr_min, Ratr_min, new_ratr_max, Ratr_max );
+                         break;
+                    */
+                 }
+                 break;
+                 
+                 case 'C':
+                     
+                 switch(current_mode) {
+                     case '2':
+                         
+                         dep = calculate_dependencies(12, C_values[0], C_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(Ctr, dep[13][0], Ctr_min, dep[13][1], Ctr_max );    
+                         
+                        /* new_ra_min = Math.max(Rw_values[0] + C_values[0], Ra_min);
+                         new_ra_max = Math.min(Rw_values[1] + C_values[0], Ra_max);
+                         set_item_values(Ra, new_ra_min, Ra_min, new_ra_max, Ra_max );
+                
+                         new_ratr_min = Math.max(Rw_values[0] + Ctr_values[0], Ratr_min);
+                         new_ratr_max = Math.min(Rw_values[1] + Ctr_values[0], Ratr_max);
+                         set_item_values(Ratr, new_ratr_min, Ratr_min, new_ratr_max, Ratr_max );
+                         */
+                         break;
+                         
+                         
+                         case '5':
+                         
+                         dep = calculate_dependencies(12, C_values[0], C_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+  
+                         
+                         break;
+                 }
+                 
+                 break;
+                 
+                 
+                 case 'Ctr':
+                     
+                 switch(current_mode) {
+                     
+                     case '2':
+                         
+                         dep = calculate_dependencies(13, Ctr_values[0], Ctr_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(C, dep[12][0], C_min, dep[12][1], C_max );    
+                         
+                        /* new_ra_min = Math.max(Rw_values[0] + C_values[0], Ra_min);
+                         new_ra_max = Math.min(Rw_values[1] + C_values[0], Ra_max);
+                         set_item_values(Ra, new_ra_min, Ra_min, new_ra_max, Ra_max );
+                
+                         new_ratr_min = Math.max(Rw_values[0] + Ctr_values[0], Ratr_min);
+                         new_ratr_max = Math.min(Rw_values[1] + Ctr_values[0], Ratr_max);
+                         set_item_values(Ratr, new_ratr_min, Ratr_min, new_ratr_max, Ratr_max );
+                         */
+                         break;
+                         
+                         case '6':
+                         
+                         dep = calculate_dependencies(13, Ctr_values[0], Ctr_max);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         
+                        
+                         break;
+                    
+                     case '4':
+                         
+                         
+                         
+                        /* new_ra_min = Math.max(Rw_values[0] + C_values[0], Ra_min);
+                         new_ra_max = Math.min(Rw_values[1] + C_values[0], Ra_max);
+                         set_item_values(Ra, new_ra_min, Ra_min, new_ra_max, Ra_max );
+                
+                         new_ratr_min = Math.max(Rw_values[0] + Ctr_values[0], Ratr_min);
+                         new_ratr_max = Math.min(Rw_values[1] + Ctr_values[0], Ratr_max);
+                         set_item_values(Ratr, new_ratr_min, Ratr_min, new_ratr_max, Ratr_max );
+                         */
+                         break;
+                 }
+                 
+                 break;
+                 
+                 case 'Ra':
+                    switch(current_mode) {
+                     
+                     case '3':
+                         
+                         dep = calculate_dependencies(14, Ra_values[0], Ra_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );    
+ 
+                         break;
+
+                    case '7':
+                         
+                         dep = calculate_dependencies(14, Ra_values[0], Ra_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+   
+                         break;
+                         
+                         case '9':
+                         
+                         dep = calculate_dependencies(14, Ra_values[0], Ra_values[1]);
+                         set_item_values(Ratr, dep[15][0], Ratr_min, dep[15][1], Ratr_max );    
+   
+                         break;
+                    }
+                 
+                 break;
+                 
+                 case 'Ratr':
+                    switch(current_mode) {
+                     
+                     case '3':
+                         
+                         dep = calculate_dependencies(15, Ratr_values[0], Ratr_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+                         set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );      
+ 
+                         break;
+
+                    case '8':
+                         
+                         dep = calculate_dependencies(15, Ratr_values[0], Ratr_values[1]);
+                         set_item_values(Rw, dep[10][0], Rw_min, dep[10][1], Rw_max );    
+   
+                         break;
+                         
+                         case '9':
+                         
+                         dep = calculate_dependencies(15, Ratr_values[0], Ratr_values[1]);
+                         set_item_values(Ra, dep[14][0], Ra_min, dep[14][1], Ra_max );    
+   
+                         break;
+                    }
+                 
+                 break;
+                 
+                 /*
+                 case 'Ratr':    
+                 switch(current_mode) {
+                     
+                     case '3':
+                         new_rw_min = Math.max(  Math.max(Ra_values[0] + Math.abs(C_max), Ratr_values[0] + Math.abs(Ctr_max) )  , Rw_min);
+                         new_rw_max = Math.min(  Math.min(Ra_values[1] + Math.abs(C_min), Ratr_values[1] + Math.abs(Ctr_min) )  , Rw_max);
+                         set_item_values(Rw, new_rw_min, Rw_min, new_rw_max, Rw_max );
+                         
+                         break;
+                     
+                     case '4':
+                         new_rw_min = Math.max(  Math.max(Ra_values[0] + Math.abs(C_values[0]), Ratr_values[0] + Math.abs(Ctr_values[0]) )  , Rw_min);
+                         new_rw_max = Math.min(  Math.min(Ra_values[1] + Math.abs(C_values[0]), Ratr_values[1] + Math.abs(Ctr_values[0]) )  , Rw_max);
+                         set_item_values(Rw, new_rw_min, Rw_min, new_rw_max, Rw_max );
+                         
+                        /* Rw_values = get_item_values(Rw);
+                         
+                         //obsługa zmiany min
+                         new_c_min = Math.max(Ra_values[0] - Rw_values[0], C_values[0]);
+                         new_c_min_scale = Math.max(Ra_min - Rw_values[0], C_min);
+                         set_item_values(C, new_c_min, new_c_min_scale, null, C_max );
+                
+                         new_ctr_min = Math.max(Ratr_values[0] - Rw_values[0], Ctr_values[0]);
+                         new_ctr_min_scale = Math.max(Ratr_min - Rw_values[0], Ctr_min);
+                         set_item_values(Ctr, new_ctr_min, new_ctr_min_scale, null, Ctr_max );
+                         
+                         C_values = get_item_values(C);
+                         Ctr_values = get_item_values(Ctr);
+                         
+                         //obsługa zmiany max
+                         new_c_min = Math.max(Ra_values[1] - Rw_values[1], C_values[0]);
+                         //new_c_min_scale = Math.max(Ra_min - Rw_values[0], C_min);
+                         set_item_values(C, new_c_min, new_c_min_scale, null, C_max );
+                
+                         new_ctr_min = Math.max(Ratr_values[1] - Rw_values[1], Ctr_values[0]);
+                        // new_ctr_min_scale = Math.max(Ratr_min - Rw_values[0], Ctr_min);
+                         set_item_values(Ctr, new_ctr_min, new_ctr_min_scale, null, Ctr_max );
+                         
+                        // C_values = get_item_values(C);
+                       //  Ctr_values = get_item_values(Ctr);
+                         
+                         //ponowna obsługa zmiany min
+                       //  new_c_min = Math.max(Ra_values[0] - Rw_values[0], C_values[0]);
+                       //  new_c_min_scale = Math.max(Ra_min - Rw_values[0], C_min);
+                       //  set_item_values(C, new_c_min, new_c_min_scale, null, C_max );
+                
+                        /// new_ctr_min = Math.max(Ratr_values[0] - Rw_values[0], Ctr_values[0]);
+                       //  new_ctr_min_scale = Math.max(Ratr_min - Rw_values[0], Ctr_min);
+                       //  set_item_values(Ctr, new_ctr_min, new_ctr_min_scale, null, Ctr_max );
+                         
+                         
+                         
+                         break;
+                         
+                         case '7':
+                             new_rw_min = Math.max(Ra_values[0] + Math.abs(C_max), Rw_min);
+                             new_rw_max = Math.min(Ra_values[1] + Math.abs(C_min), Rw_max);;
+                             set_item_values(Rw, new_rw_min, Rw_min, new_rw_max, Rw_max );                
+                             break;
+                             
+                         case '8':
+                             new_rw_min = Math.max(Ratr_values[0] + Math.abs(Ctr_max), Rw_min);
+                             new_rw_max = Math.min(Ratr_values[1] + Math.abs(Ctr_min), Rw_max);;
+                             set_item_values(Rw, new_rw_min, Rw_min, new_rw_max, Rw_max );                 
+                             break;
+                 }
+                 break;
+                 */
+         }
+         
+        }
+    }
+    
+    
+    function calculate_dependencies(slider_id, min_value, max_value) {
+        
+        var res = [];
+        res_10 = [0, 0];
+        res[10] = res_10;
+        res_12 = [0, 0];
+        res[12] = res_12;
+        res_13 = [0, 0];
+        res[13] = res_13;
+        res_14 = [0, 0];
+        res[14] = res_14;
+        res_15 = [0, 0];
+        res[15] = res_15;
+         
+        for (index = 0; index < attributes.length; ++index) {
+          slider_values = attributes[index];
+          //sprawdz czy spełnia
+          if (slider_values[slider_id] < min_value) {
+              continue;
+          }
+          
+          if (max_value != 0 && slider_values[slider_id] > max_value ) {
+              continue;
+          }
+          
+          if (res[10][0] == 0 ) {
+              res[10][0] = slider_values[10];
+              res[10][1] = slider_values[10];
+          }
+          
+          if (res[12][0] == 0 ) {
+              res[12][0] = slider_values[12];
+              res[12][1] = slider_values[12];
+          }
+          
+          if (res[13][0] == 0 ) {
+              res[13][0] = slider_values[13];
+              res[13][1] = slider_values[13];
+          }
+          
+          if (res[14][0] == 0 ) {
+              res[14][0] = slider_values[14];
+              res[14][1] = slider_values[14];
+          }
+          
+          if (res[15][0] == 0 ) {
+              res[15][0] = slider_values[15];
+              res[15][1] = slider_values[15];
+          }
+          
+          if (res[10][0] > slider_values[10])
+              res[10][0] = slider_values[10];
+          
+          if (res[10][1] < slider_values[10])
+              res[10][1] = slider_values[10];
+          
+          if (res[12][0] > slider_values[12])
+              res[12][0] = slider_values[12];
+          
+          if (res[12][1] < slider_values[12])
+              res[12][1] = slider_values[12];
+          
+          
+          if (res[13][0] > slider_values[13])
+              res[13][0] = slider_values[13];
+          
+          if (res[13][1] < slider_values[13])
+              res[13][1] = slider_values[13];
+          
+          if (res[14][0] > slider_values[14])
+              res[14][0] = slider_values[14];
+          
+          if (res[14][1] < slider_values[14])
+              res[14][1] = slider_values[14];
+          
+          if (res[15][0] > slider_values[15])
+              res[15][0] = slider_values[15];
+          
+          if (res[15][1] < slider_values[15])
+              res[15][1] = slider_values[15];
+        } 
+         
+        return res;
+    } 
+    
+    //ustaw nowy tryb
+    function set_mode(mode) {
+        current_mode = mode;
+        switch(mode) {
+            case '1':   //RW
+                set_item_mode(Rw, false);
+                
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, true);
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                break;
+                
+            case '2':   //RW, c, Ctr
+                set_item_mode(Rw, false);
+                set_item_mode(C, false);
+                set_item_mode(Ctr, false);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                Rw_values = get_item_values(Rw);
+                
+                dep = calculate_dependencies(10, Rw_values[0], Rw_values[1]);
+                set_item_values(C, dep[12][0], C_min, null, C_max );
+                
+               // new_c_min = Math.max(Ra_min - Rw_values[0], C_min);
+                //set_item_values(C, new_c_min, new_c_min, null, C_max );
+                
+                set_item_values(Ctr, dep[13][0], Ctr_min, null, Ctr_max );
+                //new_ctr_min = Math.max(Ratr_min - Rw_values[0], Ctr_min);
+                //set_item_values(Ctr, new_ctr_min, new_ctr_min, null, Ctr_max );
+                
+                break; 
+                
+           case '3':   //Rw, Ra, Ratr
+                set_item_mode(Rw, false);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, false);
+                
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                
+                handle_change('Rw');
+                
+                /*
+                Rw_values = get_item_values(Rw);
+                new_ra_min = Math.max(Rw_values[0] + C_min , Ra_min);
+                new_ra_max = Math.min(Rw_values[1] + C_max , Ra_max);
+                set_item_values(Ra, new_ra_min, Ra_min, new_ra_max, Ra_max );
+                
+                new_ratr_min = Math.max(Rw_values[0] + Ctr_min , Ratr_min);
+                new_ratr_max = Math.min(Rw_values[1] + Ctr_max , Ratr_max);
+                set_item_values(Ratr, new_ratr_min, Ratr_min, new_ratr_max, Ratr_max );
+                */
+                break; 
+                
+           
+           case '4':   //RW, c, Ctr, Ra, Ratr
+ 
+                set_item_mode(Rw, false);
+                set_item_mode(C, false);
+                set_item_mode(Ctr, false);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, false);
+                
+                handle_change('Rw');
+                
+                break; 
+                
+                
+           case '5':   //Rw, C
+                set_item_mode(Rw, false);
+                set_item_mode(C, false);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                
+                
+                handle_change('Rw');
+                
+                /*
+                Rw_values = get_item_values(Rw);
+                new_c_min = Math.max(Ra_min - Rw_values[0], C_min);
+                set_item_values(C, new_c_min, new_c_min, null, C_max );
+                */
+
+                break; 
+                
+                
+                
+                case '6':   //RW,  Ctr
+                set_item_mode(Rw, false);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, false);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                set_item_values(C, C_min, C_min, null, C_max );
+                
+                handle_change('Rw');
+                
+                /*
+                Rw_values = get_item_values(Rw);
+  
+                new_ctr_min = Math.max(Ratr_min - Rw_values[0], Ctr_min);
+                set_item_values(Ctr, new_ctr_min, new_ctr_min, null, Ctr_max );
+                */
+               
+                break; 
+                
+                case '7':   //Rw, Ra
+                set_item_mode(Rw, false);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                handle_change('Rw');
+                
+                /*
+                Rw_values = get_item_values(Rw);
+                new_ra_min = Math.max(Rw_values[0] + C_min , Ra_min);
+                new_ra_max = Math.min(Rw_values[1] + C_max , Ra_max);
+                set_item_values(Ra, new_ra_min, Ra_min, new_ra_max, Ra_max );
+                */
+
+                break; 
+                
+                
+                case '8':   //Rw, Ratr
+                set_item_mode(Rw, false);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, false);
+                
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                
+                handle_change('Rw');
+                
+                /*
+                Rw_values = get_item_values(Rw);
+
+                new_ratr_min = Math.max(Rw_values[0] + Ctr_min , Ratr_min);
+                new_ratr_max = Math.min(Rw_values[1] + Ctr_max , Ratr_max);
+                set_item_values(Ratr, new_ratr_min, Ratr_min, new_ratr_max, Ratr_max );
+                */
+               
+                break; 
+                
+                
+                case '9':   //Ra, Ratr
+                set_item_mode(Rw, true);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, false);
+                
+                set_item_values(Rw, Rw_min, Rw_min, Rw_max, Rw_max );
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                
+                
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                
+                
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                /* 
+                Ra_values = get_item_values(Ra);
+                set_item_values(Ra, Ra_values[0], Ra_min, Ra_values[1], Ra_max );
+                
+                Ratr_values = get_item_values(Ratr);
+                set_item_values(Ratr, Ratr_values[0], Ratr_min, Ratr_values[1], Ratr_max );
+                */
+               
+                break; 
+                
+                case '10':   //Ra
+                set_item_mode(Rw, true);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, false);
+                set_item_mode(Ratr, true);
+                
+                set_item_values(Rw, Rw_min, Rw_min, Rw_max, Rw_max );
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                //Ra_values = get_item_values(Ra);
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                
+                //Ra_values = get_item_values(Ra);
+               // set_item_values(Ra, Ra_values[0], Ra_min, Ra_values[1], Ra_max );
+                
+                break; 
+                
+                case '11':   //Ratr
+                set_item_mode(Rw, true);
+                set_item_mode(C, true);
+                set_item_mode(Ctr, true);
+                set_item_mode(Ra, true);
+                set_item_mode(Ratr, false);
+                
+                set_item_values(Rw, Rw_min, Rw_min, Rw_max, Rw_max );
+                set_item_values(C, C_min, C_min, null, C_max );
+                set_item_values(Ctr, Ctr_min, Ctr_min, null, Ctr_max );
+                set_item_values(Ra, Ra_min, Ra_min, Ra_max, Ra_max );
+                
+                set_item_values(Ratr, Ratr_min, Ratr_min, Ratr_max, Ratr_max );
+                
+                //Ra_values = get_item_values(Ra);
+                // set_item_values(Ra, Ra_values[0], Ra_min, Ra_values[1], Ra_max );
+                
+
+                break;
+                
+                
+           // case n:
+             //   code block
+             //   break;
+            //default:
+            //default code block
+        }
+
+        //upgade 4
+        $('a.special22').parent().parent().find('.item').each(function(){
+            if($(this).is(':visible') == false){
+                if($(this).attr('id') !== undefined){
+                    set_item_mode($(this).attr('id'), true);
+                }
+            }
+        });
+
+        postAjax(); 
+    }
+    
+    $(function() {
+    
+    
+        set_mode(current_mode); //domyślny tryb
+        $('.disabled input').attr('disabled', true);
+        
+        $('#lock_button').click(function(e) {
+            e.preventDefault();
+            set_dependency_lock(!is_locked);
+        });
+        
+        
+        
+        
+        //nowy slider 
+        $('.up_l').click(function(e){
+            e.preventDefault();
+            
+            if( $( this ).parent().find('.slider-vertical').slider( "option", "disabled"  ) == true){
+                return false;
+            }
+            
+            var values = ($( this ).parent().find('.slider-vertical').slider( "option", "values"));
+            var max = ($( this ).parent().find('.slider-vertical').slider( "option", "max" )) 
+            
+            if (values[1] == values[0]) {
+                return false;
+            }
+            
+            if(max - values[0] <= -1){
+                return false;
+            }
+            var step = ($( this ).parent().find('.slider-vertical').slider( "option", "step" )); 
+            $( this ).parent().find('.slider-vertical').slider("values", 0, values[0]+step);
+        });
+        $('.down_l').click(function(e){
+            e.preventDefault();
+            
+            if( $( this ).parent().find('.slider-vertical').slider( "option", "disabled"  ) == true){
+                return false;
+            }
+            
+            var values = ($( this ).parent().find('.slider-vertical').slider( "option", "values"));
+            var min = ($( this ).parent().find('.slider-vertical').slider( "option", "min" ))        
+            if(values[1] - min <= 1){
+                return false;
+            }
+            var step = ($( this ).parent().find('.slider-vertical').slider( "option", "step" )); 
+            $( this ).parent().find('.slider-vertical').slider( "values", 0, values[0]-step);
+        });
+        $('.up_f').click(function(e){
+            e.preventDefault();
+            
+            if( $( this ).parent().find('.slider-vertical').slider( "option", "disabled"  ) == true){
+                return false;
+            }
+            
+            var values = ($( this ).parent().find('.slider-vertical').slider( "option", "values"));
+            var max = ($( this ).parent().find('.slider-vertical').slider( "option", "max" ))        
+            if (max == values[1]) {
+                return false;
+            }
+            var step = ($( this ).parent().find('.slider-vertical').slider( "option", "step" ));
+            $( this ).parent().find('.slider-vertical').slider( "values", 1, values[1]+step);
+        });
+        $('.down_f').click(function(e){
+            e.preventDefault();
+            
+            if( $( this ).parent().find('.slider-vertical').slider( "option", "disabled"  ) == true){
+                return false;
+            }
+            
+            var values = ($( this ).parent().find('.slider-vertical').slider( "option", "values"));
+            var min = ($( this ).parent().find('.slider-vertical').slider( "option", "min" ))        
+            
+            if (values[1] == values[0]) {
+                return false;
+            }
+            
+            if(values[1] - min <= -1){
+                return false;
+            }
+            var step = ($( this ).parent().find('.slider-vertical').slider( "option", "step" )); 
+            $( this ).parent().find('.slider-vertical').slider( "values", 1, values[1]-step);
+        });
+        
+        
+         $('.up').click(function(e){
+            e.preventDefault();
+            var value = $( this ).next().slider( "value" );
+            if($( this ).next().slider( "option", "disabled"  ) == true){
+                return false;
+            }
+            $( this ).next().slider( "value", value+1 );
+        });
+        $('.down').click(function(e){
+            e.preventDefault();
+            var value = $( this ).prev().slider( "value" );
+            if($( this ).prev().slider( "option", "disabled"  ) == true){
+                return false;
+            }
+            $( this ).prev().slider( "value", value-1 );
+        });
+    
+        $('#mode').change(function(e){
+            set_mode($('#mode').val());
+         });
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+        
+        $('#block').height($(document).height());
+        
+        $('#oktawy_button').click(function(e){
+            e.preventDefault();
+            $('#terc_button').toggle(); 
+            if ($('#oktawy_button').html() == '<?= $this->translate('SITE_OKTAWY_ON') ?>') {
+                $('#oktawy_button').html('<?= $this->translate('SITE_OKTAWY_OFF') ?>');
+                 $('.hide').not('.tercja').show(); 
+                 if ($('#terc_button').html() == '<?= $this->translate('SITE_TERC_OFF') ?>') {
+                     $('.tercja').show();
+                     $('.element').addClass('bg');
+                 }
+            }
+            else {
+                $('#oktawy_button').html('<?= $this->translate('SITE_OKTAWY_ON') ?>');
+                 $('.hide').hide(); 
+                 $('.element').removeClass('bg');
+            }
+           
+            $('.disabled input').attr('disabled', true); 
+            $('.disabled:visible input').attr('disabled', false); 
+            postAjax();
+        });
+        
+        
+        $('#terc_button').click(function(e){
+            e.preventDefault();
+            if ($('#terc_button').html() == '<?= $this->translate('SITE_TERC_ON') ?>') {
+                $('#terc_button').html('<?= $this->translate('SITE_TERC_OFF') ?>');
+            }
+            else {
+                $('#terc_button').html('<?= $this->translate('SITE_TERC_ON') ?>');
+            }
+            $('.tercja').toggle(); 
+            $('.element').toggleClass('bg');
+            
+            $('.disabled input').attr('disabled', true); 
+            $('.disabled:visible input').attr('disabled', false); 
+            postAjax();
+        });
+        
+        
+        // BAND
+       /* $('#disable_band').click(function(e){
+            disabled = ($('.disabled').find('.slider_amount').prev().prev().slider( "option", "disabled"));
+            if(disabled == false){
+                $('.disabled').find('.slider_amount').attr('disabled', true);
+                $('.disabled').find('.slider_amount').prev().prev().slider( "option", "disabled", true );
+            } else {
+                $('.disabled').find('.slider_amount').attr('disabled', false);
+                $('.disabled').find('.slider_amount').prev().prev().slider( "option", "disabled", false );   
+            }
+            $('#slider_item_10').next().next().trigger('change');
+        });
+    
+        disabled = ($('.disabled').find('.slider_amount').prev().prev().slider( "option", "disabled"));
+        if(disabled == false){
+            $('.disabled').find('.slider_amount').attr('disabled', true);
+            $('.disabled').find('.slider_amount').prev().prev().slider( "option", "disabled", true );
+        } else {
+            $('.disabled').find('.slider_amount').attr('disabled', false);
+            $('.disabled').find('.slider_amount').prev().prev().slider( "option", "disabled", false );   
+        }
+        
+        */
+        //END BAND
+
+        
+       
+        
+      
+
+        $('.slider_amount').change(function(){
+            val = $('input[name="options"]:checked').val();
+            //tpysko: val
+            //coment by kn
+//            setValue($(this),$(this).val());
+            if($('#disable_rw').is(':checked') == true){
+                $('#slider_item_10').slider( "option", "disabled", true );
+                $('#slider_item_10').next().next().attr('readonly', true);
+            }
+            if(val == 2){  //RA
+                $('#slider_item_12').slider( "option", "disabled", true );
+                $('#slider_item_12').next().next().attr('readonly', true);
+                $('#slider_item_13').slider( "option", "disabled", true );
+                $('#slider_item_13').next().next().attr('readonly', true);
+
+                $('#slider_item_14').slider( "option", "disabled", false );
+                $('#slider_item_14').next().next().attr('readonly', false);
+                $('#slider_item_15').slider( "option", "disabled", false );
+                $('#slider_item_15').next().next().attr('readonly', false);
+            } else {  //C
+                $('#slider_item_12').slider( "option", "disabled", false );
+                $('#slider_item_12').next().next().attr('readonly', false);
+                $('#slider_item_13').slider( "option", "disabled", false );
+                $('#slider_item_13').next().next().attr('readonly', false);
+
+                $('#slider_item_14').slider( "option", "disabled", true );
+                $('#slider_item_14').next().next().attr('readonly', true);
+                $('#slider_item_15').slider( "option", "disabled", true );
+                $('#slider_item_15').next().next().attr('readonly', true);
+            }
+            if($('#disable_param').is(':checked') == true){
+                $('#slider_item_12').slider( "option", "disabled", true );
+                $('#slider_item_12').next().next().attr('readonly', true);
+                $('#slider_item_13').slider( "option", "disabled", true );
+                $('#slider_item_13').next().next().attr('readonly', true);
+                $('#slider_item_14').slider( "option", "disabled", true );
+                $('#slider_item_14').next().next().attr('readonly', true);
+                $('#slider_item_15').slider( "option", "disabled", true );
+                $('#slider_item_15').next().next().attr('readonly', true);
+            }
+            //tpysko
+            //postAjax();
+        });
+    
+        $.ajax({
+            url: "<?= $this->url(array(), 'site-ajax') ?>",
+            method: 'POST',
+            data: $('#forms').serialize()
+        }).done(function(data ) {
+            var html = '';
+            var z = 0;
+            for(x in data){
+                if(x == 1){
+                    txt = '<?= $this->translate('SITE_GLASS_1') ?>';
+                }
+                if(x == 2){
+                    txt = '<?= $this->translate('SITE_GLASS_2') ?>';
+                }
+                if(x == 3){
+                    txt = '<?= $this->translate('SITE_GLASS_3') ?>';
+                }
+                html += '<h3 style="margin-bottom: 2px; font-size:16px; padding-bottom:0px;">' + txt+ '</h3>';
+                html += '<ul style="margin-top: 4px;">';
+                for(d in data[x]){
+                    z++;
+                    html += '<li>' + data[x][d].name + '</li>';
+                }
+                html += '</ul>';
+            }
+            $('#resuls').html(html);
+        });
+
+    });
+
+    //tpysko 
+    function postAjax() {
+        $.ajax({
+            url: "<?= $this->url(array(), 'site-ajax') ?>",
+            method: 'POST',
+            data: $('#forms').serialize(),
+            beforeSend: function( xhr ) {
+                $('#block').show();
+            }
+        }).done(function(data ) {
+            $('#block').hide();
+            var html = '';
+            var z = 0;
+            for(x in data){
+                if(x == 1){
+                    txt = '<?= $this->translate('SITE_GLASS_1') ?>';
+                }
+                if(x == 2){
+                    txt = '<?= $this->translate('SITE_GLASS_2') ?>';
+                }
+                if(x == 3){
+                    txt = '<?= $this->translate('SITE_GLASS_3') ?>';
+                }
+                html += '<h3 style="margin-bottom: 2px; font-size:16px; padding-bottom:0px;">' + txt+ '</h3>';
+                html += '<ul style="margin-top: 4px;">';
+                for(d in data[x]){
+                    z++;
+                    html += '<li>' + data[x][d].name + '</li>';
+                }
+                html += '</ul>';
+            }
+            $('#resuls').html(html)
+        });
+    }
+    
+    
+    var attributes = [];
+    <?php
+   
+     $i = 0;
+     foreach ($this->attributes_realtion as $r_k => $r_v) {
+         echo 'var a_' . $r_k . ' = [];
+             ';  
+         foreach ($r_v as $a_k => $a_v) {
+             echo 'a_' . $r_k . '['.$a_k.'] = '.$a_v.';
+             '; 
+         }
+         echo 'attributes['.$i.'] = a_' . $r_k . ';
+             ';
+         
+         $i++;
+     }
+    ?>
+
+    $('a.special22').click(function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).parent().parent().find('.item').each(function(){
+            if($(this).is(':visible') == true){
+                if($(this).attr('id') !== undefined){
+                    set_item_mode($(this).attr('id'), true);
+                }
+            } else {
+                if($(this).attr('id') !== undefined){
+                    set_item_mode($(this).attr('id'), false);
+                }
+            }
+        });
+//        if($(this).parent().parent().hasClass('glass_size')){
+//            $('#glass_size_options').change();
+//        }
+        postAjax();
+        $(this).parent().parent().find('.item').toggle();
+        $(this).parent().parent().find('.legend').toggle();
+    });
+
+    $('#button6').click(function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        if($('#ll').is(':visible')){
+            $('#ll').hide();
+            $('#ul').show();
+            $('#slider_item_39').next('a').click();
+        } else {
+            $('#ul').hide();
+            $('#ll').show();
+             $('#slider_item_39').prev('a').click();
+        }
+    });
+
+    $('#glass_size_options').change(function(){
+        var value = $(this).val();
+        switch(parseInt(value)) {
+            case 0:
+            case 3:
+                set_item_mode('item_43', false);
+                set_item_mode('item_44', false);
+                set_item_mode('item_45', false);
+                break;
+            case 1:
+                set_item_mode('item_43', false);
+                set_item_mode('item_44', true);
+                set_item_mode('item_45', true);
+                break;
+            case 2:
+                set_item_mode('item_43', false);
+                set_item_mode('item_44', true);
+                set_item_mode('item_45', false);
+                break;
+        }
+    });
+</script>

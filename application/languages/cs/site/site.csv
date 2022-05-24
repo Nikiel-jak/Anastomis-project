@@ -1,0 +1,96 @@
+SITE_HEADER_TITLE;"KONFIGURATOR ZESPOLEŃ AKUSTYCZNYCH"
+SITE_ACOUSTIC_INSULATION_REQUIRED;"WYMAGANA IZOLACYJNOŚĆ AKUSTYCZNA"
+SITE_SEARCH_RESULTS;"WYNIKI WYSZUKIWANIA"
+SITE_COMMENTS;UWAGI
+SITE_DATE_GENERATION;Data wygenerowania
+SITE_INFO;"1. Właściwości akustyczne wszystkich prezentowanych produktów potwierdzone są testami przeprowadzonymi w notyfikowanych jednostkach badawczych.<br> 2.       Jeśli w konstrukcji szyby nie podano informacji o rodzaju zastosowanej ramki dystansowej, parametry zachowują ważność dla wszystkich typów ramek. <br>
+3. Przestrzenie międzyszybowe wszystkich testowanych szyb zespolonych wypełnione są argonem. Parametry zachowują ważność również dla szyb zespolonych z kryptonem.<br>
+4. Parametry zachowują ważność dla wszystkich szyb wykonanych z płaskiego szkła sodowo-wapniowo-krzemianowego, produkowanego metodą float.<br>5. Wartości Rw, C i Ctr zostaną również potwierdzone dla szyb produkowanych w których zastosowano następujące zmiany konstrukcyjne:<br> -  poszerzenie przestrzeni międzyszybowych<br> -  zwiększenie ilości folii w szybach warstwowych<br> - naniesienie na powierzchni szyby emalii lub nadruku<br> - hartowanie, wzmacnianie termiczne, test HST<br> - zmiana powłoki Thermofloat na inną, lub jej brak<br>6. Podane parametry nie mogą być stosowane dla szyb ze szkłem ornamentowym.<br>7. W opisach szyb użyto następujących oznaczeń:<br>  X/Y/X ; X/Y/X/Y/X –opis szyb zespolonych jedno i dwukomorowych, w którym jako  „X” wyrażone są grubości kolejnych szkieł składowych, a jako „Y” szerokości przestrzeni międzyszybowych wypełnionych gazem. Grubości podane są w minimetrach.<br>   (VSG XX.Z) – szyba warstwowa laminowana VSG, składającą się z dwóch szyb monolitycznych o grubości „X” wyrażonej w minimetrach, przedzielonych „Z” warstwami folii.<br>  Argon (Ar), Krypton (Kr) – gaz wypełniający komory międzyszybowe<br>  T – powłoka ciepłochronna Thermofloat naniesiona na szybę<br>  Float – Rodzaj zastosowanej szyby pojedynczej"
+
+SITE_MOBILE_POPUP_ONLINE;ONLINE
+SITE_MOBILE_POPUP_PRINT;DRUKUJ
+SITE_MOBILE_POPUP_OPEN;OTWÓRZ
+SITE_MOBILE_POPUP_DOWNLOAD;POBIERZ
+
+SITE_SAVE;Zapisz
+SITE_SHOW_TERC;"Pokaż/Ukryj Tercje"
+SITE_SHOW_RESULTS;"Pokaż Wyniki"
+
+SITE_GLASS_1;"SZYBY POJEDYNCZE"
+SITE_GLASS_2;"SZYBY ZESPOLONE JEDNOKOMOROWE"
+SITE_GLASS_3;"SZYBY ZESPOLONE DWUKOMOROWE"
+
+SITE_MOBILE_SHOW_CONFIG;"POKAŻ USTAWIENIA"
+
+SITE_DISABLE;wyłącz
+SITE_USE_BAND;"Uwzględnij pasma"
+SITE_USE_PARAMS;"wyłącz [C;C<sub>tr</sub>] i [R<sub>A</sub>;R<sub>Atr</sub>]"
+
+SITE_SELECT_MODE;"Wybierz dane wejściowe"
+SITE_TERC_ON;"Włącz tercje"
+SITE_TERC_OFF;"Wyłącz tercje"
+SITE_OKTAWY_ON;"Włącz oktawy"
+SITE_OKTAWY_OFF;"Wyłącz oktawy"
+SITE_DEPENDENCY_BUTTON;"Dostosuj ustawienia wszystkich aktywnych danych i listę wyników do ustawień edytowanego parametru"
+SITE_MOBILE_DEPENDENCY_BUTTON;"Dopasuj ustawienia do istniejących zespoleń"
+SITE_MAX;max
+SITE_MIN;min
+
+"SITE_PDF_DOWNLOAD_NAME";"Szyby_akustyczne_PRESS_GLASS"
+
+SITE_ANASTOMOSIS_TYPE;"Wybierz typ zespolenia"
+SITE_ANASTOMOSIS_TYPE_0;"Dowolne"
+SITE_ANASTOMOSIS_TYPE_1;"Pojedyńcze"
+SITE_ANASTOMOSIS_TYPE_2;"Jednokomorowe"
+SITE_ANASTOMOSIS_TYPE_3;"Dwukomorowe"
+
+SITE_THICKNESS_LEGEND_1;"Grubość szyby pojedyńczej lub szyby skrajnej w szybie zespolnej"
+SITE_THICKNESS_LEGEND_2;"Grubość szyby środkowej w szybie zepolonej dwukomowej"
+SITE_THICKNESS_LEGEND_3;"Grubość szyby szyby skranjnej w szybie zespolonej"
+
+SITE_SECTION_TOTAL_WIDTH;Ogranicz grubość pakietu
+SITE_SECTION_GLASES_WIDTH;Ogranicz grubość szyb w pakiecie
+SITE_SECTION_WEIGHT;Określ wagę pakietu
+SITE_SECTION_PROTECTION_CLASS;Określ klasę ochrony
+SITE_SECTION_SECURITY_CLASS;Określ klasę bezpieczeństwa
+SITE_SECTION_LAMINATED_GLASS;Uwzględniaj tylko szyby zawierające szybę laminowaną
+
+SITE_UNIT_DB;[dB]
+SITE_UNIT_MM;[mm]
+SITE_UNIT_CLASS;[klasa]
+SITE_UNIT_KG;[kg]
+
+SITE_TITLE_TOTAL_WIDTH;Grubość całkowita pakietu
+SITE_TITLE_GLASES_WIDTH;Grubość szyb w pakiecie
+SITE_TITLE_WEIGHT;Waga pakietu 1m<sup>2</sup>
+SITE_TITLE_PROTECTION_CLASS;Klasa szyby laminowanej ochronnej
+SITE_TITLE_SECURITY_CLASS;Klasa szyby laminowanej bezpiecznej
+SITE_TITLE_LAMINATED_GLASS;Uwzględniaj tylko szyby zawierające szybę laminowaną
+SITE_TITLE_LAMINATED_PDF;Szyba laminowana
+
+SITE_YES;Yes
+SITE_NO;No
+SITE_EMPTY;No
+
+"table.title"; "Certified IGUs with Rw dB confirmed on CE declaration"
+"table.model"; "Model"
+"table.acoustic_performance"; "Acoustic performance (dB)"
+"table.type_of_glass"; "Type of Glass"
+"table.composition"; "Composition"
+"table.glass_1"; "Glass 1"
+"table.spacer_1"; "Spacer 1"
+"table.glass_2"; "Glass 2"
+"table.spacer_2"; "Spacer 2"
+"table.glass_3"; "Glass 3"
+"table.structure"; "Structure [mm]"
+"table.total"; "Total"
+"table.thickness"; "thickness"
+"table.glass_weight"; "glass weight"
+"table.items"; "items"
+"table.type_of_used_gas"; "Type of used gas"
+"table.acoustic_insulation_coefficient"; "Acoustic insulation coefficient"
+"table.acoustic_insulation_coefficient_at_average"; "Acoustic insulation coefficient at average [Hz] R [dB]"
+"table.filter_reset";"Reset Filters"
+table.Szyba_Laminowana;"Laminated glass"
+table.value.1;"NO"
+table.value.2;"YES"

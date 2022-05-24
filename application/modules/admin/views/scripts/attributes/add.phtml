@@ -1,0 +1,17 @@
+<?=$this->partial('helpers/partials/_navigation.phtml',array('add' => 'Atrybut - nowy','back' => $this->url(array(),'admin-attributes')));?>
+<div class="box">
+    <?=$this->form?>
+</div>
+<script>
+    $(function(){
+        $('#def').click(function(){
+           if($('#type').is(':checked') == false){
+               if(!confirm('Aby zapisać i definować wartości musisz zaznaczyć pole "Wartości definiowane". Czy chcesz zaznaczyć pole i zaspisać ?')){
+                   return false;
+               } else {
+                   $('#type').attr('checked',true);
+               }
+           }
+        });
+    });
+</script>

@@ -1,0 +1,123 @@
+#header_right_column{
+    float: right;
+    height: 122px;
+    margin-top: 10px;
+    width: 260px;
+    background: url("../images/box_header_right_bg.png") no-repeat scroll 0 0 transparent;
+}
+#header_left_column{
+    float: left;
+    width: 720px;
+    margin-top: 10px;    
+}
+#header_right_column table.date{
+    width: 97%;
+    margin-left: 3px;
+}
+
+#header_right_column table.date td.right{
+    font-weight: bold;
+    text-align: right;
+}
+#logo{
+    float: left;
+    height: 75px;
+    width: 250px;
+    margin: 0 0 0 10px;
+    color: white;
+}
+#logo img{
+    height: 78px; 
+    border: 0px;
+} 
+#menu{
+    display: block;
+    margin-top: 10px;
+}
+#menu ul.header {
+    background: url("../images/menu_bg.png") no-repeat scroll 0 0 transparent;
+    height: 35px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0px 0 0;
+}
+#menu ul.header li{
+    float: left;
+    background: url("../images/menu_border.png") no-repeat scroll right center transparent;
+}
+#menu ul.header li.last{
+    float: right;
+}
+#menu ul.header li a.logout {
+    color: #000000;
+    display: block;
+    line-height: 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#menu ul.header li a{
+    padding: 0 22px 0 20px;
+    line-height: 35px;
+}
+#menu ul.header li.translate {
+    width: 170px;
+    color: #000000;
+    display: block;
+    float: left;
+    line-height: 35px;
+    padding: 0 22px 0 20px;
+    text-decoration: none
+}
+#menu ul.header li p{
+    margin: 0px;
+    padding: 0px;
+    color: #000000;
+    display: block;
+    line-height: 35px;
+    padding: 0 22px 0 20px;  
+}
+#menu ul.header li a{
+    text-decoration: none;
+    color: black;   
+}
+#menu ul.header li a:hover{
+    text-decoration: underline;
+    color: #006699;  
+}
+#menu ul.header li a.active{
+    text-decoration: underline;
+    color: #006699;   
+}
+#menu ul.header li a.logout:hover, #menu ul.header li.active a {
+    background: url("../images/menu_bg_over.png") no-repeat scroll -5px 50% transparent;
+    color: #FFFFFF;
+}
+#menu ul.header li.first a:hover, #menu ul.header li.first.active a {
+    background: url("../images/menu_bg_over.png") no-repeat scroll 0 0 transparent;
+}
+#menu .language{
+    position: absolute;
+    width: 129px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    border-left: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
+    top:31px;
+    left: -26px;
+    background-color: #fff;
+    display: none;
+    padding: 0 2px 0 38px;
+    z-index: 1000;
+}
+#menu .language li{
+    padding: 0 0 10px;
+    background: none !important;
+}
+#menu .lang_switcher{
+    width: 170px; 
+    text-align: center; 
+    position: relative;
+}
+#menu ul.header li ul li{
+    float: none;
+}

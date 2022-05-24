@@ -1,0 +1,69 @@
+<?=$this->partial('helpers/partials/_navigation.phtml',array('add' => 'Zespolenie - nowe','back' => $this->url(array(),'admin-anastomosis')));?>
+<div>
+	<a target="_blank" class="btn left" href="/acoustic-glass-configurator/Konfigurator szyb dźwiękochłonnych - instrukcja wprowadzania danych nowej szyby w panelu administracyjnym - 13.08.2015.pdf">Pobierz instrukcję wprowadzania danych</a>
+</div>
+<br />
+<div class="box">
+	<i>UWAGA: Pola oznaczone * są polami gdzie wprowadzenie wartości jest wymagane, pozostałe pola mogą pozostać puste</i>
+	<hr />
+    <?=$this->form?>
+	<br />
+	<hr />
+	<i>UWAGA: Pola oznaczone * są polami gdzie wprowadzenie wartości jest wymagane, pozostałe pola mogą pozostać puste</i>
+</div>
+<script>
+	$(document).ready(function(){
+		$('#fieldset-Izolacyjnośćdźwiękowawoktawachitercjach').find('input').each(function(){
+
+			if ($(this).val() === '')
+			{
+				$(this).val(0);
+			}
+
+		});
+
+		var arraySet1 = ['#row-40','#row-41'];
+
+		$.each(arraySet1, function(index, value){
+
+			if ($(value).val() === '')
+			{
+				$(value).val(1);
+			}
+
+		});
+
+		var groupDesc = {
+			Szybalaminowana: '<b>1</b> = NIE WYSTĘPUJE; <b>2</b> = WYSTĘPUJE',
+			Klasaszybylaminowanejochronnej: '<b>1</b> = BRAK KLASY; <b>2</b> = P1A; <b>3</b> = P2A; <b>4</b> = P3A; <b>5</b> = P4A',
+			Klasaszybylaminowanejbezpiecznej: '<b>1</b> = BRAK KLASY; <b>2</b> = 2B2; <b>3</b> = 1B1',
+			Izolacyjnośćdźwiękowawoktawachitercjach: 'Wprowadź wartości podane w świadectwie badania charakteryzujące szybę z dokładnością do jednej dziesiątej decybela. W przypadku braku danych w którymś zakresie, wprowadź wartość zero "0"<br />UWAGA:  część dziesiętną od liczby całkowitej oddziel kropką',
+			Grubośćcałkowitapakietu: 'Oblicz grubość nominalną dodając grubości wszystkich szyb składowych oraz ramek dystansowych, wyprowadź wartość w minimetrach z dokładnością do jednej dziesiątej,  oddzielając część dziesiętną od liczby całkowitej kropką.',
+			Wagapakietu: 'Oblicz wartość dla 1m2 szyby dodając wagę wszystkich szkieł składowych bez uwzględnienia wagi uszczelnienia. Wartość wprowadź w kilogramach z dokładnością do jednej dziesiątej,  oddzielając część dziesiętną od liczby całkowitej kropką.<br />Uwaga: do obliczeń wagi przyjmij grubość szkła laminowanego z uwzględnieniem folii. W obliczeniach przyjmij, że 1m2 szkła lub folii o grubości 1mm waży 2,5kg.',
+			Grubośćszybwpakiecie: 'Wartość wyrażoną w mm podaj z dokładnością do jednej dziesiątej, część dziesiętną oddziel kropką:<br />- szyby pojedyncze – w polu 1 wprowadź grubość szyby pojedynczej, pola 2 i 3 pozostaw puste<br />- szyby zespolone jednokomorowe – w polu 1 wprowadź grubość szkła zewnętrznego, w polu 3 wprowadź grubość szkła wewnętrznego, a pole 2 pozostaw puste<br />- szyby zespolone dwukomorowe – w polu 1 wprowadź grubość szkła zewnętrznego, w polu 2 wprowadź grubość szkła środkowego, a  w polu 3 wprowadź grubość szkła wewnętrznego.'
+		};
+
+		$.each(groupDesc, function(index, value){
+
+			var desc = $('<div />').html(value).addClass('jsdesc');
+			$('#fieldset-' + index).children('legend').after(desc);
+
+		});
+
+		var fieldDesc = {
+			'#row-10': 'izolacyjność akustyczna ważona',
+			'#row-12': 'wskaźnik poprawkowy szumu różowego',
+			'#row-13': 'wskaźnik poprawkowy dla hałasu ulicznego',
+			'#row-14': 'izolacyjność akustyczna ważona uwzględniająca szum różowy – Rw + C',
+			'#row-15': 'izolacyjność akustyczna ważona uwzględniająca ruch uliczny – Rw + Ctr'
+		}
+
+		$.each(fieldDesc, function(index, value){
+
+			var desc = $('<div />').html(value).addClass('jsdescfield');
+			$(index).after(desc);
+
+		});
+
+	});
+</script>

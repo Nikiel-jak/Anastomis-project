@@ -1,0 +1,110 @@
+<h2><?=$this->translate('SITE_HEADER_TITLE')?></h2>
+<?php if($this->type == 'normal'):?>
+<img style="position: absolute;right: 0px; top: 70px;" src="<?=$this->imagePath('logo.png')?>" />
+<?php endif;?>
+<div class="pull-left" class="sli">
+    <h3><?=$this->translate('SITE_ACOUSTIC_INSULATION_REQUIRED')?></h3>  
+    <div class="slider"> 
+		
+		<?php
+		if ($this->lang=="en_US" && $this->type=="mobile") {
+			echo $this->render('helpers/mobile_upgrade4_en_US.phtml');
+		} else if ($this->lang=="en_US" && $this->type=="normal") {			
+			echo $this->render('helpers/normal_en_US_upgrade4.phtml');			
+		} else {
+			if(Orion_Auth::isLogged()):?>
+			<?=$this->render('helpers/'.$this->type.'_upgrade4.phtml')?>
+			<?php else:?>
+			<?=$this->render('helpers/'.$this->type.'_upgrade4.phtml')?>
+			<?php endif;		
+		}		
+		?>
+    </div>
+</div>
+<div class="pull-left results" <?=($this->type == 'mobile')? 'style="display:none;"':'';?>>
+    <div id="fix">
+        <?php if($this->type != 'mobile'):?>
+        <h3><?=$this->translate('SITE_SEARCH_RESULTS')?></h3>
+        <?php endif; ?>
+        <div id="resuls">
+        </div>
+    </div>
+    <?php if($this->type == 'mobile'):?>
+     <table class="ikons" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            
+            <?php if($this->device == 'ios'):?>
+            <td><a class="ios" data="pressglass://online?url=" href="<?=($this->url(array('lang' => $this->lang,'type' => $this->type),'site-mobile'))?>"><img src="<?=$this->imagePath('ikon1.png')?>" /></a></td>
+                <td><a class="ios" data="pressglass://print?url="  href="<?=($this->url(array('lang' => $this->lang,'type' => $this->type),'site-mobile'))?>"><img src="<?=$this->imagePath('ikon2.png')?>" /></a></td>
+                <td><a class="ios" data="pressglass://pdf?url="  href="<?=($this->url(array('lang' => $this->lang,'type' => $this->type),'site-mobile'))?>"><img src="<?=$this->imagePath('ikon4.png')?>" /></a></td>
+            <?php else:?>
+                <td><a  class="mobile_s" href="#"><img src="<?=$this->imagePath('ikon1.png')?>" /></a></td>
+            <?php endif;?>
+        </tr>
+        <tr>
+               
+            <?php if($this->device == 'ios'):?>
+                <td>
+                 <a class="ios" data="pressglass://online?url=" href="<?=  ($this->url(array('lang' => $this->lang,'type' => $this->type),'site-mobile'))?>">
+                     <?=$this->translate('SITE_MOBILE_POPUP_ONLINE')?>
+                 </a>
+                </td>
+                <td>
+                    <a class="ios" data="pressglass://print?url="  href="<?=  ($this->url(array('lang' => $this->lang,'type' => $this->type),'site-mobile'))?>">
+                        <?=$this->translate('SITE_MOBILE_POPUP_PRINT')?>
+                    </a>
+                </td>
+                <td>
+                    <a class="ios" data="pressglass://pdf?url=" href="<?=  ($this->url(array('lang' => $this->lang,'type' => $this->type),'site-mobile'))?>">
+                        <?=$this->translate('SITE_MOBILE_POPUP_OPEN')?>
+                    </a>
+                </td>
+            <?php else:?>
+                <td>
+                    <a class="mobile_s" href="#">
+                        <?=$this->translate('SITE_MOBILE_POPUP_DOWNLOAD')?>
+                    </a>
+                </td>
+            <?php endif;?>
+        </tr>
+    </table>
+    <div style="text-align: center;">
+        <button id="show_zespolen" class="mobile_submit"  ><?=$this->translate('SITE_MOBILE_SHOW_CONFIG')?></button>
+    </div>
+        <script>
+            $(function() {
+                $('.mobile_s').click(function(e){
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $('#forms').submit();
+                });
+                $('.ios').click(function(e){
+                    e.stopPropagation();
+                    e.preventDefault();
+                    url = $(this).attr('data')+encodeURIComponent( $(this).attr('href') + '?' + $('#forms').serialize() );
+                    window.location = url;
+                    return false;
+                });
+                var text_search = '<?=$this->translate('SITE_SEARCH_RESULTS')?>';
+                var text_nag = '<?=$this->translate('SITE_HEADER_TITLE')?>';
+                $('#show_zespolen').click(function(e){
+                    e.preventDefault();
+                    $('.pull-left').show();
+                    $('.results').hide(); 
+                    $('h2').html(text_nag);
+                });
+            });
+            </script>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+    <?php endif;?>
+</div>
+<?php if($this->type == 'normal'):?>
+<div class="footer">
+    <p style="font-size: 18px; margin-top: 16px; margin-bottom: 12px;">* <?=$this->translate('SITE_COMMENTS')?></p>
+    <p style="margin: 0px; width: 604px;"><?=$this->translate('SITE_INFO')?></p>
+    
+</div>
+<?php endif;?>
