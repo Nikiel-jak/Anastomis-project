@@ -3,6 +3,7 @@ $special22 = array(40, 41, 38, 43, 44, 45);
 $special223 = array(40, 41);
 ?>
 <form id="forms" style="padding-top: 20px;" action="<?= $this->url(array('lang' => $this->lang), 'site-pdf') ?>" method="POST">
+    <input type="hidden" name="show_in_us" value="<?= $this->show_in_us; ?>">
     <?php
     $i = 1;
     foreach ($this->group as $group_name => $sliders):

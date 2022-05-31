@@ -101,7 +101,8 @@ class App_Model_Attributes_DbTable extends Orion_Model_DbTable
 						  ->where('g.status = ?',  App_Model_Groups_DbTable::STATUS_ACTIVE)				
 						  ->where('g.deleted = ?', App_Model_Groups_DbTable::DELETED_NO)
 						  ->where('a.status = ?',  self::STATUS_ACTIVE)
-						  //->where('g.id != ?',  24)
+                          ->where('g.id = ?', 36 )
+                          ->where('g.id != ?', 24 )
 						  ->group('aa.attribute_id')
 						  ->where('a.deleted = ?', self::DELETED_NO)
 						  ->order(array('g.order ASC', 'a.id ASC'));								
@@ -123,7 +124,7 @@ class App_Model_Attributes_DbTable extends Orion_Model_DbTable
 						  ->where('g.status = ?',  App_Model_Groups_DbTable::STATUS_ACTIVE)				
 						  ->where('g.deleted = ?', App_Model_Groups_DbTable::DELETED_NO)
 						  ->where('a.status = ?',  self::STATUS_ACTIVE)
-						  ->where('g.id != ?',  36)
+						  ->where('g.id < ?',  36)
 						  ->group('aa.attribute_id')
 						  ->where('a.deleted = ?', self::DELETED_NO)
 						  ->order(array('g.order ASC', 'a.id ASC'));

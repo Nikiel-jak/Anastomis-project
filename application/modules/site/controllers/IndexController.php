@@ -7,6 +7,7 @@ class Site_IndexController extends Zend_Controller_Action {
         $type = $this->_getParam('type','normal');
         $device = $this->_getParam('device','ios');
         $this->view->lang = $this->_getParam('lang');
+        $this->view->show_in_us = $this->_getParam('show_in_us', 0);
         $data = array();
         $model = new App_Model_Attributes_DbTable();
 		

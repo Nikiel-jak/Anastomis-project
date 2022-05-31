@@ -136,6 +136,8 @@ class App_Model_Anastomosis_Attributes_DbTable extends Orion_Model_DbTable
         $ana = array();
         $name = array();
         $group = array();
+        $show_in_us = $data['show_in_us'];
+        unset($data['show_in_us']);
 
         /**
          * Dla wersji amerykańskiej pobieramy kolumnę "us_name".
@@ -304,7 +306,11 @@ class App_Model_Anastomosis_Attributes_DbTable extends Orion_Model_DbTable
         }
 
         if ($where_tmp != "") {
-            $where = "(".$where_tmp.")";
+            $where = "and (".$where_tmp.")";
+        }
+
+        if ($show_in_us == 1) {
+            $where .= "and (ana.show_in_us = 1)";
         }
 
         /**
@@ -357,7 +363,7 @@ class App_Model_Anastomosis_Attributes_DbTable extends Orion_Model_DbTable
                 and att7.`attribute_id` = attr7.`id`                  
             and
                 attr.`id` = 10 AND attr2.`id` = 12 and attr3.`id` = 13 and attr4.`id` = 14 and attr5.`id` = 15 and attr6.`id` = 46 and attr7.`id` = 47
-            and ".$where."
+            ".$where."
             ORDER BY stc asc, oitc asc, ana.`name` asc";
 
         } else {
@@ -396,7 +402,7 @@ class App_Model_Anastomosis_Attributes_DbTable extends Orion_Model_DbTable
                 and att5.`attribute_id` = attr5.`id`    
             and
                 attr.`id` = 10 AND attr2.`id` = 12 and attr3.`id` = 13 and attr4.`id` = 14 and attr5.`id` = 15     
-            and ".$where."
+            ".$where."
             ORDER BY rw asc,  c asc,  ctr asc, ra asc, ratr asc, ana.`name` asc";
         }
         

@@ -12,11 +12,7 @@
 		} else if ($this->lang=="en_US" && $this->type=="normal") {			
 			echo $this->render('helpers/normal_en_US_upgrade4.phtml');			
 		} else {
-			if(Orion_Auth::isLogged()):?>
-			<?=$this->render('helpers/'.$this->type.'_upgrade4.phtml')?>
-			<?php else:?>
-			<?=$this->render('helpers/'.$this->type.'_upgrade4.phtml')?>
-			<?php endif;		
+			echo $this->render('helpers/'.$this->type.'_upgrade4.phtml');
 		}		
 		?>
     </div>
